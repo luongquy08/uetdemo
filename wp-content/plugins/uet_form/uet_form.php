@@ -21,16 +21,16 @@ add_action('plugins_loaded', 'create_formtable');
 add_action('plugins_loaded', 'create_fieldtable');
 add_action('plugins_loaded', 'form_uet');
 
-// wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
-// // wp_register_script('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/js/bootstrap.min.js');
-// wp_enqueue_script('prefix_bootstrap');
+ wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+ // wp_register_script('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/js/bootstrap.min.js');
+ wp_enqueue_script('prefix_bootstrap');
 
-// wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-// // wp_register_style('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/css/bootstrap.min.css');
-// wp_enqueue_style('prefix_bootstrap');
+ wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+ // wp_register_style('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/css/bootstrap.min.css');
+ wp_enqueue_style('prefix_bootstrap');
 
-// wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
-// wp_enqueue_script('prefix_jquery');
+ wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+ wp_enqueue_script('prefix_jquery');
 
 function create_fieldtable()
 {
@@ -274,10 +274,13 @@ function uet_form()
 
 <!--code html and php for show data question and answer-->
 <head>  
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css_uet/style_form.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap-select.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" />
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/themes/statfort/jquery_uet/jquery-3.1.0.min.js" /> -->
+    <style type="text/css">
+
+    </style>
 </head>
 <div id="test" class="table-responsive">
     <div style="font-weight: bold;font-size: 16pt;font-family: Roboto, sans-serif;">
@@ -286,13 +289,14 @@ function uet_form()
  <form method="post" name="frm">
     <br>
     <input type="hidden"  name="qtid" id="holdid" />
-    <button class="btn btn-primary btn-md" type="submit" name="ChangeState" id="reload" >Thay đổi trạng thái</button>
-    <button type="button" class="btn btn-primary btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#myModal" onclick="" >Thêm đơn từ</button> 
-    <button type="button" class="btn btn-primary btn-md" id= "btnDate" onclick="showEditDate()" >Thay đổi ngày</button>
+    <input style="color:#337ab7;font-weight: bold; " class="btn btn-default btn-md" type="submit" name="ChangeState" id="reload" value="Thay đổi trạng thái"/>
+    <button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#myModal">Thêm câu hỏi</button>
+    <button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnDate" onclick="showEditDate()" >Thay đổi ngày</button>
     <br>
  	<!--code cho phan phan trang -->
  	<?php
  		 // code sap xep lai question va luu vao 1 doi tuong khac;
+        $count = 0;
 		$length =  count($questions);
 		$tmp = $questions;
 		$i = 0;
@@ -311,156 +315,158 @@ function uet_form()
 		}
 
 	 	$pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
-		$limit = 8; // number of rows in page			
+		$limit = 3; // number of rows in page			
 		$offset = ( $pagenum - 1 ) * $limit; 
 		$total = $wpdb->get_var( "SELECT COUNT(`id`) FROM `wp_form`" );
 		$num_of_pages = ceil( $total / $limit );
 	?>   
     <br>
-    <table id="tblDate" style="width: 500px;>
+    <table id="tblDate" style="width: 40%;">
         <tr>
-            <th><div>Ngày bắt đầu</div></th>
-            <th><div>Ngày kết thúc</div></th>
+            <th><div style="color:#337ab7;font-weight:normal">Ngày bắt đầu</div></th>
+            <th><div style="color:#337ab7;font-weight:normal">Ngày kết thúc</div></th>
         </tr>
         <tr>
-            <td><input type="date" name="ChangestartTime" id="ChangestartTime"></td>
-            <td><input type="date" name="ChangeendTime" id="ChangeendTime"></td>
-            <td><button class="btn btn-primary btn-md" type="submit" name="ChangeDate" id="ChangeDate" >Hoàn thành</button></td>
+            <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="ChangestartTime" id="ChangestartTime"></td>
+            <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="ChangeendTime" id="ChangeendTime"></td>
+            <td><input style="color:#337ab7;font-weight:bold" class="btn btn-default btn-md" type="submit" name="ChangeDate" id="ChangeDate" value="Hoàn thành"/></td>
         </tr>
     </table>
     <br/>
-    <table class="table table-striped"  style="width: 99%;">
-            <tr style="color:#337ab7;font-size:14pt">
-                <th style="text-align: center;"><input id="allcheckbox" type="checkbox"></th>
-                <th style="width:400px;">Tên đơn</th>
-                <th style="text-align: center;">Ngày bắt đầu</th>
-                <th style="text-align: center;">Ngày kết thúc</th>
-                <th style="text-align: center;">Trạng thái đơn</th>
-                <th style="text-align: center;">Chỉnh sửa</th>
+
+    <!-- <?php $name ="hello"; echo ucfirst("$name"); ?> -->
+    <table class="wp-list-table widefat fixed striped pages"  style="width: 99%; ">
+            <tr style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
+                <th style="text-align: center;width: 3em;"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
+                <th style="width:400px;font-weight: normal;color : #337ab7">Tên đơn</th>
+                <th style="text-align: center;font-weight: normal;color : #337ab7">Ngày bắt đầu</th>
+                <th style="text-align: center;font-weight: normal;color : #337ab7">Ngày kết thúc</th>
+                <th style="text-align: center;font-weight: normal;color : #337ab7">Trạng thái đơn</th>
+                <th style="text-align: center;font-weight: normal;color : #337ab7">Chỉnh sửa</th>
             </tr>
-			
         <?php
+        function my_mb_ucfirst($str) {
+            $fc = mb_strtoupper(mb_substr($str, 0, 1));
+            echo $fc.mb_substr($str, 1);
+        }
+            
 			for($j= $offset; $j <$total ; $j++){
 				$answers = getfield($tmp[$j]-> id);
+
 				if($j < $limit * $pagenum){
                     if($tmp[$j]-> status == 1){
-        ?> 
-            <tr style="cursor: pointer;">
+                        if($count % 2 != 0){
+                            echo '<tr style="cursor: pointer; color: #337ab7; ">';
+                        }
+                        else{
+                            echo '<tr style="cursor: pointer; color: #337ab7; background-color: #f2f2f2">';
+                        }           
+        ?>
                 <td style="text-align: center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $tmp[$j]->id?>" value= "<?php echo $tmp[$j]->id?>" ></td>
-                <td style="text-transform: lowercase; font-weight:bold;font-size:12pt"id="tdqt<?php echo $tmp[$j]->id?>" onclick="showAns('<?php echo $tmp[$j]->id?>')" ><?= $tmp[$j]-> formName?></td>
-                <td style="text-align: center;" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label id="lblstart<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> startTime?></label></td>
-                <td style="text-align: center;" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label id="lblend<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> endTime?></label></td>
-                <td style="text-align: center;" ><input type="submit" class="btn btn-danger btn-md" onclick="getidandreturn('<?php echo $tmp[$j]->id?>')" name="form_click1" value="<?= displayformStatus($tmp[$j]-> status) ?>"/></td>       
-                <td style="text-align: center;" ><button type="button" class="btn btn-primary btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $tmp[$j]->id?>')" >Sửa</button></td> 
+                <td style="font-weight:bold;color : #337ab7"id="tdqt<?php echo $tmp[$j]->id?>" onclick="showAns('<?php echo $tmp[$j]->id?>')" ><?php $name = $tmp[$j]-> formName; my_mb_ucfirst($name) ;?></td>
+                <td style="text-align: center;color : #337ab7" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label id="lblstart<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> startTime?></label></td>
+                <td style="text-align: center;color : #337ab7" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label   id="lblend<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> endTime?></label></td>
+                <td style="text-align: center;" ><input style="font-weight: bold;"type="submit" class="btn btn-danger btn-md" onclick="getidandreturn('<?php echo $tmp[$j]->id?>')" name="form_click1" value="<?= displayformStatus($tmp[$j]-> status) ?>"/></td>       
+                <td style="text-align: center;" ><input style="color:#337ab7;font-weight: bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $tmp[$j]->id?>')" value="Sửa"/></td> 
             </tr>
         <?php
                 }
                 else{
-        ?>
-            <tr style="background: #ff8080; cursor: pointer;">
+                    if($count % 2 != 0){
+                            echo '<tr style="cursor: pointer; color: #337ab7; ">';
+                        }
+                    else{
+                            echo '<tr style="cursor: pointer; color: #337ab7; background-color:  #f2f2f2">';
+                    }  
+        ?>          
                 <td style="text-align: center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $tmp[$j]->id?>" value= "<?php echo $tmp[$j]->id?>" ></td>
-                <td style="text-transform: lowercase;font-weight:bold;font-size:12pt" id="tdqt<?php echo $tmp[$j]->id?>" onclick="showAns('<?php echo $tmp[$j]->id?>')" ><?= $tmp[$j]-> formName?></td>
-                <td style="text-align: center;" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label id="lblstart<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> startTime?></label></td>
-                <td style="text-align: center;" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label id="lblend<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> endTime?></label></td>
-                <td style="text-align: center;"><input type="submit" class="btn btn-primary btn-md" onclick="getidandreturn('<?php echo $tmp[$j]->id?>')" name="form_click1" value="<?= displayformStatus($tmp[$j]-> status) ?>"/></td>
-                <td style="text-align: center;"><button type="button" class="btn btn-primary btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $tmp[$j]->id?>')" >Sửa</button></td> 
+                <td style="font-weight:bold;color : #337ab7" id="tdqt<?php echo $tmp[$j]->id?>" onclick="showAns('<?php echo $tmp[$j]->id?>')" ><?php $name = $tmp[$j]-> formName ; my_mb_ucfirst($name);?></td>
+                <td style="text-align: center;color : #337ab7" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label  id="lblstart<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> startTime?></label></td>
+                <td style="text-align: center;color : #337ab7" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label  id="lblend<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> endTime?></label></td>
+                <td style="text-align: center;"><input style="color:#337ab7;font-weight: bold" type="submit" class="btn btn-default btn-md" onclick="getidandreturn('<?php echo $tmp[$j]->id?>')" name="form_click1" value="<?= displayformStatus($tmp[$j]-> status) ?>"/></td>
+                <td style="text-align: center; "><input style="color:#337ab7;font-weight: bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $tmp[$j]->id?>')" value ="Sửa"/></td> 
             </tr>
         <?php
             }   
+            $count ++;
         ?>
+            <!-- phần câu trả lời -->
             <tr id="answer<?php echo $tmp[$j]->id?>" class="answer">
-                <td></td>
-                <td>
-                    <div style="float:left">
+                <td colspan="6" style="background-color:#f9f9f9" >
+                    <div  style="float:left; width: 30%; margin-left:10%;">
                 <?php
                     $length =  count($answers);
                     $k = 0;
                     for ($i=0; $i < $length/3 ; $i++) { 
                         if($answers[$i]-> status == 1){
                     ?>  
-
                             <li> 
-                            <label style="width:150px" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
+                            <label style="width:150px;color:#337ab7;font-weight: bold;" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
                             <button type="submit" style="border-radius:10px;"class="glyphicon glyphicon-ok btn-primary" onclick="getidandreturn('<?php echo $answers[$i]->id?>')" name="form_click2" value="<?= displayformStatus($answers[$i]-> status) ?>"></button>
                             </li>
                 <?php 
-                    }
-                    else{
+                        }
+                        else{
                 ?>
                             <li>
-                            <label style="width:150px" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
+                            <label style="width:150px;color:#337ab7;font-weight: bold;" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
                             <button type="submit" style="border-radius:10px;" class="glyphicon glyphicon-remove btn-danger" onclick="getidandreturn('<?php echo $answers[$i]->id?>')" name="form_click2" value="<?= displayformStatus($answers[$i]-> status) ?>"></button>
-
                             </li>
-                        
                 <?php
-                    }
+                        }
                     $k ++;
-                }
-                ?>
-                </div>
-                </td>
-                <td>
-                    <div style="float:left;">
-                <?php 
+                    }
+                    echo'</div>';
+                    echo'<div style="float:left;width: 30%">';
                     for ($i= $k; $i < 2*$length/3 ; $i++) { 
                         if($answers[$i]-> status == 1){
                 ?>  
                         
                             <li> 
-                            <label style="width:150px" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
+                            <label style="width:150px;color:#337ab7;font-weight: bold;" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
                             <button type="submit" style="border-radius:10px;"class="glyphicon glyphicon-ok btn-primary" onclick="getidandreturn('<?php echo $answers[$i]->id?>')" name="form_click2" value="<?= displayformStatus($answers[$i]-> status) ?>"></button>
                             </li>
                 <?php 
-                    }
-                    else{
+                        }
+                        else{
                 ?>
                             <li>
-                            <label style="width:150px" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
+                            <label style="width:150px;color:#337ab7;font-weight: bold;" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
                             <button type="submit" style="border-radius:10px;" class="glyphicon glyphicon-remove btn-danger" onclick="getidandreturn('<?php echo $answers[$i]->id?>')" name="form_click2" value="<?= displayformStatus($answers[$i]-> status) ?>"></button>
                             </li>
                 <?php
+                        }
+                        $k ++;
                     }
-                    $k ++;
-                }
-                ?>
-                    </div>
-                </td>
-                <td>
-                    <div style="float:left">
-                <?php 
+                    echo '</div>';
+                    echo '<div style="float:left">';
                     for ($i= $k; $i < $length ; $i++) { 
                         if($answers[$i]-> status == 1){
                 ?>  
                             <li> 
-                            <label style="width:180px" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
+                            <label style="width:180px;color:#337ab7;font-weight: bold;" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
                             <button type="submit" style="border-radius:10px;"class="glyphicon glyphicon-ok btn-primary" onclick="getidandreturn('<?php echo $answers[$i]->id?>')" name="form_click2" value="<?= displayformStatus($answers[$i]-> status) ?>"></button>
                             </li>
                 <?php 
-                    }
-                    else{
+                        }
+                        else{
                 ?>
                             <li>
-                            <label style="width:180px" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
+                            <label style="width:180px;color:#337ab7;font-weight: bold;" id="<?php echo $answers[$i]-> id?>"> <?= $answers[$i]-> content ?></label>
                             <button type="submit" style="border-radius:10px;" class="glyphicon glyphicon-remove btn-danger"onclick="getidandreturn('<?php echo $answers[$i]->id?>')" name="form_click2" value="<?= displayformStatus($answers[$i]-> status) ?>"></button>
                             </li>
                 <?php
+                        }
+                        $k ++;
                     }
-                    $k ++;
-                }
-                ?>
-                    </div>
-                </td>
-                <td></td>
-                <td></td>
-            </tr>   
-            <?php
+                    echo'</div>';
+                echo'</td>';
+            echo'</tr>';
             }
         }
         ?> 
         </table>
-        <br/>
-        
+        <br/> 
         <!-- vi tri can phan trang --> 
 </form>
          
@@ -594,10 +600,10 @@ function uet_form()
             $("#numansedit").val(numans);
         }
         function showAns(qid){
-            $("#answer" + qid).slideToggle(0);
+            $("#answer" + qid).fadeToggle('slow');
         }
         function showEditDate(){
-            $("#tblDate").slideToggle(0);
+            $("#tblDate").fadeToggle('slow');
         }
 </script>
 <!--code javascript for all -->
@@ -609,35 +615,35 @@ function uet_form()
        <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <form method="POST" style="font-weight:bold;">
-                  <div class="modal-header">
-                    <div style="font-size:13pt;">Thêm Đơn</div><br>
-                    <textarea id="txtqs" name="contentqs" placeholder="Điền tên đơn" rows = 2 style="width:100%"></textarea>
-                    <table style="width :100%">
-                        <tr>
-                            <th><div>Ngày bắt đầu</div></th>
-                            <th><div>Ngày kết thúc</div></th>
-                        </tr>
-                        <tr>
-                            <td><input type="date" name="startTime" id="startTime"></td>
-                            <td><input type="date" name="endTime" id="endTime"></td>
-                        </tr>
-                    </table>
-        
-                    </br>
-				   
-                  </div>
-                  <div class="modal-body">
-                    <label id="anslb">Thêm trường</label>
-                    <input type="text" class="form-control answerip" id="answer"/>
-                    <br/>  
-                    <button type="button" class="btn btn-default" id="btnaddAnswer" onclick="insertAnswer()" >Thêm</button>
-                  </div>
-                  <div class="modal-footer">
-                    <input type="submit" class="btn btn-default"  name="form_click" value="Hoàn thành"/>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
-                  </div>
-                  <input type="hidden" class="form-control" name="numans" id="numans"/>
+                <form method="POST" style="font-family:'Roboto', sans-serif;margin-left: 10px;margin-right: 10px;">
+                    <div class="modal-header"> 
+                        <div style="font-size:13pt;font-weight:bold;color:#337ab7;text-align:center;">Thêm Đơn Từ</div><br>
+                        <div>
+                            <label style="color:#337ab7;font-weight:normal">Tên đơn</label>
+                            <textarea id="txtqs" name="contentqs" placeholder="Chỉ nhập tên bằng chữ thường" rows = 2 style="font-weight:bold;width:100%;border-radius:4px;" ></textarea>
+                        </div><br>
+                        <table style="width :100%">
+                            <tr>
+                                <th><div style="font-weight:normal;color:#337ab7">Ngày bắt đầu</div></th>
+                                <th><div style="font-weight:normal;color:#337ab7;margin-left:10%;">Ngày kết thúc</div></th>
+                            </tr>
+                            <tr>
+                                <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="startTime" id="startTime"></td>
+                                <td><input  style="margin-left:10%;width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="endTime" id="endTime"></td>
+                            </tr>
+                        </table>
+                        <br>
+                        <label id="anslb" style="color:#337ab7;font-weight:normal">Thêm trường</label>
+                        <input type="text" style="font-weight:bold" class="form-control answerip" id="answer"/>
+                        <br>  
+                        <button type="button" style="color:#337ab7;font-weight:bold" class="btn btn-default" id="btnaddAnswer" onclick="insertAnswer()" >Thêm</button>
+                      <!-- </div> -->
+                        <div style="float:right">
+                            <input type="submit" style="color:#337ab7;font-weight:bold" class="btn btn-default"  name="form_click" value="Hoàn thành"/>
+                            <button type="button" style="color:#337ab7;font-weight:bold" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
+                        </div>
+                        <input type="hidden" class="form-control" name="numans" id="numans"/>
+                    </div>
                 </form>
             </div>
         </div>
@@ -650,55 +656,56 @@ function uet_form()
     <!-- Modal edit-->
     <div id="EditModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <form method="POST">
-                  <div class="modal-header" style="font-family:'Roboto', sans-serif; font-weight:bold">
-                    <div style="font-size:13pt;">Sửa Đơn Từ</div><br>
-                    <input type="hidden" class="form-control" name="quesid" id="quesid"/>
-                    <textarea  id="txtqsedit" name="contentqsedit" placeholder="Điền tên đơn" rows = 2 style="width:100%"></textarea>
-                    <table style="width:100%">
-                        <tr>
-                            <th><div>Ngày bắt đầu</div></th>
-                            <th><div>Ngày kết thúc</div></th>
-                        </tr>
-                        <tr>
-                            <td><input type="date" name="startTimeedit" id="startTimeedit"></td>
-                            <td><input type="date" name="endTimeedit" id="endTimeedit"></td>
-                        </tr>
-                    </table>                                        
-                    </br>
-
-                  </div>
-                  <div class="modal-body">
-                    <label id="anslbedit">Thêm trường</label>
-                    <input type="hidden" class="form-control" name="idansstring" id="idansstring"/>
-                    <input type="text" class="form-control answerip" id="answeredit"/>
-                    <br/>  
-                    <button type="button" class="btn btn-default" id="btnaddAnsweredit" onclick="insertAnswerEdit()" >Thêm</button>
-                  </div>
-                  <div class="modal-footer">
-                    <input type="submit" class="btn btn-default"  name="form_clickedit" value="Hoàn Thành"/>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
-                  </div>
-                  <input type="hidden" class="form-control" name="numansedit" id="numansedit"/>
-                  <input type="hidden" class="form-control" name="numansbefedit" id="numansbefedit"/>
+                    <div class="modal-header" style="font-family:'Roboto', sans-serif;margin-left: 10px;margin-right: 10px;">
+                        <div style="font-size:13pt;font-weight:bold;color:#337ab7;text-align:center;">Sửa Đơn Từ</div><br>
+                        <div>    
+                            <label style="color:#337ab7;font-weight:normal">Tên đơn</label>
+                            <input type="hidden" class="form-control" name="quesid" id="quesid"/>
+                            <textarea style="font-weight:bold;width:100%;border-radius:4px;" id="txtqsedit" name="contentqsedit" placeholder="Chỉ nhập tên bằng chữ thường" rows = 2></textarea>
+                        </div><br>
+                        <table style="width:100%;">
+                            <tr>
+                                <th><div style="font-weight:normal">Ngày bắt đầu</div></th>
+                                <th><div style="margin-left:10%;font-weight:normal">Ngày kết thúc</div></th>
+                            </tr>
+                            <tr>
+                                <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="startTimeedit" id="startTimeedit"></td>
+                                <td><input style="margin-left:10%;width: 190px;text-align: center;border-radius:4px;font-weight:bold"type="date" name="endTimeedit" id="endTimeedit"></td>
+                            </tr>
+                        </table>                                        
+    <!--                     </br> -->           
+                      <!-- <div class="modal-body"> -->
+                        <br>
+                        <label id="anslbedit"style="color:#337ab7;font-weight:normal">Thêm trường</label>
+                        <input style="font-weight:bold" type="hidden" class="form-control" name="idansstring" id="idansstring"/>
+                        <input style="font-weight:bold" type="text" class="form-control answerip" id="answeredit"/>
+                        <br>  
+                        <button type="button" style="color:#337ab7;font-weight:bold" class="btn btn-default" id="btnaddAnsweredit" onclick="insertAnswerEdit()" >Thêm</button>
+                      <!-- </div>-->
+                        <div style="float:right;">
+                            <input type="submit" style="color:#337ab7;font-weight:bold"class="btn btn-default"  name="form_clickedit" value="Hoàn Thành"/>
+                            <button type="button" style="color:#337ab7;font-weight:bold" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
+                        </div>
+                        <input type="hidden" class="form-control" name="numansedit" id="numansedit"/>
+                        <input type="hidden" class="form-control" name="numansbefedit" id="numansbefedit"/>
+                    </div>
                 </form>
             </div>
-
       </div>
     </div>
-    <div style="margin-left:500px">
+    <div style="margin-left:80%">
      <?php 
             for($k= 0; $k < $num_of_pages; $k++ ){
         ?>
             <ul class="pagination" style="margin: 1em 0;" >
-                    <li >
-                        <a class = "number-page" href="?page=my-unique-identifiertwo&pagenum=<?=($k+1)?>">
-                            <?php echo ($k+1)?>
-                        </a>
-                    </li>
+                <li>
+                    <a class = "number-page" href="?page=my-unique-identifiertwo&pagenum=<?=($k+1)?>">
+                        <?php echo ($k+1)?>
+                    </a>
+                </li>
             </ul>
 
         <?php       
