@@ -1,0 +1,783 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Stat Fort\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Mon May 04 2015 16:59:44 GMT+0500 (Pakistan Standard "
+"Time)\n"
+"PO-Revision-Date: Wed Dec 02 2015 17:47:46 GMT+0500 (Pakistan Standard Time)\n"
+"Last-Translator: admin <admin@admin.com>\n"
+"Language-Team: \n"
+"Language: China\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: cn_CN\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: ../404.php:20 ../404.php:24
+msgid "It seems we can not find what you are looking for."
+msgstr "看来我们不能找到你所寻找的。"
+
+#: ../comments.php:9
+msgid "No Comments"
+msgstr "没意见"
+
+#: ../comments.php:9 ../functions.php:1703 ../page_blog.php:213 ../single-courses.
+#: php:87 ../single.php:132
+msgid "1 Comment"
+msgstr "1条评论"
+
+#: ../comments.php:9 ../page_blog.php:213 ../single-courses.php:87
+#, c-format
+msgid "% Comments"
+msgstr "％点评"
+
+#: ../comments.php:16 ../comments.php:23
+msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr "的<span class = “元导航”>＆larr; </ SPAN>较早的评论"
+
+#: ../comments.php:17 ../comments.php:24
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr "较新的评论的<span class = “元导航”>＆RARR; </ SPAN>"
+
+#: ../comments.php:32
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr "您可以使用这些<简称标题= “超文本标记语言”> HTML </缩写>标签和属性%s"
+
+#: ../comments.php:33
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "您必须<a href=\" %s \">登录</A>发表评论。"
+
+#: ../comments.php:34
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this "
+"account\">Log out?</a>"
+msgstr "登录为<a href=\" %1$s %2$s </A>。 <a href=\" %3$s \" title=\"Log出这account\">注销？</A>"
+
+#: ../comments.php:35
+#, php-format
+msgid "Required fields are marked %s"
+msgstr "必填字段标%s"
+
+#: ../comments.php:43 ../page_contact.php:61
+msgid "Name"
+msgstr "名称"
+
+#: ../comments.php:44 ../comments.php:50 ../comments.php:61 ../page_contact.php:
+#: 61 ../page_contact.php:68 ../page_contact.php:75 ../page_contact.php:83
+msgid "(required)"
+msgstr "（需要）"
+
+#: ../comments.php:49 ../page_contact.php:68 ../single-courses.php:118 ../single-
+#: teams.php:60
+msgid "Email"
+msgstr "电子邮件"
+
+#: ../comments.php:56
+msgid "Website"
+msgstr "网站"
+
+#: ../comments.php:61
+msgid "Comment: "
+msgstr "评论："
+
+#: ../comments.php:72
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "发表回复%s"
+
+#: ../comments.php:73
+msgid "Cancel reply"
+msgstr "取消回复"
+
+#: ../comments.php:74 ../functions.php:1762 ../page_contact.php:93 ..
+#: include/importer/wordpress-importer.php:300
+msgid "Submit"
+msgstr "提交"
+
+#: ../footer.php:50
+msgid "http://wordpress.org/"
+msgstr "http://wordpress.org/"
+
+#: ../functions-theme.php:95 ../functions-theme.php:107
+msgid "Top"
+msgstr "最佳"
+
+#: ../functions-theme.php:939 ../searchform.php:2
+msgid "Search for:"
+msgstr "搜索："
+
+#: ../functions-theme.php:1427
+msgid "&laquo; Previous"
+msgstr "＆LAQUO;以前"
+
+#: ../functions-theme.php:1463
+msgid "Next &raquo;"
+msgstr "下一步资讯＆raquo;"
+
+#: ../functions-theme.php:1872
+msgid "Primary Sidebar"
+msgstr "主边栏"
+
+#: ../functions-theme.php:1874
+msgid "Main sidebar that appears on the right."
+msgstr "即在右边显示主工具条。"
+
+#: ../functions-theme.php:1931 ../page_blog.php:202
+#, php-format
+msgid "%s"
+msgstr "％S"
+
+#. translators: 1: date, 2: time
+#: ../functions-theme.php:1937
+#, php-format
+msgid "<time>%1$s</time>"
+msgstr "<时间%1$s </时间>"
+
+#: ../functions-theme.php:1939 ../functions-theme.php:1975
+msgid "(Edit)"
+msgstr "（编辑）"
+
+#: ../functions-theme.php:1945
+msgid "Your comment is awaiting moderation."
+msgstr "您的评论正在等待审核。"
+
+#: ../functions.php:1353 ../functions.php:1637 ../functions.php:2169
+msgid "No results found."
+msgstr "未找到结果。"
+
+#. translators: used between list items, there is a space after the comma
+#. translators: used between list items, there is a space after the comma
+#: ../functions.php:1699 ../page_blog.php:91 ../page_blog.php:211 ../page_course.
+#: php:161 ../page_event.php:305 ../single-courses.php:84 ../single-courses.php:
+#: 160 ../single-events.php:137 ../single-events.php:210 ../single.php:127 ..
+#: single.php:155
+#, php-format
+msgid "%1$s"
+msgstr "％1 $ S"
+
+#: ../functions.php:1703 ../page_blog.php:213 ../single-courses.php:87 ../single.
+#: php:132
+msgid "0 Comment"
+msgstr "0评价"
+
+#: ../functions.php:1703 ../single.php:132
+#, c-format
+msgid "% Comment"
+msgstr "％ 评论"
+
+#: ../functions.php:1705
+msgid "<i class=\"fa fa-pencil-square-o\"></i>"
+msgstr "<I级= “发发铅笔方-O ”> </ I>"
+
+#: ../functions.php:1719
+msgid "Main Menu"
+msgstr "主菜单"
+
+#: ../functions.php:1721
+msgid "Top Menu"
+msgstr "主菜单"
+
+#: ../functions.php:1756
+msgid "This post is password protected. To view it please enter your password below:"
+msgstr "这是一篇受密码保护。要查看它，请输入您的密码如下："
+
+#: ../functions.php:1899
+msgid "Featured"
+msgstr "精选"
+
+#: ../functions.php:1920
+msgid "Author"
+msgstr "作者"
+
+#: ../functions.php:1920 ../functions.php:1924 ../functions.php:1928 ../functions.
+#: php:1952
+msgid "Archives"
+msgstr "档案"
+
+#. translators: used between list items, there is a space after the comma
+#: ../functions.php:1924 ../single-courses.php:157
+msgid "Tags"
+msgstr "标签"
+
+#: ../functions.php:1928
+msgid "Categories"
+msgstr "分类"
+
+#: ../functions.php:1932
+#, php-format
+msgid "Search Results %1$s %2$s"
+msgstr "搜索结果%1$s %2$s"
+
+#: ../functions.php:1936
+#, php-format
+msgid "Daily Archives: %s"
+msgstr "每日档案%s"
+
+#: ../functions.php:1940
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr "每月档案%s"
+
+#: ../functions.php:1940
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "风云"
+
+#: ../functions.php:1944
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr "年度档案%s"
+
+#: ../functions.php:1944
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "ÿ"
+
+#: ../functions.php:1948
+msgid "Error 404"
+msgstr "错误404"
+
+#: ../functions.php:2174
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "准备好发布您的第一篇文章？ <a href=\" %1$s \">获取此处</a>开始。"
+
+#: ../functions.php:2178
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr "抱歉，没有符合您的搜索条件。请换其它关键词再试。"
+
+#: ../functions.php:2182
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "我们似乎可以大局;找不到你＆rsquo;再寻找。也许搜索可以提供帮助。"
+
+#: ../functions.php:2493
+msgid "Error."
+msgstr "错误。"
+
+#: ../functions.php:2497 ../include/importer/wordpress-importer.php:134 ..
+#: include/importer/wordpress-importer.php:148 ../include/importer/wordpress-
+#: importer.php:208 ../include/importer/wordpress-importer.php:212 ..
+#: include/importer/wordpress-importer.php:221
+msgid "Sorry, there has been an error."
+msgstr "对不起，出现了一个错误。"
+
+#: ../functions.php:2498 ../include/importer/wordpress-importer.php:135
+msgid "The file does not exist, please try again."
+msgstr "该文件不存在，请重试。"
+
+#: ../page.php:37 ../page.php:111 ../page_blog.php:226 ../single-courses.php:123 .
+#: ./single-events.php:200 ../single.php:143
+msgid "Pages:"
+msgstr "页数："
+
+#: ../page_blog.php:14 ../page_course.php:58
+msgid "View All"
+msgstr "查看全部"
+
+#: ../page_blog.php:88
+msgid "<li>"
+msgstr "<LI>"
+
+#. translators: used between list items, there is a space after the comma
+#: ../page_blog.php:208
+msgid "<i class=\"fa fa-list\"></i>"
+msgstr "<I级= “发发名单”> </ I>"
+
+#: ../page_contact.php:75
+msgid "Subject"
+msgstr "学科"
+
+#: ../page_contact.php:83
+msgid "Message"
+msgstr "信息"
+
+#: ../page_course.php:45 ../page_event.php:118 ../page_event.php:245 ..
+#: page_event.php:328 ../single-events.php:152 ../include/widgets.php:1305
+msgid "All"
+msgstr "所有"
+
+#: ../page_course.php:101
+msgid "Programms"
+msgstr "Programms"
+
+#: ../page_course.php:136 ../page_course.php:166 ../page_course.php:195 ..
+#: page_course.php:205 ../single-courses.php:94
+msgid "Starts"
+msgstr "开始"
+
+#: ../page_course.php:167 ../page_course.php:196 ../single-courses.php:95
+msgid "Duration"
+msgstr "持续时间"
+
+#: ../page_course.php:174 ../single-courses.php:103
+msgid "Instructors"
+msgstr "教师"
+
+#: ../page_event.php:213 ../page_event.php:378 ../single-events.php:181
+msgid "Buy Ticket"
+msgstr "购买门票"
+
+#: ../page_event.php:216 ../page_event.php:381 ../single-events.php:185
+msgid "Free Entry"
+msgstr "免费入场"
+
+#: ../page_event.php:219 ../page_event.php:384 ../single-events.php:189
+msgid "Cancelled"
+msgstr "取消"
+
+#: ../page_event.php:222 ../page_event.php:387 ../single-events.php:193
+msgid "Sold Out"
+msgstr "卖光了"
+
+#: ../page_event.php:245 ../page_event.php:328 ../single-events.php:152 ..
+#: include/widgets.php:1305
+#, php-format
+msgid "%s day"
+msgstr "%s一天"
+
+#: ../page_event.php:318
+msgid "Event Time"
+msgstr "活动时间"
+
+#: ../page_event.php:337
+msgid "Location"
+msgstr "位置"
+
+#: ../page_event.php:354
+msgid "Speakers"
+msgstr "音箱"
+
+#: ../searchform.php:3
+msgid "Search"
+msgstr "搜索"
+
+#: ../single-courses.php:91
+msgid "For Admission"
+msgstr "入学"
+
+#: ../single-courses.php:116 ../single-teams.php:69
+msgid "Phone"
+msgstr "电话"
+
+#: ../single-courses.php:117
+msgid "Fax"
+msgstr "传真"
+
+#: ../single-courses.php:132
+msgid "Course Title"
+msgstr "课程名称"
+
+#: ../single-courses.php:133
+msgid "Instructor"
+msgstr "讲师"
+
+#: ../single-courses.php:134
+msgid "Credit Hours"
+msgstr "学时"
+
+#: ../single-courses.php:165 ../single-events.php:215
+msgid "Share Now"
+msgstr "立即共享"
+
+#: ../single-teams.php:52
+msgid "About"
+msgstr "关于"
+
+#: ../single-teams.php:78
+msgid "Time"
+msgstr "时间"
+
+#: ../single.php:163
+msgid "Sahre"
+msgstr "Sahre"
+
+#: ../include/theme_option.php:676
+msgid ""
+"Enter a valid MailChimp API key here to get started. Once you've done that, "
+"you can use the MailChimp Widget from the Widgets menu. You will need to "
+"have at least MailChimp list set up before the using the widget."
+msgstr ""
+"上手这里输入一个有效的MailChimp "
+"API密钥。一旦你做到了这一点，你可以使用MailChimp的Widget从窗口小部件菜单。您将需要使用小部件之前，至少有MailChimp列表设置。"
+
+#: ../include/theme_option.php:676
+msgid " You can get your mailchimp activation key"
+msgstr "你可以得到你的mailchimp激活码"
+
+#: ../include/theme_option.php:676 ../include/mailchimpapi/chimp_mc_plugin.class.
+#: php:71
+msgid "here"
+msgstr "这里"
+
+#: ../include/widgets.php:1019
+#, php-format
+msgid "%d seconds ago"
+msgstr "%d秒前"
+
+#: ../include/widgets.php:1020
+#, php-format
+msgid "About a Minute Ago"
+msgid_plural "@%d Minutes Ago"
+msgstr[0] "大约一分钟前"
+msgstr[1] "大约一分钟前"
+
+#: ../include/widgets.php:1021 ../include/widgets.php:1022
+#, php-format
+msgid "About an Hour Ago"
+msgid_plural "@%d Hours Ago"
+msgstr[0] "大约一小时前"
+msgstr[1] "大约一小时前"
+
+#: ../include/widgets.php:1023
+#, php-format
+msgid "About a Day Ago"
+msgid_plural "@%d Days Ago"
+msgstr[0] "约1天前"
+msgstr[1] "约1天前"
+
+#: ../include/widgets.php:1024
+#, php-format
+msgid "About a Week Ago"
+msgid_plural "%d Weeks Ago"
+msgstr[0] "大约一个星期前"
+msgstr[1] "大约一个星期前"
+
+#: ../include/widgets.php:1025
+#, php-format
+msgid "About a Month Ago"
+msgid_plural "%d Months Ago"
+msgstr[0] "大约一个月前"
+msgstr[1] "大约一个月前"
+
+#: ../include/widgets.php:1026
+#, php-format
+msgid "About a year Ago"
+msgid_plural "%d years Ago"
+msgstr[0] "大约一年前"
+msgstr[1] "大约一年前"
+
+#: ../include/widgets.php:1374
+msgid "There was a problem processing your submission."
+msgstr "有一个问题，处理您提交的内容。"
+
+#: ../include/widgets.php:1376
+msgid "Join now!"
+msgstr "现在加入！"
+
+#: ../include/widgets.php:1378
+msgid ""
+"Thank you for joining our mailing list. Please check your email for a "
+"confirmation link."
+msgstr "感谢您加入我们的邮件列表。请检查您的电子邮件的确认链接。"
+
+#: ../include/widgets.php:1380
+msgid "Sign up for our mailing list."
+msgstr "订阅我们的邮件列表。"
+
+#: ../include/widgets.php:1382
+msgid "Displays a sign-up form for a MailChimp mailing list."
+msgstr "显示了MailChimp邮件列表注册表单。"
+
+#: ../include/widgets.php:1384
+msgid "Chimp: MailChimp List Signup"
+msgstr "黑猩猩：MailChimp列表注册"
+
+#: ../include/widgets.php:1442
+msgid "General Settings"
+msgstr "常规设置"
+
+#: ../include/widgets.php:1446
+msgid "Title :"
+msgstr "标题 ："
+
+#: ../include/widgets.php:1454
+msgid "Select a Mailing List :"
+msgstr "选择一个邮件列表："
+
+#: ../include/widgets.php:1480
+msgid "Description :"
+msgstr "描述 ："
+
+#: ../include/widgets.php:1490
+msgid "Sign Up Button Text :"
+msgstr "注册按钮文本："
+
+#: ../include/widgets.php:1500
+msgid "Collect first name."
+msgstr "收集的名字。"
+
+#: ../include/widgets.php:1506
+msgid "Collect last name."
+msgstr "收集的姓氏。"
+
+#: ../include/widgets.php:1510
+msgid "Notifications"
+msgstr "通知"
+
+#: ../include/widgets.php:1512
+msgid ""
+"Use these fields to customize what your visitors see after they submit the "
+"form"
+msgstr "使用这些字段来定制你的访问者看到后，他们提交表单"
+
+#: ../include/widgets.php:1516
+msgid "Success :"
+msgstr "成功 ："
+
+#: ../include/widgets.php:1524
+msgid "Failure :"
+msgstr "失败 ："
+
+#: ../include/widgets.php:1896
+msgid "First Name :"
+msgstr "名字 ："
+
+#: ../include/widgets.php:1908
+msgid "Last Name :"
+msgstr "姓 ："
+
+#: ../include/widgets.php:1920
+msgid "email"
+msgstr "电子邮件"
+
+#: ../include/importer/parsers.php:42 ../include/importer/parsers.php:63
+msgid "There was an error when reading this WXR file"
+msgstr "阅读本WXR文件时出现错误"
+
+#: ../include/importer/parsers.php:43
+msgid ""
+"Details are shown above. The importer will now try again with a different "
+"parser..."
+msgstr "细节如上所示。进口商现在将尝试再次不同的解析器..."
+
+#: ../include/importer/parsers.php:67 ../include/importer/parsers.php:72 ..
+#: include/importer/parsers.php:262 ../include/importer/parsers.php:451
+msgid "This does not appear to be a WXR file, missing/invalid WXR version number"
+msgstr "这似乎不是成为一个WXR文件，缺失/无效WXR版本号"
+
+#: ../include/importer/wordpress-importer.php:107
+msgid ""
+"Please Wait!! We are fetching dummy data for you. It can take 2 to 10 "
+"minutes depending upon data speed.."
+msgstr "请稍候！！我们正在获取虚拟数据为您服务。这可能需要2至10分钟，这取决于数据的速度.."
+
+#: ../include/importer/wordpress-importer.php:188
+msgid "All done."
+msgstr "全做完了。"
+
+#: ../include/importer/wordpress-importer.php:188
+msgid "Have fun!"
+msgstr "玩的开心！"
+
+#: ../include/importer/wordpress-importer.php:189
+msgid "Remember to update the passwords and roles of imported users."
+msgstr "记住要更新密码和导入的用户的角色。"
+
+#: ../include/importer/wordpress-importer.php:213
+#, php-format
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that "
+"this was caused by a permissions problem."
+msgstr "导出文件不能在<代码>找到%s </代码>。很可能，这是由权限问题引起的。"
+
+#: ../include/importer/wordpress-importer.php:229
+#, php-format
+msgid ""
+"This WXR file (version %s) may not be supported by this version of the "
+"importer. Please consider updating."
+msgstr "这WXR文件（版本%s可能没有这个版本的进口商的支持。请考虑更新。"
+
+#: ../include/importer/wordpress-importer.php:254
+#, php-format
+msgid ""
+"Failed to import author %s. Their posts will be attributed to the current "
+"user."
+msgstr "无法导入作者%s他们的职位将被归因于当前用户。"
+
+#: ../include/importer/wordpress-importer.php:280
+msgid "Assign Authors"
+msgstr "分配作者"
+
+#: ../include/importer/wordpress-importer.php:281
+msgid ""
+"To make it easier for you to edit and save the imported content, you may "
+"want to reassign the author of the imported item to an existing user of this "
+"site. For example, you may want to import all the entries as "
+"<code>admin</code>s entries."
+msgstr "为了让您更方便地编辑和保存导入的内容，你可能要重新分配进口项目的作者本网站的现有用户。例如，您可能要导入所有的条目<代码>管理</代码>取值项。"
+
+#: ../include/importer/wordpress-importer.php:283
+#, php-format
+msgid ""
+"If a new user is created by WordPress, a new password will be randomly "
+"generated and the new user&#8217;s role will be set as %s. Manually changing "
+"the new user&#8217;s details will be necessary."
+msgstr "如果新用户在WordPress中创建一个新的密码将随机生成的新的用户＆＃8217;的角色将被设置为%s 。手动更改新用户＆＃8217氏细节将是必要的。"
+
+#: ../include/importer/wordpress-importer.php:293
+msgid "Import Attachments"
+msgstr "进口附件"
+
+#: ../include/importer/wordpress-importer.php:296
+msgid "Download and import file attachments"
+msgstr "下载并导入文件附件"
+
+#: ../include/importer/wordpress-importer.php:313
+msgid "Import author:"
+msgstr "进口作者："
+
+#: ../include/importer/wordpress-importer.php:324
+msgid "or create new user with login name:"
+msgstr "或创建登录名新用户："
+
+#: ../include/importer/wordpress-importer.php:327
+msgid "as a new user:"
+msgstr "新用户："
+
+#: ../include/importer/wordpress-importer.php:335
+msgid "assign posts to an existing user:"
+msgstr "分配职位，以现有用户："
+
+#: ../include/importer/wordpress-importer.php:337
+msgid "or assign posts to an existing user:"
+msgstr "或分配职位，以现有用户："
+
+#: ../include/importer/wordpress-importer.php:338
+msgid "- Select -"
+msgstr "- 选择 -"
+
+#: ../include/importer/wordpress-importer.php:388
+#, php-format
+msgid ""
+"Failed to create new user for %s. Their posts will be attributed to the "
+"current user."
+msgstr "无法创建新的用户%s他们的职位将被归因于当前用户。"
+
+#: ../include/importer/wordpress-importer.php:437
+#, php-format
+msgid "Failed to import category %s"
+msgstr "无法导入类别%s"
+
+#: ../include/importer/wordpress-importer.php:475
+#, php-format
+msgid "Failed to import post tag %s"
+msgstr "无法导入后标记%s"
+
+#: ../include/importer/wordpress-importer.php:519 ../include/importer/wordpress-
+#: importer.php:645
+#, php-format
+msgid "Failed to import %s %s"
+msgstr "无法导入%s %s"
+
+#: ../include/importer/wordpress-importer.php:541
+#, php-format
+msgid "Failed to import &#8220;%s&#8221;: Invalid post type %s"
+msgstr "无法导入%s ;:无效后类型%s"
+
+#: ../include/importer/wordpress-importer.php:562
+#, php-format
+msgid "%s &#8220;%s&#8221; already exists."
+msgstr "%s %s已存在。"
+
+#: ../include/importer/wordpress-importer.php:617
+#, php-format
+msgid "Failed to import %s &#8220;%s&#8221;"
+msgstr "无法导入%s %s"
+
+#: ../include/importer/wordpress-importer.php:763
+msgid "Menu item skipped due to missing menu slug"
+msgstr "菜单项跳过由于丢失的菜单塞"
+
+#: ../include/importer/wordpress-importer.php:770
+#, php-format
+msgid "Menu item skipped due to invalid menu slug: %s"
+msgstr "菜单项跳过由于无效的菜单弹头%s"
+
+#: ../include/importer/wordpress-importer.php:833
+msgid "Fetching attachments is not enabled"
+msgstr "抓取附件未启用"
+
+#: ../include/importer/wordpress-importer.php:846
+msgid "Invalid file type"
+msgstr "无效的文件类型"
+
+#: ../include/importer/wordpress-importer.php:890
+msgid "Remote server did not respond"
+msgstr "远程服务器未响应"
+
+#: ../include/importer/wordpress-importer.php:896
+#, php-format
+msgid "Remote server returned error response %1$d %2$s"
+msgstr "远程服务器返回错误响应%1$d %2$s"
+
+#: ../include/importer/wordpress-importer.php:903
+msgid "Remote file is incorrect size"
+msgstr "远程文件大小不正确"
+
+#: ../include/importer/wordpress-importer.php:908
+msgid "Zero size file downloaded"
+msgstr "零大小的文件下载"
+
+#: ../include/importer/wordpress-importer.php:914
+#, php-format
+msgid "Remote file is too large, limit is %s"
+msgstr "远程文件过大时，上限是%s"
+
+#: ../include/importer/wordpress-importer.php:1013
+msgid "Import WordPress"
+msgstr "进口WordPress的"
+
+#: ../include/importer/wordpress-importer.php:1020
+#, php-format
+msgid ""
+"A new version of this importer is available. Please update to version %s to "
+"ensure compatibility with newer export files."
+msgstr "这种进口的新版本。请更新到版本%s以确保与较新的导出文件的兼容性。"
+
+#: ../include/importer/wordpress-importer.php:1035
+msgid ""
+"Howdy! Upload your WordPress eXtended RSS (WXR) file and we&#8217;ll import "
+"the posts, pages, comments, custom fields, categories, and tags into this "
+"site."
+msgstr "您好！上传你的WordPress扩展RSS（WXR）文件，我们＆＃8217;会导入文章，页面，评论，自定义字段，分类和标签进入该网站。"
+
+#: ../include/importer/wordpress-importer.php:1036
+msgid "Choose a WXR (.xml) file to upload, then click Upload file and import."
+msgstr "选择一个WXR（的.xml）要上传的文件，然后单击上传文件并导入。"
+
+#: ../include/mailchimpapi/chimp_mc_plugin.class.php:71
+msgid ""
+"You'll need to set up the MailChimp signup widget plugin options before "
+"using it. "
+msgstr "你需要设置使用它之前，MailChimp注册窗口小部件插件的选项。"
+
+#: ../include/mailchimpapi/chimp_mc_plugin.class.php:71
+msgid "You can make your changes"
+msgstr "你可以让你改变"
+
+#: ../comments.php:71
+msgid "Leave a Comment"
+msgstr "发表评论"
+
+#: ../404.php:16
+msgid "Page not found"
+msgstr "找不到网页"

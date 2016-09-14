@@ -1,0 +1,781 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Stat Fort\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Mon May 04 2015 16:59:44 GMT+0500 (Pakistan Standard "
+"Time)\n"
+"PO-Revision-Date: Wed Dec 02 2015 17:44:53 GMT+0500 (Pakistan Standard Time)\n"
+"Last-Translator: admin <admin@admin.com>\n"
+"Language-Team: \n"
+"Language: English\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: en_US\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: ../404.php:20 ../404.php:24
+msgid "It seems we can not find what you are looking for."
+msgstr ""
+
+#: ../comments.php:9
+msgid "No Comments"
+msgstr ""
+
+#: ../comments.php:9 ../functions.php:1703 ../page_blog.php:213 ../single-courses.
+#: php:87 ../single.php:132
+msgid "1 Comment"
+msgstr ""
+
+#: ../comments.php:9 ../page_blog.php:213 ../single-courses.php:87
+#, c-format
+msgid "% Comments"
+msgstr ""
+
+#: ../comments.php:16 ../comments.php:23
+msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr ""
+
+#: ../comments.php:17 ../comments.php:24
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../comments.php:32
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+
+#: ../comments.php:33
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: ../comments.php:34
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this "
+"account\">Log out?</a>"
+msgstr ""
+
+#: ../comments.php:35
+#, php-format
+msgid "Required fields are marked %s"
+msgstr ""
+
+#: ../comments.php:43 ../page_contact.php:61
+msgid "Name"
+msgstr ""
+
+#: ../comments.php:44 ../comments.php:50 ../comments.php:61 ../page_contact.php:
+#: 61 ../page_contact.php:68 ../page_contact.php:75 ../page_contact.php:83
+msgid "(required)"
+msgstr ""
+
+#: ../comments.php:49 ../page_contact.php:68 ../single-courses.php:118 ../single-
+#: teams.php:60
+msgid "Email"
+msgstr ""
+
+#: ../comments.php:56
+msgid "Website"
+msgstr ""
+
+#: ../comments.php:61
+msgid "Comment: "
+msgstr ""
+
+#: ../comments.php:72
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: ../comments.php:73
+msgid "Cancel reply"
+msgstr ""
+
+#: ../comments.php:74 ../functions.php:1762 ../page_contact.php:93 ..
+#: include/importer/wordpress-importer.php:300
+msgid "Submit"
+msgstr ""
+
+#: ../footer.php:50
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: ../functions-theme.php:95 ../functions-theme.php:107
+msgid "Top"
+msgstr ""
+
+#: ../functions-theme.php:939 ../searchform.php:2
+msgid "Search for:"
+msgstr ""
+
+#: ../functions-theme.php:1427
+msgid "&laquo; Previous"
+msgstr ""
+
+#: ../functions-theme.php:1463
+msgid "Next &raquo;"
+msgstr ""
+
+#: ../functions-theme.php:1872
+msgid "Primary Sidebar"
+msgstr ""
+
+#: ../functions-theme.php:1874
+msgid "Main sidebar that appears on the right."
+msgstr ""
+
+#: ../functions-theme.php:1931 ../page_blog.php:202
+#, php-format
+msgid "%s"
+msgstr ""
+
+#. translators: 1: date, 2: time
+#: ../functions-theme.php:1937
+#, php-format
+msgid "<time>%1$s</time>"
+msgstr ""
+
+#: ../functions-theme.php:1939 ../functions-theme.php:1975
+msgid "(Edit)"
+msgstr ""
+
+#: ../functions-theme.php:1945
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../functions.php:1353 ../functions.php:1637 ../functions.php:2169
+msgid "No results found."
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#. translators: used between list items, there is a space after the comma
+#: ../functions.php:1699 ../page_blog.php:91 ../page_blog.php:211 ../page_course.
+#: php:161 ../page_event.php:305 ../single-courses.php:84 ../single-courses.php:
+#: 160 ../single-events.php:137 ../single-events.php:210 ../single.php:127 ..
+#: single.php:155
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: ../functions.php:1703 ../page_blog.php:213 ../single-courses.php:87 ../single.
+#: php:132
+msgid "0 Comment"
+msgstr ""
+
+#: ../functions.php:1703 ../single.php:132
+#, c-format
+msgid "% Comment"
+msgstr ""
+
+#: ../functions.php:1705
+msgid "<i class=\"fa fa-pencil-square-o\"></i>"
+msgstr ""
+
+#: ../functions.php:1719
+msgid "Main Menu"
+msgstr ""
+
+#: ../functions.php:1721
+msgid "Top Menu"
+msgstr ""
+
+#: ../functions.php:1756
+msgid "This post is password protected. To view it please enter your password below:"
+msgstr ""
+
+#: ../functions.php:1899
+msgid "Featured"
+msgstr ""
+
+#: ../functions.php:1920
+msgid "Author"
+msgstr ""
+
+#: ../functions.php:1920 ../functions.php:1924 ../functions.php:1928 ../functions.
+#: php:1952
+msgid "Archives"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: ../functions.php:1924 ../single-courses.php:157
+msgid "Tags"
+msgstr ""
+
+#: ../functions.php:1928
+msgid "Categories"
+msgstr ""
+
+#: ../functions.php:1932
+#, php-format
+msgid "Search Results %1$s %2$s"
+msgstr ""
+
+#: ../functions.php:1936
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: ../functions.php:1940
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../functions.php:1940
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: ../functions.php:1944
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../functions.php:1944
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: ../functions.php:1948
+msgid "Error 404"
+msgstr ""
+
+#: ../functions.php:2174
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../functions.php:2178
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../functions.php:2182
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: ../functions.php:2493
+msgid "Error."
+msgstr ""
+
+#: ../functions.php:2497 ../include/importer/wordpress-importer.php:134 ..
+#: include/importer/wordpress-importer.php:148 ../include/importer/wordpress-
+#: importer.php:208 ../include/importer/wordpress-importer.php:212 ..
+#: include/importer/wordpress-importer.php:221
+msgid "Sorry, there has been an error."
+msgstr ""
+
+#: ../functions.php:2498 ../include/importer/wordpress-importer.php:135
+msgid "The file does not exist, please try again."
+msgstr ""
+
+#: ../page.php:37 ../page.php:111 ../page_blog.php:226 ../single-courses.php:123 .
+#: ./single-events.php:200 ../single.php:143
+msgid "Pages:"
+msgstr ""
+
+#: ../page_blog.php:14 ../page_course.php:58
+msgid "View All"
+msgstr ""
+
+#: ../page_blog.php:88
+msgid "<li>"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: ../page_blog.php:208
+msgid "<i class=\"fa fa-list\"></i>"
+msgstr ""
+
+#: ../page_contact.php:75
+msgid "Subject"
+msgstr ""
+
+#: ../page_contact.php:83
+msgid "Message"
+msgstr ""
+
+#: ../page_course.php:45 ../page_event.php:118 ../page_event.php:245 ..
+#: page_event.php:328 ../single-events.php:152 ../include/widgets.php:1305
+msgid "All"
+msgstr ""
+
+#: ../page_course.php:101
+msgid "Programms"
+msgstr ""
+
+#: ../page_course.php:136 ../page_course.php:166 ../page_course.php:195 ..
+#: page_course.php:205 ../single-courses.php:94
+msgid "Starts"
+msgstr ""
+
+#: ../page_course.php:167 ../page_course.php:196 ../single-courses.php:95
+msgid "Duration"
+msgstr ""
+
+#: ../page_course.php:174 ../single-courses.php:103
+msgid "Instructors"
+msgstr ""
+
+#: ../page_event.php:213 ../page_event.php:378 ../single-events.php:181
+msgid "Buy Ticket"
+msgstr ""
+
+#: ../page_event.php:216 ../page_event.php:381 ../single-events.php:185
+msgid "Free Entry"
+msgstr ""
+
+#: ../page_event.php:219 ../page_event.php:384 ../single-events.php:189
+msgid "Cancelled"
+msgstr ""
+
+#: ../page_event.php:222 ../page_event.php:387 ../single-events.php:193
+msgid "Sold Out"
+msgstr ""
+
+#: ../page_event.php:245 ../page_event.php:328 ../single-events.php:152 ..
+#: include/widgets.php:1305
+#, php-format
+msgid "%s day"
+msgstr ""
+
+#: ../page_event.php:318
+msgid "Event Time"
+msgstr ""
+
+#: ../page_event.php:337
+msgid "Location"
+msgstr ""
+
+#: ../page_event.php:354
+msgid "Speakers"
+msgstr ""
+
+#: ../searchform.php:3
+msgid "Search"
+msgstr ""
+
+#: ../single-courses.php:91
+msgid "For Admission"
+msgstr ""
+
+#: ../single-courses.php:116 ../single-teams.php:69
+msgid "Phone"
+msgstr ""
+
+#: ../single-courses.php:117
+msgid "Fax"
+msgstr ""
+
+#: ../single-courses.php:132
+msgid "Course Title"
+msgstr ""
+
+#: ../single-courses.php:133
+msgid "Instructor"
+msgstr ""
+
+#: ../single-courses.php:134
+msgid "Credit Hours"
+msgstr ""
+
+#: ../single-courses.php:165 ../single-events.php:215
+msgid "Share Now"
+msgstr ""
+
+#: ../single-teams.php:52
+msgid "About"
+msgstr ""
+
+#: ../single-teams.php:78
+msgid "Time"
+msgstr ""
+
+#: ../single.php:163
+msgid "Sahre"
+msgstr ""
+
+#: ../include/theme_option.php:676
+msgid ""
+"Enter a valid MailChimp API key here to get started. Once you've done that, "
+"you can use the MailChimp Widget from the Widgets menu. You will need to "
+"have at least MailChimp list set up before the using the widget."
+msgstr ""
+
+#: ../include/theme_option.php:676
+msgid " You can get your mailchimp activation key"
+msgstr ""
+
+#: ../include/theme_option.php:676 ../include/mailchimpapi/chimp_mc_plugin.class.
+#: php:71
+msgid "here"
+msgstr ""
+
+#: ../include/widgets.php:1019
+#, php-format
+msgid "%d seconds ago"
+msgstr ""
+
+#: ../include/widgets.php:1020
+#, php-format
+msgid "About a Minute Ago"
+msgid_plural "@%d Minutes Ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../include/widgets.php:1021 ../include/widgets.php:1022
+#, php-format
+msgid "About an Hour Ago"
+msgid_plural "@%d Hours Ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../include/widgets.php:1023
+#, php-format
+msgid "About a Day Ago"
+msgid_plural "@%d Days Ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../include/widgets.php:1024
+#, php-format
+msgid "About a Week Ago"
+msgid_plural "%d Weeks Ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../include/widgets.php:1025
+#, php-format
+msgid "About a Month Ago"
+msgid_plural "%d Months Ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../include/widgets.php:1026
+#, php-format
+msgid "About a year Ago"
+msgid_plural "%d years Ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../include/widgets.php:1374
+msgid "There was a problem processing your submission."
+msgstr ""
+
+#: ../include/widgets.php:1376
+msgid "Join now!"
+msgstr ""
+
+#: ../include/widgets.php:1378
+msgid ""
+"Thank you for joining our mailing list. Please check your email for a "
+"confirmation link."
+msgstr ""
+
+#: ../include/widgets.php:1380
+msgid "Sign up for our mailing list."
+msgstr ""
+
+#: ../include/widgets.php:1382
+msgid "Displays a sign-up form for a MailChimp mailing list."
+msgstr ""
+
+#: ../include/widgets.php:1384
+msgid "Chimp: MailChimp List Signup"
+msgstr ""
+
+#: ../include/widgets.php:1442
+msgid "General Settings"
+msgstr ""
+
+#: ../include/widgets.php:1446
+msgid "Title :"
+msgstr ""
+
+#: ../include/widgets.php:1454
+msgid "Select a Mailing List :"
+msgstr ""
+
+#: ../include/widgets.php:1480
+msgid "Description :"
+msgstr ""
+
+#: ../include/widgets.php:1490
+msgid "Sign Up Button Text :"
+msgstr ""
+
+#: ../include/widgets.php:1500
+msgid "Collect first name."
+msgstr ""
+
+#: ../include/widgets.php:1506
+msgid "Collect last name."
+msgstr ""
+
+#: ../include/widgets.php:1510
+msgid "Notifications"
+msgstr ""
+
+#: ../include/widgets.php:1512
+msgid ""
+"Use these fields to customize what your visitors see after they submit the "
+"form"
+msgstr ""
+
+#: ../include/widgets.php:1516
+msgid "Success :"
+msgstr ""
+
+#: ../include/widgets.php:1524
+msgid "Failure :"
+msgstr ""
+
+#: ../include/widgets.php:1896
+msgid "First Name :"
+msgstr ""
+
+#: ../include/widgets.php:1908
+msgid "Last Name :"
+msgstr ""
+
+#: ../include/widgets.php:1920
+msgid "email"
+msgstr ""
+
+#: ../include/importer/parsers.php:42 ../include/importer/parsers.php:63
+msgid "There was an error when reading this WXR file"
+msgstr ""
+
+#: ../include/importer/parsers.php:43
+msgid ""
+"Details are shown above. The importer will now try again with a different "
+"parser..."
+msgstr ""
+
+#: ../include/importer/parsers.php:67 ../include/importer/parsers.php:72 ..
+#: include/importer/parsers.php:262 ../include/importer/parsers.php:451
+msgid "This does not appear to be a WXR file, missing/invalid WXR version number"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:107
+msgid ""
+"Please Wait!! We are fetching dummy data for you. It can take 2 to 10 "
+"minutes depending upon data speed.."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:188
+msgid "All done."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:188
+msgid "Have fun!"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:189
+msgid "Remember to update the passwords and roles of imported users."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:213
+#, php-format
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that "
+"this was caused by a permissions problem."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:229
+#, php-format
+msgid ""
+"This WXR file (version %s) may not be supported by this version of the "
+"importer. Please consider updating."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:254
+#, php-format
+msgid ""
+"Failed to import author %s. Their posts will be attributed to the current "
+"user."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:280
+msgid "Assign Authors"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:281
+msgid ""
+"To make it easier for you to edit and save the imported content, you may "
+"want to reassign the author of the imported item to an existing user of this "
+"site. For example, you may want to import all the entries as "
+"<code>admin</code>s entries."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:283
+#, php-format
+msgid ""
+"If a new user is created by WordPress, a new password will be randomly "
+"generated and the new user&#8217;s role will be set as %s. Manually changing "
+"the new user&#8217;s details will be necessary."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:293
+msgid "Import Attachments"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:296
+msgid "Download and import file attachments"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:313
+msgid "Import author:"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:324
+msgid "or create new user with login name:"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:327
+msgid "as a new user:"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:335
+msgid "assign posts to an existing user:"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:337
+msgid "or assign posts to an existing user:"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:338
+msgid "- Select -"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:388
+#, php-format
+msgid ""
+"Failed to create new user for %s. Their posts will be attributed to the "
+"current user."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:437
+#, php-format
+msgid "Failed to import category %s"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:475
+#, php-format
+msgid "Failed to import post tag %s"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:519 ../include/importer/wordpress-
+#: importer.php:645
+#, php-format
+msgid "Failed to import %s %s"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:541
+#, php-format
+msgid "Failed to import &#8220;%s&#8221;: Invalid post type %s"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:562
+#, php-format
+msgid "%s &#8220;%s&#8221; already exists."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:617
+#, php-format
+msgid "Failed to import %s &#8220;%s&#8221;"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:763
+msgid "Menu item skipped due to missing menu slug"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:770
+#, php-format
+msgid "Menu item skipped due to invalid menu slug: %s"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:833
+msgid "Fetching attachments is not enabled"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:846
+msgid "Invalid file type"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:890
+msgid "Remote server did not respond"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:896
+#, php-format
+msgid "Remote server returned error response %1$d %2$s"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:903
+msgid "Remote file is incorrect size"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:908
+msgid "Zero size file downloaded"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:914
+#, php-format
+msgid "Remote file is too large, limit is %s"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:1013
+msgid "Import WordPress"
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:1020
+#, php-format
+msgid ""
+"A new version of this importer is available. Please update to version %s to "
+"ensure compatibility with newer export files."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:1035
+msgid ""
+"Howdy! Upload your WordPress eXtended RSS (WXR) file and we&#8217;ll import "
+"the posts, pages, comments, custom fields, categories, and tags into this "
+"site."
+msgstr ""
+
+#: ../include/importer/wordpress-importer.php:1036
+msgid "Choose a WXR (.xml) file to upload, then click Upload file and import."
+msgstr ""
+
+#: ../include/mailchimpapi/chimp_mc_plugin.class.php:71
+msgid ""
+"You'll need to set up the MailChimp signup widget plugin options before "
+"using it. "
+msgstr ""
+
+#: ../include/mailchimpapi/chimp_mc_plugin.class.php:71
+msgid "You can make your changes"
+msgstr ""
+
+#: ../comments.php:71
+msgid "Leave a Comment"
+msgstr ""
+
+#: ../404.php:16
+msgid "Page not found"
+msgstr ""

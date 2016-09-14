@@ -1,0 +1,72 @@
+[21-Aug-2016 17:31:03 UTC] WordPress database error Table 'wp_contact' already exists for query CREATE TABLE wp_contact(
+                  id INT(8) NOT NULL AUTO_INCREMENT,
+                  name VARCHAR(50) NOT NULL,
+                  email VARCHAR(50) NOT NULL,
+                  content text NOT NULL,
+                  shortcontent text NOT NULL,
+                  status INT(8) NOT NULL DEFAULT 0,
+                  UNIQUE KEY id(id)
+                ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), call_user_func_array, create_table, dbDelta
+[21-Aug-2016 17:31:22 UTC] WordPress database error Table 'wp_contact' already exists for query CREATE TABLE wp_contact(
+                  id INT(8) NOT NULL AUTO_INCREMENT,
+                  name VARCHAR(50) NOT NULL,
+                  email VARCHAR(50) NOT NULL,
+                  content text NOT NULL,
+                  shortcontent text NOT NULL,
+                  status INT(8) NOT NULL DEFAULT 0,
+                  UNIQUE KEY id(id)
+                ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), call_user_func_array, create_table, dbDelta
+[21-Aug-2016 17:31:29 UTC] WordPress database error Table 'wp_contact' already exists for query CREATE TABLE wp_contact(
+                  id INT(8) NOT NULL AUTO_INCREMENT,
+                  name VARCHAR(50) NOT NULL,
+                  email VARCHAR(50) NOT NULL,
+                  content text NOT NULL,
+                  shortcontent text NOT NULL,
+                  status INT(8) NOT NULL DEFAULT 0,
+                  UNIQUE KEY id(id)
+                ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), call_user_func_array, create_table, dbDelta
+[22-Aug-2016 03:33:03 UTC] WordPress database error Table 'wp_contact' already exists for query CREATE TABLE wp_contact(
+                  id INT(8) NOT NULL AUTO_INCREMENT,
+                  name VARCHAR(50) NOT NULL,
+                  email VARCHAR(50) NOT NULL,
+                  content text NOT NULL,
+                  shortcontent text NOT NULL,
+                  status INT(8) NOT NULL DEFAULT 0,
+                  UNIQUE KEY id(id)
+                ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), call_user_func_array, create_table, dbDelta
+[22-Aug-2016 03:34:08 UTC] WordPress database error Table 'wp_contact' already exists for query CREATE TABLE wp_contact(
+                  id INT(8) NOT NULL AUTO_INCREMENT,
+                  name VARCHAR(50) NOT NULL,
+                  email VARCHAR(50) NOT NULL,
+                  content text NOT NULL,
+                  shortcontent text NOT NULL,
+                  status INT(8) NOT NULL DEFAULT 0,
+                  UNIQUE KEY id(id)
+                ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), call_user_func_array, create_table, dbDelta
+[22-Aug-2016 03:35:12 UTC] WordPress database error Table 'wp_contact' already exists for query CREATE TABLE wp_contact(
+                  id INT(8) NOT NULL AUTO_INCREMENT,
+                  name VARCHAR(50) NOT NULL,
+                  email VARCHAR(50) NOT NULL,
+                  content text NOT NULL,
+                  shortcontent text NOT NULL,
+                  status INT(8) NOT NULL DEFAULT 0,
+                  UNIQUE KEY id(id)
+                ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), call_user_func_array, create_table, dbDelta
+[22-Aug-2016 03:40:10 UTC] WordPress database error Table 'wp_contact' already exists for query CREATE TABLE wp_contact(
+                  id INT(8) NOT NULL AUTO_INCREMENT,
+                  name VARCHAR(50) NOT NULL,
+                  email VARCHAR(50) NOT NULL,
+                  content text NOT NULL,
+                  shortcontent text NOT NULL,
+                  status INT(8) NOT NULL DEFAULT 0,
+                  UNIQUE KEY id(id)
+                ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), call_user_func_array, create_table, dbDelta
+[22-Aug-2016 03:41:17 UTC] WordPress database error Table 'wp_contact' already exists for query CREATE TABLE wp_contact(
+                  id INT(8) NOT NULL AUTO_INCREMENT,
+                  name VARCHAR(50) NOT NULL,
+                  email VARCHAR(50) NOT NULL,
+                  content text NOT NULL,
+                  shortcontent text NOT NULL,
+                  status INT(8) NOT NULL DEFAULT 0,
+                  UNIQUE KEY id(id)
+                ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), call_user_func_array, create_table, dbDelta

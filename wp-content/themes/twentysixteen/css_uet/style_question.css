@@ -1,0 +1,19 @@
+	h1{
+		text-align: center;
+		font-weight: bold;
+		font-family:  "Times New Roman", Times, serif;
+	}
+	.content
+	{ 	
+		padding: 50px 30px 50px 40px;
+	}
+	.panel{
+		font-size: 130%;
+		font-family: 'Trocchi', sans-serif;
+	}
+	.panel-heading{
+		font-size: 140%;
+	}
+	.btn-submit{
+	width: 20%;
+	}

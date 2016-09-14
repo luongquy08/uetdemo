@@ -1,0 +1,49 @@
+	.header{
+		font-size: 36px;
+		text-align: center;
+		font-family:  'Roboto Slab', serif;
+	}
+	.content
+	{ 	
+		margin-left: 30px;
+		margin-right: 30px;
+		padding: 50px 50px 50px 50px;
+	}
+	.lbl-select{
+
+		font-size: 200%;
+		font-family: 'Roboto Slab', serif;
+	}
+	.btn-submit1{
+		cursor: pointer;
+	}
+	.panel{
+		font-size: 110%;
+		font-family: 'Trocchi', sans-serif;
+	}
+	.panel-heading{
+		text-align: center;
+		font-size: 120%;
+	}
+	.btn-submit{
+		width: 20%;
+		padding: 50px 30px 50px 40px;
+	}
+
+	.selectpicker{
+		border: 1.5px solid gray;
+		border-radius: 2px;
+	}
+
+	.input-left{
+		float:left;
+		
+	}
+	.input-right{
+		float:right;
+		/*width: 50%;*/
+	}
+	.btn-submit{
+		margin-left: 40%;
+		margin-bottom: 10px;
+	}
