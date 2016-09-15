@@ -131,7 +131,7 @@ function uet_form_submit()
 
             <tr id="field<?php echo $form_submit->id?>" class="field">
                 <td colspan="5" style="background-color:#f9f9f9">
-                     <div  style="float:left; width: 50%; margin-left:10%;">
+                     <div  style="float:left; width: 57.5%; margin-left:10%;">
                      <?php
                         $length =  count($fields);
                         $k = 0;
@@ -139,7 +139,7 @@ function uet_form_submit()
                             $field_submit = get_field_submit($fields[$i]-> id,$form_submit-> id);
                     ?>  
                              <li> 
-                            <label style="width:150px;color:#337ab7;font-weight: bold;" id="<?php echo $fields[$i]-> id?>"> <?= $fields[$i]-> content?> : <?= $field_submit-> content?></label>
+                            <label style="width:300px;color:#337ab7;font-weight: bold;" id="<?php echo $fields[$i]-> id?>"> <?= $fields[$i]-> content?> : <?= $field_submit-> content?></label>
                             </li>
                     <?php
                     $k ++;
@@ -150,7 +150,7 @@ function uet_form_submit()
                         $field_submit = get_field_submit($fields[$i]-> id,$form_submit-> id);
                     ?>
                         <li> 
-                        <label style="width:150px;color:#337ab7;font-weight: bold;" id="<?php echo $fields[$i]-> id?>"> <?= $fields[$i]-> content?> : <?= $field_submit-> content?></label>
+                        <label style="width:300px;color:#337ab7;font-weight: bold;" id="<?php echo $fields[$i]-> id?>"> <?= $fields[$i]-> content?> : <?= $field_submit-> content?></label>
                         </li>
                     <?php
                      }

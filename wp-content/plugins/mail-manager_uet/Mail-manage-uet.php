@@ -86,7 +86,7 @@ function uet_mail()
             <button type="button" style="color:#337ab7;font-weight: bold; " class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#SendMailModal" onclick="" >Gửi mail</button>
             <br/><br/>
             <tr style="font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
-                <th style="text-align: center;color:#337ab7;">Stt</th>
+                <th style="text-align: center;width: 3em;"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
                 <th style="text-align: center;color:#337ab7;">Nhóm 1</th>
                 <th style="text-align: center;color:#337ab7;">Xóa</th>
             </tr>
@@ -100,7 +100,7 @@ function uet_mail()
                     echo '<tr class="mail_vuong" style="cursor: pointer; color: #337ab7; background-color: #f2f2f2">';
                 }
                 ?>
-                    <td style="text-align: center;color:#337ab7;font-weight:bold;"><?= $stt; ?></td>
+                     <td style="text-align: center;"><input type="checkbox" name="check_list[]" id="checkbox<?php echo $value_group->id ?>" value="<?php echo $value_group->id ?>"></td>
                     <td style="cursor: pointer;text-align: center;color:#337ab7;font-weight:bold;" onclick="showMail(<?= $value_group->id; ?>)"><?= $value_group->name ?></td>
                     <td style="text-align: center;color:#337ab7;"><button style="font-weight:bold;" class="btn btn-danger" value="<?= $value_group->id; ?>" name="btn_delete_group">Xóa</button></td>
                 </tr>
@@ -109,20 +109,20 @@ function uet_mail()
                  <tr id="id_mail<?= $value_group->id ?>" class="cl_mail" style="background-color:#f9f9f9">
                     <td></td>
                     <td>
+                        <div  style="float:left; width: 50%; margin-left:40%;">
                     <?php foreach($result_mail_id as $value_mail_id){ ?>
                         <?php $result_mail = $wpdb->get_results("SELECT * FROM wp_mail_uet WHERE id=$value_mail_id->mail_id") ?>
 
                          <?php foreach($result_mail as $value_email)
                              {
                                  ?>
-                                 <ul>
-                                 <li style="text-align: center;color:#337ab7;font-weight:bold;"class="mail_tai"><?= $value_email->name ?> : <?= $value_email->email ?></li>
-                                 </ul>
+                                 <li style="color:#337ab7;font-weight:bold;"class="mail_tai"><?= $value_email->name ?> : <?= $value_email->email ?></li>
                                  <?php
                              }
                          ?>
 
                     <?php } ?>
+                        </div>
                     </td>
                     <td></td>
                  </tr>
@@ -133,10 +133,18 @@ function uet_mail()
     </form>
     <script>
         function showMail(mid){
-            $("#id_mail" + mid).slideToggle(0);
+            $("#id_mail" + mid).fadeToggle('slow');
         }
         $(window).load(function() {
             $(".cl_mail").css("display", "none");
+        });
+        $("#allcheckbox").change(function() {
+            if(this.checked) {
+                $(":checkbox").prop('checked', true);
+            }
+            else{
+                $(":checkbox").prop('checked', false);   
+            }
         });
     </script>
 
