@@ -18,14 +18,14 @@ $uet_db_version = '1.0';
 
 add_action('plugins_loaded', 'form_submit_uet');
 
-wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
-wp_enqueue_script('prefix_bootstrap');
+// wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+// wp_enqueue_script('prefix_bootstrap');
 
-wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-wp_enqueue_style('prefix_bootstrap');
+// wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+// wp_enqueue_style('prefix_bootstrap');
 
-wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
-wp_enqueue_script('prefix_jquery');
+// wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+// wp_enqueue_script('prefix_jquery');
 
 
 function form_submit_uet(){
@@ -88,8 +88,11 @@ function uet_form_submit()
             Quản Lý Đơn Kiến Nghị Từ Sinh Viên
         </div>
         <br/>
-        <button class="btn btn-info btn-md" type="submit" name="Submit" id="reload">Duyệt đơn</button><br/>
+        
 <form method="post" name="frm">
+<button class="btn btn-default btn-md" style="color:#337ab7;font-weight: bold;" type="submit" name="Submit" id="reload">Duyệt đơn</button><br/>
+</br>
+</br>
 <?php
          // code phan trang 
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
@@ -101,13 +104,13 @@ function uet_form_submit()
 
            
     ?>
-    <table class="table  table-hover"  style="width:99%; font-weight:bold">
-            <tr style="background:#23282d; color:white;font-size:14pt">
-                <th style="text-align:center;"><input id="allcheckbox" type="checkbox"></th>
-                <th style="margin-left:40px">Tên đơn</th>
-                <th style="text-align:center;">Mã số sinh viên</th>
-                <th style="text-align:center;">Trạng thái</th>
-                <th style="text-align:center;">Chức năng</th>
+    <table class="wp-list-table widefat fixed striped pages"  style="width:99%; font-weight:bold">
+            <tr style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
+                <th style="text-align: center;width: 3em;"><input id="allcheckbox" type="checkbox" style="margin-left: 2px;"></th>
+                <th style="width:400px;font-weight: normal;color : #337ab7">Tên đơn</th>
+                <th style="text-align: center;font-weight: normal;color : #337ab7">Mã số sinh viên</th>
+                <th style="text-align: center;font-weight: normal;color : #337ab7">Trạng thái</th>
+                <th style="text-align: center;font-weight: normal;color : #337ab7">Chức năng</th>
             </tr>
         <?php
         $stt = 1;
@@ -118,41 +121,41 @@ function uet_form_submit()
 
             ?>
 
-            <tr style="cursor: pointer;">
+            <tr id="stt<?php echo $stt?>" style="cursor: pointer; color: #337ab7;">
                 <td style="text-align:center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $form_submit->id?>" value= "<?php echo $form_submit->id?>" ></td>
-                <td style="text-transform: lowercase;margin-left:40px;font-size:12pt" onclick="showField('<?php echo $form_submit->id?>')"><?= $form-> formName?></td>
-                <td style="text-align:center;" onclick="showField('<?php echo $form_submit->id?>')"><?= $field_submit_mssv -> content?></td>
-                <td style="text-align:center;" onclick="showField('<?php echo $form_submit->id?>')"><?= displaystatus($form_submit-> status) ?></td>
-                <td style="text-align:center;"><a class="btn btn-info btn-md" href="<?= "?page=my-unique-identifierthree&id=$form_submit->id" ?>" >Duyệt đơn</a></td>
+                <td style="font-weight:bold;color : #337ab7" onclick="showField('<?php echo $form_submit->id?>')"><?= $form-> formName?></td>
+                <td style="text-align: center;color : #337ab7" onclick="showField('<?php echo $form_submit->id?>')"><?= $field_submit_mssv -> content?></td>
+                <td style="text-align: center;color : #337ab7" onclick="showField('<?php echo $form_submit->id?>')"><?= displaystatus($form_submit-> status) ?></td>
+                <td style="text-align: center;"><a style="color: #337ab7;font-weight: bold;background-color: #fff;" class="btn btn-info btn-md" href="<?= "?page=my-unique-identifierthree&id=$form_submit->id" ?>" >Duyệt đơn</a></td>
             </tr>
 
             <tr id="field<?php echo $form_submit->id?>" class="field">
-                <td></td>
-                <td>
-                    <ol>
-                    <?php 
-                    for ($i=0; $i <count($fields) ; $i++) { 
-                    ?>
-                        <li><?= $fields[$i]-> content?></li>                            
+                <td colspan="5" style="background-color:#f9f9f9">
+                     <div  style="float:left; width: 50%; margin-left:10%;">
+                     <?php
+                        $length =  count($fields);
+                        $k = 0;
+                        for ($i=0; $i < $length/2 ; $i++) {  
+                            $field_submit = get_field_submit($fields[$i]-> id,$form_submit-> id);
+                    ?>  
+                             <li> 
+                            <label style="width:150px;color:#337ab7;font-weight: bold;" id="<?php echo $fields[$i]-> id?>"> <?= $fields[$i]-> content?> : <?= $field_submit-> content?></label>
+                            </li>
                     <?php
-                    } 
+                    $k ++;
+                    }
+                    echo'</div>';
+                    echo'<div style="float:left;">';
+                    for ($i= $k; $i < $length ; $i++) { 
+                        $field_submit = get_field_submit($fields[$i]-> id,$form_submit-> id);
                     ?>
-                    </ol>
-                </td>
-                <td>
-                    <ul>
-                    <?php 
-                    for ($i=0; $i <count($fields) ; $i++) {
-                         $field_submit = get_field_submit($fields[$i]-> id,$form_submit-> id);
-                    ?>
-                        <li><?= $field_submit-> content?></li>                            
+                        <li> 
+                        <label style="width:150px;color:#337ab7;font-weight: bold;" id="<?php echo $fields[$i]-> id?>"> <?= $fields[$i]-> content?> : <?= $field_submit-> content?></label>
+                        </li>
                     <?php
-                    } 
+                     }
                     ?>
-                    </ul>
                 </td>
-                <td></td>
-                <td></td>
             </tr>
             
         <?php
@@ -179,10 +182,13 @@ function uet_form_submit()
 </div>
     <script>
         function showField(fid){
-            $("#field" + fid).slideToggle(0);
+            $("#field" + fid).fadeToggle('slow');
         }
         $(window).load(function() {
             $(".field").css("display", "none");
+            for (i = 1; i < 1000; i+=2) {
+                $("#stt" + i).css('background-color', '#f2f2f2');
+            }
         });
         $("#allcheckbox").change(function() {
             if(this.checked) {
