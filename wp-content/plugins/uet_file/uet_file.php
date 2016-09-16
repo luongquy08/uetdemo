@@ -15,8 +15,8 @@ wp_re
 global $uet_db_version;
 $uet_db_version = '1.0';
 
-add_action('plugins_loaded', 'file_uet');
 add_action('plugins_loaded', 'create_file_table');
+add_action('plugins_loaded', 'file_uet');
 
 wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
 wp_enqueue_script('prefix_bootstrap');
