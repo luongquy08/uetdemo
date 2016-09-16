@@ -74,17 +74,6 @@ function uet_contact()
         $num_of_pages = ceil( $total / $limit );
         $entries = $wpdb->get_results( "SELECT * FROM wp_contact LIMIT $offset, $limit" );
     ?>
-<<<<<<< HEAD
-    <table class="wp-list-table widefat fixed striped pages"  style="width: 99%;">
-            <tr style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
-                <th style="width:5%;font-weight: normal;color : #337ab7; text-align: center">STT</th>
-                <th style="width:14%;font-weight: normal;color : #337ab7; text-align: center">Họ tên</th>
-                <th style="width:14%;font-weight: normal;color : #337ab7; text-align: center ">Email</th>
-                <th style="width:23%;font-weight: normal;color : #337ab7; text-align: center">Nội dung thư</th>
-                <th style="width:14%;font-weight: normal;color : #337ab7; text-align: center">Trạng thái</th>
-                <th style="width:14%;font-weight: normal;color : #337ab7; text-align: center">Chức năng</th>
-                <th style="width:14%;font-weight: normal;color : #337ab7; text-align: center">Trả lời</th>
-=======
     <table class="wp-list-table widefat fixed striped pages"  style="width:99%; font-weight:bold">
             <tr  style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
                 <th style="text-align:center;font-weight: normal;color : #337ab7;width:50px;">STT</th>
@@ -94,7 +83,6 @@ function uet_contact()
                 <th style="text-align:center;font-weight: normal;color : #337ab7;width:150px;">Trạng thái</th>
                 <th style="text-align:center;font-weight: normal;color : #337ab7;width:150px;">Chức năng</th>
                 <th style="text-align:center;font-weight: normal;color : #337ab7;width:150px;">Trả lời</th>
->>>>>>> origin/master
             </tr>
         <?php
         $count = 0;
@@ -111,16 +99,6 @@ function uet_contact()
                 echo '<tr style="; color: #337ab7; background-color: #f2f2f2">';
             }
             ?>
-<<<<<<< HEAD
-            <tr style="font-weight:bold;">
-                <td style="text-align:center;font-weight:bold;color : #337ab7"><?= $stt ?></td>
-                <td style="text-align:center;font-weight:bold;color : #337ab7"><?= $value-> name?></td>
-                <td style="text-align:center;font-weight:bold;color : #337ab7"><?= $value-> email?></td>
-                <td style="text-align:center;font-weight:bold;color : #337ab7"><?= $value-> content?></td>
-                <td style="text-align:center;font-weight:bold;color : #337ab7"><?= display_status($value-> status) ?></td>
-                <td style="width:150px;text-align:center;"><a style="color : #337ab7" class="btn btn-default btn-md" href="<?= "?page=my-unique-identifier&id=$value->id" ?>" >Duyệt thư</a></td>
-             	<td style="width:150px;text-align:center;"><button style="color : #337ab7" type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal" onclick="dialog('<?php echo $value->name?>','<?php echo $value->email?>','<?php echo $value->content?>')" >FeedBack</button></td>
-=======
                 <td style="width:50px;text-align:center;"><?= $stt ?></td>
                 <td style="text-align:center;color : #337ab7"><?php $name = $value-> name; my_mb_ucfirst($name);?></td>
                 <td style="text-align:center;color : #337ab7"><?= $value-> email?></td>
@@ -128,7 +106,6 @@ function uet_contact()
                 <td style="width:150px;text-align:center;color : #337ab7"><?= display_status($value-> status) ?></td>
                 <td style="width:150px;text-align:center;"><a class="btn btn-default btn-md" style="color : #337ab7;font-weight:bold;" href="<?= "?page=my-unique-identifier&id=$value->id" ?>" >Duyệt thư</a></td>
                 <td style="width:150px;text-align:center;"><button type="button" class="btn btn-info btn-md" style="font-weight:bold;" data-toggle="modal" data-target="#myModal" onclick="dialog('<?php echo $value->name?>','<?php echo $value->email?>','<?php echo $value->content?>')" >FeedBack</button></td>
->>>>>>> origin/master
             </tr>
 
             <?php

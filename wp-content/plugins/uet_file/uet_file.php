@@ -12,7 +12,6 @@ wp_re
  * Tags: UET
  * Version: 1.4
  */
-header("Content-type: text/html; charset=utf-8"); 
 global $uet_db_version;
 $uet_db_version = '1.0';
 
@@ -124,7 +123,6 @@ function uet_file()
         echo '</script>';
     }
     
-    // Check if image file is a actual image or fake image
     if(isset($_POST["form_click"])) 
     {
         $file_dir =  "http://$_SERVER[HTTP_HOST]/uetdemo/wp-content/uploads/";
@@ -159,7 +157,7 @@ function uet_file()
 
 
 <head>  
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css_uet/style_form.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css_uet/style_form.css" /> -->
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap-select.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" />
@@ -172,13 +170,11 @@ function uet_file()
 
 <form method="post" name="frm">
 <button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnAddFile" data-toggle="modal" data-target="#myModal" onclick="" >Thêm tệp</button>
-</br>
-</br>
-</br>
-    <table id="tblOne" class="wp-list-table widefat fixed striped pages">
+<br><br>
+    <table id="tblOne" class="wp-list-table widefat fixed striped pages" style="width:99%;">
         <tr style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
-            <th style="text-align: center;width: 3em;"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
-            <th style="width: 400px;font-weight: normal;color : #337ab7;">Tên tệp</th>
+            <th style="text-align: center;width:60px"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
+            <th style="text-align: center;font-weight: normal;color : #337ab7;">Tên tệp</th>
             <th style="text-align: center;font-weight: normal;color: #337ab7;">Tải tệp</th>
         </tr>
           <?php
@@ -187,8 +183,8 @@ function uet_file()
           ?>
         <tr id="tr<?php echo $stt?>">
             <td style="text-align: center;"><input type="checkbox" name="check_list[]" id="checkbox<?php echo $file->id ?>"value="<?php echo $file->id ?>"></td>
-            <td style="font-weight: bold;color : #337ab7;"><?= $file-> name ?></td>
-            <td style="text-align: center;color : #337ab7"><a href="<?= $file-> linkfile ?>" >Download</a></td>
+            <td style="text-align: center;font-weight: bold;color : #337ab7;"><?= $file-> name ?></td>
+            <td style="text-align: center;color : #337ab7"><a style ="font-weight:bold"href="<?= $file-> linkfile ?>" >Download</a></td>
         </tr>
          <?php
           $stt++;
@@ -231,22 +227,20 @@ function uet_file()
     <!-- Modal Add File-->
     <div id="myModal" class="modal fade" role="dialog">
        <div class="modal-dialog">
-            <!-- Modal content-->
             <div class="modal-content">
-                <form method="post" enctype="multipart/form-data" accept-charset="utf-8" >
-                  <div class="modal-header">
-                    <h2>Thêm tệp</h2>
-                    <input type="text" class="form-control answerip" name="namefile" id="fileName" placeholder="Tên tệp"/>
-                    </br>
-                  </div>
+                <form method="post" enctype="multipart/form-data" accept-charset="utf-8" style="font-family:'Roboto', sans-serif;margin-left: 25px;margin-right: 25px;height:20%" >
+                    <div style="font-size:13pt;font-weight: bold; text-align: center;color:#337ab7;margin-top:10px">Thêm Tài Liệu</div>
+                    <div class="modal-body">
+                      <label style="color:#337ab7;font-weight:normal">Tên tài liệu</label><br>
+                      <input type="text" style="font-weight:bold;width:100% ;border-radius:4px;" class="form-control answerip" name="namefile" id="fileName"/>
+                    </div>
                   <div class="modal-body">
-                    <label id="anslb">Tệp tin tải lên</label>
-                    <input type="file" class="form-control file" id="fileContent" name="fileContent" placeholder="Link File"/>
-                    <br/>  
-                  </div>
+                    <label id="anslb" style="color:#337ab7;font-weight:normal;">Tệp tin tải lên</label>
+                    <input type="file" class="form-control file" id="fileContent" name="fileContent" placeholder="Link File"/> 
+                  </div><br>
                   <div class="modal-footer">
-                    <input type="submit" class="btn btn-default"  name="form_click" value="Complete"/>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
+                    <input style="color : #337ab7;font-weight:bold;" type="submit" class="btn btn-default"  name="form_click" value="Hoàn Thành"/>
+                    <button style="color : #337ab7;font-weight:bold;" type="button" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
                   </div>
                 </form>
             </div>

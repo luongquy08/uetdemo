@@ -16,14 +16,30 @@ $uet_db_version = '1.0';
 add_action('plugins_loaded', 'create_surveytable');
 add_action('plugins_loaded', 'create_answertable');
 add_action('plugins_loaded', 'survey_uet');
-wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
-// wp_register_script('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/js/bootstrap.min.js');
-wp_enqueue_script('prefix_bootstrap');
-wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-// wp_register_style('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/css/bootstrap.min.css');
-wp_enqueue_style('prefix_bootstrap');
-wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
-wp_enqueue_script('prefix_jquery');
+
+// wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+// // wp_register_script('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/js/bootstrap.min.js');
+// wp_enqueue_script('prefix_bootstrap');
+// wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+// // wp_register_style('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/css/bootstrap.min.css');
+// wp_enqueue_style('prefix_bootstrap');
+// wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+// wp_enqueue_script('prefix_jquery');
+
+function themeprefix_bootstrap_modals1() {
+
+  wp_deregister_script('jquery');
+  wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.3.2', true);
+
+  wp_register_script ( 'modaljs' , get_stylesheet_directory_uri() . '/wp-includes/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '1', true );
+  wp_register_style ( 'modalcss' , get_stylesheet_directory_uri() . '/wp-includes/bootstrap/css/bootstrap.css', '' , '', 'all' );
+  
+  wp_enqueue_script( 'modaljs' );
+  wp_enqueue_style( 'modalcss' );
+}
+
+add_action( 'wp_enqueue_scripts', 'themeprefix_bootstrap_modals1');
+
 function create_answertable()
 {
     global $wpdb;
@@ -530,10 +546,10 @@ function uet_survey()
             $("#numansedit").val(numans);
         }
         function showAns(qid){
-            $("#answer" + qid).slideToggle(0);
+            $("#answer" + qid).fadeToggle('slow');
         }
         function showEditDate(){
-            $("#tblDate").slideToggle(0);
+            $("#tblDate").fadeToggle('slow');
         }
 </script>
 <!--code javascript for all -->

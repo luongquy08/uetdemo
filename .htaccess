@@ -181,11 +181,10 @@ RewriteRule .* "E:\xampp\htdocs\uet-demo/wp-content/cache/wp-rocket/%{HTTP_HOST}
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /uetdemo/
+RewriteBase /uet-demo/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /uetdemo/index.php [L]
+RewriteRule . /uet-demo/index.php [L]
 </IfModule>
-
 # END WordPress

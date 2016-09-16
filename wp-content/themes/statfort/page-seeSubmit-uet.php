@@ -72,25 +72,24 @@ get_header();
                 </tr>
 
                 <tr id="field<?php echo $form_submit->id?>" class="field">
-                <td></td>
-                <td>
-                    <ol id="field<?php echo $form_submit->id?>">
-                <?php 
-                    for ($i=0; $i <count($fields) ; $i++) {
-                    $field_submit = getfieldsubmit($fields[$i]-> id,$form_submit->id); 
-                ?>
-                        <li style="margin-left:50px"> 
-                        <label style="width:150px;margin-left:105px;"> <?= $fields[$i]-> content ?>:</label>
-                        <label style="margin-left:110px"> <?= $field_submit-> content ?> </label>
-                        </li>
-                <?php 
-                    }
-                ?>
-                    </ol>
-                </td>
-                <td></td>
-                <td></td>
-            </tr>   
+                    <div  style="float:left; width: 57.5%; margin-left:30%;">
+                    <td colspan="4" style="background-color:#f9f9f9">
+                        <ol id="field<?php echo $form_submit->id?>">
+                    <?php 
+                        for ($i=0; $i <count($fields) ; $i++) {
+                        $field_submit = getfieldsubmit($fields[$i]-> id,$form_submit->id); 
+                    ?>
+                            <li style="margin-left:45px"> 
+                            <label style="width:150px;margin-left:175px;"> <?= $fields[$i]-> content ?>:</label>
+                            <label style="margin-left:145px"> <?= $field_submit-> content ?> </label>
+                            </li>
+                    <?php 
+                        }
+                    ?>
+                        </ol>
+                    </td>
+                    </div>
+                </tr>   
 
             <?php
                 $stt++;

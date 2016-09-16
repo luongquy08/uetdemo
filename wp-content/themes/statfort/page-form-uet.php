@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap Contact Form Template</title>
-   <!--  <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css_uet/style_form.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" /> -->
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css_uet/style_form.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap.min.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" /> -->
 </head>
 <!-- <style type="text/css"></style> -->
 <?php
@@ -27,13 +26,12 @@ get_header();
     ?>
     <div class="contact-body">    
         <div class="contact-container">
-            <div class="">
                 <!-- <h1 class="header">Đơn Từ Trực Tuyến</h1> -->
-                <div class="content" border="1"  style="margin-left: 5%;">
+                <div class="content" border="1">
                 <form method="post">
                     <div class="form-group ">
                         <label class="lbl-select" for="sel1">Mời bạn chọn đơn(chỉ được chọn một) : </label></br/>
-                        <select class="selectpicker" name="taskOption">
+                        <select class="selectpicker" name="taskOption" style="margin-top: -1px;">
                             <option value="default">Chọn Bất Kỳ</option>
                             <?php 
                             foreach ($forms as $frm) {
@@ -100,7 +98,7 @@ get_header();
                                 
                     <?php
                             }
-                        }x
+                        }
                     ?>
                     </form> 
                     <?php 
@@ -124,7 +122,6 @@ get_header();
 
 
                     ?>
-                </div>
             </div>
         </div>
     </div>
