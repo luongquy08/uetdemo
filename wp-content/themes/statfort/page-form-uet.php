@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap Contact Form Template</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css_uet/style_form.css" />
+   <!--  <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css_uet/style_form.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap-select.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" />
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" /> -->
 </head>
-<style type="text/css"></style>
+<!-- <style type="text/css"></style> -->
 <?php
 /**
  * Template Name: form page
@@ -27,9 +27,9 @@ get_header();
     ?>
     <div class="contact-body">    
         <div class="contact-container">
-            <div class="row">
+            <div class="">
                 <!-- <h1 class="header">Đơn Từ Trực Tuyến</h1> -->
-                <div class="content" border="1">
+                <div class="content" border="1"  style="margin-left: 5%;">
                 <form method="post">
                     <div class="form-group ">
                         <label class="lbl-select" for="sel1">Mời bạn chọn đơn(chỉ được chọn một) : </label></br/>

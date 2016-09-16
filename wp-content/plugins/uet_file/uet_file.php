@@ -104,7 +104,7 @@ function uet_file()
     if (!current_user_can('manage_options')) {
         wp_die(__('You do not have sufficient permissions to access this page.'));
     }
-    echo '<br /><div style="font-weight: bold;font-size: 16pt;font-family: Roboto, sans-serif;">Quản lý file</div><br />';
+    echo '<br /><div style="font-weight: bold;font-size: 16pt;font-family: Roboto, sans-serif;">Quản Lý Tệp Tin</div><br />';
 
     global $wpdb;
 
@@ -127,7 +127,7 @@ function uet_file()
     // Check if image file is a actual image or fake image
     if(isset($_POST["form_click"])) 
     {
-        $file_dir =  "http://$_SERVER[HTTP_HOST]/uet-demo/wp-content/uploads/";
+        $file_dir =  "http://$_SERVER[HTTP_HOST]/uetdemo/wp-content/uploads/";
         $target_dir = get_home_path()."/wp-content/uploads/";
         // $filename = iconv("utf-8", "cp1258", basename($_FILES["fileContent"]["name"]));
         $filename =basename($_FILES["fileContent"]["name"]);
@@ -171,35 +171,57 @@ function uet_file()
 </form> -->
 
 <form method="post" name="frm">
-    <table class="table  table-hover">
-        <tr style="background:#23282d; color:white;font-size:14pt">
-            <th><input id="allcheckbox" type="checkbox"></th>
-            <th>Tên File</th>
-            <th>Link File</th>
+<button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnAddFile" data-toggle="modal" data-target="#myModal" onclick="" >Thêm tệp</button>
+</br>
+</br>
+</br>
+    <table id="tblOne" class="wp-list-table widefat fixed striped pages">
+        <tr style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
+            <th style="text-align: center;width: 3em;"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
+            <th style="width: 400px;font-weight: normal;color : #337ab7;">Tên tệp</th>
+            <th style="text-align: center;font-weight: normal;color: #337ab7;">Tải tệp</th>
         </tr>
           <?php
+          $stt = 0;
             foreach ($files as $file) {
           ?>
-        <tr>
-            <td><input type="checkbox" name="check_list[]" id="checkbox<?php echo $file->id ?>"value="<?php echo $file->id ?>"></td>
-            <td><?= $file-> name ?></td>
-            <td><a href="<?= $file-> linkfile ?>" >Download</a></td>
+        <tr id="tr<?php echo $stt?>">
+            <td style="text-align: center;"><input type="checkbox" name="check_list[]" id="checkbox<?php echo $file->id ?>"value="<?php echo $file->id ?>"></td>
+            <td style="font-weight: bold;color : #337ab7;"><?= $file-> name ?></td>
+            <td style="text-align: center;color : #337ab7"><a href="<?= $file-> linkfile ?>" >Download</a></td>
         </tr>
          <?php
+          $stt++;
             }
          ?>
     </table>
-   <button type="button" class="btn btn-info btn-md" id= "btnAddFile" data-toggle="modal" data-target="#myModal" onclick="" >Add File</button>
+   
 </form>
 
 </div>
     <script>
+        $(window).load(function() {
+            for (i = 0; i < 1000; i++) {
+                if( i%2 == 0){
+                  $("#tr" + i).css('background-color', '#f2f2f2');
+                }
+                else{
+                  $("#tr" + i).css('background-color', '#fff');
+                }
+            }
+        });
+
         $("#allcheckbox").change(function() {
             if(this.checked) {
                 $(":checkbox").prop('checked', true);
             }
             else{
                 $(":checkbox").prop('checked', false);   
+            }
+        });
+        $('#tblOne > tbody  > tr').each(function() {
+            if (this.id % 2 != 0 ) {
+              this.css("background-color", "#f2f2f2");
             }
         });
     </script>
@@ -213,12 +235,12 @@ function uet_file()
             <div class="modal-content">
                 <form method="post" enctype="multipart/form-data" accept-charset="utf-8" >
                   <div class="modal-header">
-                    <h2>Thêm File</h2>
-                    <input type="text" class="form-control answerip" name="namefile" id="fileName" placeholder="FileName"/>
+                    <h2>Thêm tệp</h2>
+                    <input type="text" class="form-control answerip" name="namefile" id="fileName" placeholder="Tên tệp"/>
                     </br>
                   </div>
                   <div class="modal-body">
-                    <label id="anslb">Link File</label>
+                    <label id="anslb">Tệp tin tải lên</label>
                     <input type="file" class="form-control file" id="fileContent" name="fileContent" placeholder="Link File"/>
                     <br/>  
                   </div>

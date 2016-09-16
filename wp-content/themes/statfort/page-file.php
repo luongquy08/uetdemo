@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tải File</title>
     <!--    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css_uet/style_form.css" /> -->
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap-select.min.css" />
+ <!--    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap-select.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" />
-
+ -->
 </head>
-<style type="text/css"></style>
+<!-- <style type="text/css"></style> -->
 <?php
 /**
  * Template Name: File page
@@ -26,11 +26,11 @@ get_header();
         global $wpdb;
             $files = $wpdb->get_results( "SELECT * FROM wp_file");
     ?>
-            <table class="table  table-hover">
+            <table class="table  table-hover" style="margin-left: 5%;width: 90%;">
                 <tr class="info">
-                    <th>stt</th>
-                    <th>FileName</th>
-                    <th>Link download</th>
+                    <th>STT</th>
+                    <th>Tên tệp</th>
+                    <th>Tải tệp</th>
                 </tr>
             <?php
                 $stt = 1;
