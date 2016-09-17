@@ -13,8 +13,8 @@ wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.
 wp_enqueue_script('prefix_bootstrap');
 wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 wp_enqueue_style('prefix_bootstrap');
-wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
-wp_enqueue_script('prefix_jquery');
+// wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+// wp_enqueue_script('prefix_jquery');
 // Doan code nay dung de tao bang mail va group
 function create_table_mail(){
     global $wpdb;
@@ -136,17 +136,17 @@ function uet_mail()
     </form>
     <script>
         function showMail(mid){
-            $("#id_mail" + mid).fadeToggle('slow');
+            jQuery("#id_mail" + mid).fadeToggle('slow');
         }
-        $(window).load(function() {
-            $(".cl_mail").css("display", "none");
+        jQuery(window).load(function() {
+            jQuery(".cl_mail").css("display", "none");
         });
-        $("#allcheckbox").change(function() {
+        jQuery("#allcheckbox").change(function() {
             if(this.checked) {
-                $(":checkbox").prop('checked', true);
+                jQuery(":checkbox").prop('checked', true);
             }
             else{
-                $(":checkbox").prop('checked', false);   
+                jQuery(":checkbox").prop('checked', false);   
             }
         });
     </script>
