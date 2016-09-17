@@ -87,6 +87,7 @@ function uet_mail()
             <br/><br/>
             <tr style="font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
                 <th style="text-align: center;width: 3em;"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
+                <th style="width:50px"></th>
                 <th style="text-align: left;color:#337ab7;">Nhóm</th>
                 <th style="text-align: left;color:#337ab7;">Tác vụ</th>
             </tr>
@@ -101,6 +102,7 @@ function uet_mail()
                 }
                 ?>
                     <td style="text-align: left;"><input type="checkbox" name="check_list[]" id="checkbox<?php echo $value_group->id ?>" value="<?php echo $value_group->id ?>"></td>
+                    <td style="width:50px"></td>
                     <td style="cursor: pointer;text-align: left;color:#337ab7;font-weight:bold;" onclick="showMail(<?= $value_group->id; ?>)"><?= $value_group->name ?></td>
                     <td style="text-align: left;color:#337ab7;"><button style="font-weight:bold;" class="btn btn-danger" value="<?= $value_group->id; ?>" name="btn_delete_group">Xóa</button></td>
                 </tr>
@@ -108,8 +110,9 @@ function uet_mail()
     <!--Doan code nay dung de hien thi thong tin mail thuoc cac group khi click vao-->
                  <tr id="id_mail<?= $value_group->id ?>" class="cl_mail" style="background-color:#f9f9f9">
                     <td></td>
+                    <td></td>
                     <td>
-                        <div  style="float:left; width: 50%; margin-left:40%;">
+                        <div  style="float:left; width: 50%;">
                     <?php foreach($result_mail_id as $value_mail_id){ ?>
                         <?php $result_mail = $wpdb->get_results("SELECT * FROM wp_mail_uet WHERE id=$value_mail_id->mail_id") ?>
 
