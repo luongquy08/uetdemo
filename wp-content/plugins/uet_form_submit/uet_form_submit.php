@@ -24,8 +24,8 @@ wp_enqueue_script('prefix_bootstrap');
 wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 wp_enqueue_style('prefix_bootstrap');
 
-wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
-wp_enqueue_script('prefix_jquery');
+// wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+// wp_enqueue_script('prefix_jquery');
 
 
 function form_submit_uet(){
@@ -187,7 +187,9 @@ function uet_form_submit()
             'current' => $pagenum
         ) );
         if ( $page_links ) {        
-            echo '<div class="pagination" style="float:right; margin-right:75px;"><li>'. $page_links .'</li></div>';
+            echo '<div class="pagination" style="float:right; margin-right:75px;">
+            <li>'. $page_links .'</li>
+            </div>';
         }
     ?>
 </form>
@@ -195,30 +197,30 @@ function uet_form_submit()
 </div>
     <script>
         function disablebutton(){
-            $(".duyet1").prop('disabled', true);
-            $(".duyet2").prop('disabled', true);
-            $(".huy1").prop('disabled', true);
-            $(".huy2").prop('disabled', true);
+            jQuery(".duyet1").prop('disabled', true);
+            jQuery(".duyet2").prop('disabled', true);
+            jQuery(".huy1").prop('disabled', true);
+            jQuery(".huy2").prop('disabled', true);
         }
         function getidandreturn(id){
-            $("#holdid").val(id);
+            jQuery("#holdid").val(id);
         }
         function showField(fid){
-            $("#field" + fid).fadeToggle('slow');
+            jQuery("#field" + fid).fadeToggle('slow');
         }
-        $(window).load(function() {
+        jQuery(window).load(function() {
             disablebutton();
-            $(".field").css("display", "none");
+            jQuery(".field").css("display", "none");
             for (i = 1; i < 1000; i+=2) {
-                $("#stt" + i).css('background-color', '#f2f2f2');
+                jQuery("#stt" + i).css('background-color', '#f2f2f2');
             }
         });
-        $("#allcheckbox").change(function() {
+        jQuery("#allcheckbox").change(function() {
             if(this.checked) {
-                $(":checkbox").prop('checked', true);
+                jQuery(":checkbox").prop('checked', true);
             }
             else{
-                $(":checkbox").prop('checked', false);   
+                jQuery(":checkbox").prop('checked', false);   
             }
         });
     </script>
