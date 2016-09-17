@@ -19,8 +19,8 @@ wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.
 wp_enqueue_script('prefix_bootstrap');
 wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 wp_enqueue_style('prefix_bootstrap');
-wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
-wp_enqueue_script('prefix_jquery');
+// wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+// wp_enqueue_script('prefix_jquery');
 function create_table()
 {
     global $wpdb;
@@ -136,12 +136,12 @@ function uet_contact()
 </form>
     <script>
 	 	function getidandreturn(id){
-            $("#holdid").val(id);
+            jQuery("#holdid").val(id);
         }
         function dialog(name,email,content){
-            $("#name").text(name);
-            $("#email").text(email);
-            $("#content").text(content);
+            jQuery("#name").text(name);
+            jQuery("#email").text(email);
+            jQuery("#content").text(content);
         }
     </script>
     <!-- Trigger the modal with a button -->
