@@ -428,16 +428,16 @@ function uet_survey()
 <!--code html and php for show data question and answer-->
 <!--code javascript for all -->
 <script>
-        $(window).load(function() {
-            $(".answer").css("display", "none");
-            $("#tblDate").css("display", "none");
+        jQuery(window).load(function() {
+            jQuery(".answer").css("display", "none");
+            jQuery("#tblDate").css("display", "none");
         });
-        $("#allcheckbox").change(function() {
+        jQuery("#allcheckbox").change(function() {
             if(this.checked) {
-                $(":checkbox").prop('checked', true);
+                jQuery(":checkbox").prop('checked', true);
             }
             else{
-                $(":checkbox").prop('checked', false);   
+                jQuery(":checkbox").prop('checked', false);   
             }
         });
         var numans = 0;
@@ -446,34 +446,34 @@ function uet_survey()
             var id = "ans"+numans;
             var idx = "x" + numans;
             var idbr = "br" + numans;
-            $('</br>').attr('class' ,"answertab").attr('id',idbr).insertBefore("#answer");
-            $('<input>').attr('id' ,id ).insertBefore("#answer");
-            $("#" + id).val($("#answer").val());
-            $("#" + id).attr('name' ,id );
-            $("#" + id).attr('class' ,"answertab");
-            $('<a class="glyphicon glyphicon-remove"></a>').attr('id' ,idx ).insertBefore("#answer");
-            $("#" + idx).attr('onClick', 'DeleteTempAns(this.id);');
+            jQuery('</br>').attr('class' ,"answertab").attr('id',idbr).insertBefore("#answer");
+            jQuery('<input>').attr('id' ,id ).insertBefore("#answer");
+            jQuery("#" + id).val(jQuery("#answer").val());
+            jQuery("#" + id).attr('name' ,id );
+            jQuery("#" + id).attr('class' ,"answertab");
+            jQuery('<a class="glyphicon glyphicon-remove"></a>').attr('id' ,idx ).insertBefore("#answer");
+            jQuery("#" + idx).attr('onClick', 'DeleteTempAns(this.id);');
             numans++;
-            $("#numans").val(numans);
-            $(".answerip" ).val("");
-            $(".answerip").focus();
+            jQuery("#numans").val(numans);
+            jQuery(".answerip" ).val("");
+            jQuery(".answerip").focus();
         }
         function DeleteTempAns(temp){
             var newtemp = temp.substring(1);
-            $("#br" + newtemp).remove();
-            $("#ans" + newtemp).remove();
-            $("#" + temp).remove();
-            for ($i= parseInt(newtemp)+1; $i < parseInt(numans) ; $i++) {
-                var newnumid = parseInt($i) - 1;
-                var anstempval = $("#ans" + $i).val();
-                $("#ans" + $i).remove();
-                $("#br" + $i).remove();
-                $("#x" + $i).remove();
-                $('</br>').attr('id' , "br" + newnumid ).insertBefore("#answer");
-                $('<input>').attr('id' , "ans" + newnumid ).attr('name' , "ans" + newnumid).attr('class',"answertab").insertBefore("#answer");
-                $("#ans" + newnumid).val(anstempval);
-                $('<a class="glyphicon glyphicon-remove"></a>').attr('id' , "x" + newnumid ).insertBefore("#answer");
-                $("#x" + newnumid).attr('onClick', 'DeleteTempAns(this.id);');
+            jQuery("#br" + newtemp).remove();
+            jQuery("#ans" + newtemp).remove();
+            jQuery("#" + temp).remove();
+            for (jQueryi= parseInt(newtemp)+1; jQueryi < parseInt(numans) ; jQueryi++) {
+                var newnumid = parseInt(jQueryi) - 1;
+                var anstempval = jQuery("#ans" + jQueryi).val();
+                jQuery("#ans" + jQueryi).remove();
+                jQuery("#br" + jQueryi).remove();
+                jQuery("#x" + jQueryi).remove();
+                jQuery('</br>').attr('id' , "br" + newnumid ).insertBefore("#answer");
+                jQuery('<input>').attr('id' , "ans" + newnumid ).attr('name' , "ans" + newnumid).attr('class',"answertab").insertBefore("#answer");
+                jQuery("#ans" + newnumid).val(anstempval);
+                jQuery('<a class="glyphicon glyphicon-remove"></a>').attr('id' , "x" + newnumid ).insertBefore("#answer");
+                jQuery("#x" + newnumid).attr('onClick', 'DeleteTempAns(this.id);');
             }
             numans--;
             //alert(numans);          
@@ -482,74 +482,74 @@ function uet_survey()
             var id = "ansedit"+numans;
             var idx = "x" + numans;
             var idbr = "br" + numans;
-            $('</br>').attr('class' ,"answertab").attr('id',idbr).insertBefore("#answeredit");
-            $('<input>').attr('id' ,id ).insertBefore("#answeredit");
-            $("#" + id).val($("#answeredit").val());
-            $("#" + id).attr('name' ,id );
-            $("#" + id).attr('class' ,"answertab");
-            $('<a class="glyphicon glyphicon-remove"></a>').attr('id' ,idx ).insertBefore("#answeredit");
-            $("#" + idx).attr('onClick', 'DeleteTempAnsEdit(this.id);');
-            $("#numansedit").val(numans);
-            $(".answerip" ).val("");
-            $(".answerip").focus();
+            jQuery('</br>').attr('class' ,"answertab").attr('id',idbr).insertBefore("#answeredit");
+            jQuery('<input>').attr('id' ,id ).insertBefore("#answeredit");
+            jQuery("#" + id).val(jQuery("#answeredit").val());
+            jQuery("#" + id).attr('name' ,id );
+            jQuery("#" + id).attr('class' ,"answertab");
+            jQuery('<a class="glyphicon glyphicon-remove"></a>').attr('id' ,idx ).insertBefore("#answeredit");
+            jQuery("#" + idx).attr('onClick', 'DeleteTempAnsEdit(this.id);');
+            jQuery("#numansedit").val(numans);
+            jQuery(".answerip" ).val("");
+            jQuery(".answerip").focus();
             numans++;
         }
        
          function DeleteTempAnsEdit(temp){
             var newtemp = temp.substring(1);
-            $("#br" + newtemp).remove();
-            $("#ansedit" + newtemp).remove();
-            $("#" + temp).remove();
-            for ($i= parseInt(newtemp)+1; $i < parseInt(numans) ; $i++) {
-                var newnumid = parseInt($i) - 1;
-                var anstempval = $("#ansedit" + $i).val();
-                $("#ansedit" + $i).remove();
-                $("#br" + $i).remove();
-                $("#x" + $i).remove();
-                $('</br>').attr('id' , "br" + newnumid ).insertBefore("#answeredit");
-                $('<input>').attr('id' , "ansedit" + newnumid ).attr('name' , "ansedit" + newnumid).attr('class',"answertab").insertBefore("#answeredit");
-                $("#ansedit" + newnumid).val(anstempval);
-                $('<a class="glyphicon glyphicon-remove"></a>').attr('id' , "x" + newnumid ).insertBefore("#answeredit");
-                $("#x" + newnumid).attr('onClick', 'DeleteTempAnsEdit(this.id);');
+            jQuery("#br" + newtemp).remove();
+            jQuery("#ansedit" + newtemp).remove();
+            jQuery("#" + temp).remove();
+            for (jQueryi= parseInt(newtemp)+1; jQueryi < parseInt(numans) ; jQueryi++) {
+                var newnumid = parseInt(jQueryi) - 1;
+                var anstempval = jQuery("#ansedit" + jQueryi).val();
+                jQuery("#ansedit" + jQueryi).remove();
+                jQuery("#br" + jQueryi).remove();
+                jQuery("#x" + jQueryi).remove();
+                jQuery('</br>').attr('id' , "br" + newnumid ).insertBefore("#answeredit");
+                jQuery('<input>').attr('id' , "ansedit" + newnumid ).attr('name' , "ansedit" + newnumid).attr('class',"answertab").insertBefore("#answeredit");
+                jQuery("#ansedit" + newnumid).val(anstempval);
+                jQuery('<a class="glyphicon glyphicon-remove"></a>').attr('id' , "x" + newnumid ).insertBefore("#answeredit");
+                jQuery("#x" + newnumid).attr('onClick', 'DeleteTempAnsEdit(this.id);');
             }
             numans--;
             //alert(numans);          
         }
         function getidandreturn(id){
-            $("#holdid").val(id);
+            jQuery("#holdid").val(id);
         }
         function closeandDelete(){
-            $( ".answertab" ).remove();
-            $(".answerip" ).val("");
+            jQuery( ".answertab" ).remove();
+            jQuery(".answerip" ).val("");
             numans = 0;    
             numansbefedit = 0;      
         }
         function showQuesandAns(id){
             var idansstring = "";
-            $("#txtqsedit").val($("#tdqt" + id).text());
-            $("#startTimeedit").val($("#lblstart" + id).text());
-            $("#endTimeedit").val($("#lblend" + id).text());
-            $("#quesid").val(id);
-            $('#olans'+ id).children('li').children('label').each(function () {
+            jQuery("#txtqsedit").val(jQuery("#tdqt" + id).text());
+            jQuery("#startTimeedit").val(jQuery("#lblstart" + id).text());
+            jQuery("#endTimeedit").val(jQuery("#lblend" + id).text());
+            jQuery("#quesid").val(id);
+            jQuery('#olans'+ id).children('li').children('label').each(function () {
                 var id = "ansedit"+numansbefedit;
-                $('</br>').attr('class' ,"answertab").insertBefore("#answeredit");
-                $('<input>').attr('id' , id).val($(this).text()).insertBefore("#answeredit");
-                $("#" + id).attr('name' ,id );
-                $('#ansedit' + numansbefedit).attr('class',"answertab");
+                jQuery('</br>').attr('class' ,"answertab").insertBefore("#answeredit");
+                jQuery('<input>').attr('id' , id).val(jQuery(this).text()).insertBefore("#answeredit");
+                jQuery("#" + id).attr('name' ,id );
+                jQuery('#ansedit' + numansbefedit).attr('class',"answertab");
                 numansbefedit++;
-                var ansid = $(this).attr('id').toString();
+                var ansid = jQuery(this).attr('id').toString();
                 idansstring = idansstring  + ansid + ",";
             });
-            $("#idansstring").val(idansstring);
+            jQuery("#idansstring").val(idansstring);
             numans = numansbefedit;
-            $("#numansbefedit").val(numansbefedit);
-            $("#numansedit").val(numans);
+            jQuery("#numansbefedit").val(numansbefedit);
+            jQuery("#numansedit").val(numans);
         }
         function showAns(qid){
-            $("#answer" + qid).fadeToggle('slow');
+            jQuery("#answer" + qid).fadeToggle('slow');
         }
         function showEditDate(){
-            $("#tblDate").fadeToggle('slow');
+            jQuery("#tblDate").fadeToggle('slow');
         }
 </script>
 <!--code javascript for all -->
