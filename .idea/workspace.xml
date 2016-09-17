@@ -22,54 +22,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Mail-manage-uet.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Mail-manage-uet.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/mail-manager_uet/Mail-manage-uet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="108" column="27" selection-start-line="108" selection-start-column="27" selection-end-line="108" selection-end-column="27" />
-              <folding />
+            <state vertical-scroll-proportion="0.6956522">
+              <caret line="95" column="36" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
+              <folding>
+                <element signature="e#3982#4021#0#HTML" expanded="true" />
+                <element signature="e#4052#4091#0#HTML" expanded="true" />
+                <element signature="e#4687#4712#0#HTML" expanded="true" />
+                <element signature="e#4869#4941#0#HTML" expanded="true" />
+                <element signature="e#5042#5081#0#HTML" expanded="true" />
+                <element signature="e#11434#11489#0#HTML" expanded="true" />
+                <marker date="1474124073324" expanded="true" signature="2193:2259" placeholder="..." />
+                <marker date="1474124073324" expanded="true" signature="3040:3071" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+                <marker date="1474124073324" expanded="true" signature="4258:4308" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+                <marker date="1474124073324" expanded="true" signature="4429:4462" placeholder="..." />
+                <marker date="1474124073324" expanded="true" signature="4563:4621" placeholder="..." />
+                <marker date="1474124073324" expanded="true" signature="5704:5739" placeholder="SELECT * FRO..wp_mail_uet..." />
+                <marker date="1474124073324" expanded="true" signature="8153:8184" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+                <marker date="1474124073324" expanded="true" signature="9553:9584" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+                <marker date="1474124073324" expanded="true" signature="14143:14168" placeholder="SELECT * FRO..wp_mail_uet..." />
+                <marker date="1474124073324" expanded="true" signature="15082:15132" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+                <marker date="1474124073324" expanded="true" signature="15519:15554" placeholder="SELECT * FRO..wp_mail_uet..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uet_form.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="uet_form.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/uet_form/uet_form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2673077">
-              <caret line="334" column="71" selection-start-line="334" selection-start-column="71" selection-end-line="334" selection-end-column="71" />
+            <state vertical-scroll-proportion="-5.0">
+              <caret line="429" column="17" selection-start-line="429" selection-start-column="17" selection-end-line="429" selection-end-column="17" />
               <folding>
-                <element signature="e#12156#12243#0#HTML" expanded="true" />
-                <element signature="e#12587#12649#0#HTML" expanded="true" />
-                <element signature="e#12685#12747#0#HTML" expanded="true" />
-                <element signature="e#13504#13531#0#HTML" expanded="true" />
-                <element signature="e#13677#13717#0#HTML" expanded="true" />
-                <element signature="e#13885#13927#0#HTML" expanded="true" />
-                <element signature="e#14082#14124#0#HTML" expanded="true" />
-                <element signature="e#14277#14304#0#HTML" expanded="true" />
-                <element signature="e#14313#14339#0#HTML" expanded="true" />
-                <element signature="e#14516#14575#0#HTML" expanded="true" />
-                <element signature="e#30970#31008#0#HTML" expanded="true" />
-                <marker date="1474104114349" expanded="true" signature="3774:3817" placeholder="SELECT * FRO..wp_field..." />
-                <marker date="1474104114349" expanded="true" signature="4328:4366" placeholder="SELECT * FRO..wp_form..." />
-                <marker date="1474104114349" expanded="true" signature="4459:4502" placeholder="UPDATE wp_fo..." />
-                <marker date="1474104114349" expanded="true" signature="4578:4621" placeholder="UPDATE wp_fo..." />
-                <marker date="1474104114349" expanded="true" signature="4685:4706" placeholder="SELECT * FRO..wp_form..." />
-                <marker date="1474104114349" expanded="true" signature="4827:4866" placeholder="SELECT * FRO..wp_field..." />
-                <marker date="1474104114349" expanded="true" signature="4957:5001" placeholder="UPDATE wp_fi..." />
-                <marker date="1474104114349" expanded="true" signature="5077:5121" placeholder="UPDATE wp_fi..." />
-                <marker date="1474104114349" expanded="true" signature="5464:5526" placeholder="UPDATE wp_fo..." />
-                <marker date="1474104114349" expanded="true" signature="5992:6030" placeholder="SELECT * FRO..wp_form..." />
-                <marker date="1474104114349" expanded="true" signature="6139:6182" placeholder="UPDATE wp_fo..." />
-                <marker date="1474104114349" expanded="true" signature="6263:6306" placeholder="UPDATE wp_fo..." />
-                <marker date="1474104114349" expanded="true" signature="7992:8070" placeholder="UPDATE wp_fo..." />
-                <marker date="1474104114349" expanded="true" signature="8528:8574" placeholder="UPDATE wp_fi..." />
-                <marker date="1474104114349" expanded="true" signature="11310:11343" placeholder="SELECT COUNT..." />
-                <marker date="1474104114349" expanded="true" signature="13234:13267" placeholder="..." />
-                <marker date="1474104114349" expanded="true" signature="13373:13431" placeholder="..." />
-                <marker date="1474104114349" expanded="true" signature="14919:14952" placeholder="..." />
-                <marker date="1474104114349" expanded="true" signature="15054:15113" placeholder="..." />
-                <marker date="1474104114349" expanded="true" signature="18317:18338" placeholder="..." />
-                <marker date="1474104114349" expanded="true" signature="19769:19779" placeholder="..." />
+                <element signature="e#11942#12004#0#HTML" expanded="true" />
+                <element signature="e#12071#12133#0#HTML" expanded="true" />
+                <element signature="e#13336#13362#0#HTML" expanded="true" />
+                <element signature="e#15858#15906#0#HTML" expanded="true" />
+                <element signature="e#17659#17711#0#HTML" expanded="true" />
+                <marker date="1474122622208" expanded="true" signature="3774:3817" placeholder="SELECT * FRO..wp_field..." />
+                <marker date="1474122622208" expanded="true" signature="4328:4366" placeholder="SELECT * FRO..wp_form..." />
+                <marker date="1474122622208" expanded="true" signature="4459:4502" placeholder="UPDATE wp_fo..." />
+                <marker date="1474122622208" expanded="true" signature="4578:4621" placeholder="UPDATE wp_fo..." />
+                <marker date="1474122622208" expanded="true" signature="4685:4706" placeholder="SELECT * FRO..wp_form..." />
+                <marker date="1474122622208" expanded="true" signature="4827:4866" placeholder="SELECT * FRO..wp_field..." />
+                <marker date="1474122622208" expanded="true" signature="4957:5001" placeholder="UPDATE wp_fi..." />
+                <marker date="1474122622208" expanded="true" signature="5077:5121" placeholder="UPDATE wp_fi..." />
+                <marker date="1474122622208" expanded="true" signature="5464:5526" placeholder="UPDATE wp_fo..." />
+                <marker date="1474122622208" expanded="true" signature="5992:6030" placeholder="SELECT * FRO..wp_form..." />
+                <marker date="1474122622208" expanded="true" signature="6139:6182" placeholder="UPDATE wp_fo..." />
+                <marker date="1474122622208" expanded="true" signature="6263:6306" placeholder="UPDATE wp_fo..." />
+                <marker date="1474122622208" expanded="true" signature="7992:8070" placeholder="UPDATE wp_fo..." />
+                <marker date="1474122622208" expanded="true" signature="8528:8574" placeholder="UPDATE wp_fi..." />
+                <marker date="1474122622208" expanded="true" signature="11310:11343" placeholder="SELECT COUNT..." />
+                <marker date="1474122622208" expanded="true" signature="12623:12656" placeholder="..." />
+                <marker date="1474122622208" expanded="true" signature="12762:12820" placeholder="..." />
+                <marker date="1474122622208" expanded="true" signature="14003:14036" placeholder="..." />
+                <marker date="1474122622208" expanded="true" signature="14138:14197" placeholder="..." />
+                <marker date="1474122622208" expanded="true" signature="17401:17422" placeholder="..." />
+                <marker date="1474122622208" expanded="true" signature="18853:18863" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -84,8 +96,8 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/uet_contact/uet_contact.php" />
         <option value="$PROJECT_DIR$/wp-config.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/statfort/css_uet/style_form.css" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/mail-manager_uet/Mail-manage-uet.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/uet_form/uet_form.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/mail-manager_uet/Mail-manage-uet.php" />
       </list>
     </option>
   </component>
@@ -201,6 +213,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uet-demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uetdemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mail-manager_uet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -255,15 +289,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
+    <frame x="-7" y="0" width="1370" height="735" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2610687" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10610687" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3283582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -299,7 +333,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#3982#4021#0#HTML" expanded="true" />
+            <element signature="e#4052#4091#0#HTML" expanded="true" />
+            <element signature="e#4687#4712#0#HTML" expanded="true" />
+            <element signature="e#4869#4941#0#HTML" expanded="true" />
+            <element signature="e#5042#5081#0#HTML" expanded="true" />
+            <element signature="e#11434#11489#0#HTML" expanded="true" />
+            <marker date="1474124073324" expanded="true" signature="2193:2259" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="3040:3071" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="4258:4308" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+            <marker date="1474124073324" expanded="true" signature="4429:4462" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="4563:4621" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="5704:5739" placeholder="SELECT * FRO..wp_mail_uet..." />
+            <marker date="1474124073324" expanded="true" signature="8153:8184" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="9553:9584" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="14143:14168" placeholder="SELECT * FRO..wp_mail_uet..." />
+            <marker date="1474124073324" expanded="true" signature="15082:15132" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+            <marker date="1474124073324" expanded="true" signature="15519:15554" placeholder="SELECT * FRO..wp_mail_uet..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -323,7 +375,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="104" column="12" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="e#3982#4021#0#HTML" expanded="true" />
+            <element signature="e#4052#4091#0#HTML" expanded="true" />
+            <element signature="e#4687#4712#0#HTML" expanded="true" />
+            <element signature="e#4869#4941#0#HTML" expanded="true" />
+            <element signature="e#5042#5081#0#HTML" expanded="true" />
+            <element signature="e#11434#11489#0#HTML" expanded="true" />
+            <marker date="1474124073324" expanded="true" signature="2193:2259" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="3040:3071" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="4258:4308" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+            <marker date="1474124073324" expanded="true" signature="4429:4462" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="4563:4621" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="5704:5739" placeholder="SELECT * FRO..wp_mail_uet..." />
+            <marker date="1474124073324" expanded="true" signature="8153:8184" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="9553:9584" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="14143:14168" placeholder="SELECT * FRO..wp_mail_uet..." />
+            <marker date="1474124073324" expanded="true" signature="15082:15132" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+            <marker date="1474124073324" expanded="true" signature="15519:15554" placeholder="SELECT * FRO..wp_mail_uet..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -355,7 +425,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="104" column="12" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="e#3982#4021#0#HTML" expanded="true" />
+            <element signature="e#4052#4091#0#HTML" expanded="true" />
+            <element signature="e#4687#4712#0#HTML" expanded="true" />
+            <element signature="e#4869#4941#0#HTML" expanded="true" />
+            <element signature="e#5042#5081#0#HTML" expanded="true" />
+            <element signature="e#11434#11489#0#HTML" expanded="true" />
+            <marker date="1474124073324" expanded="true" signature="2193:2259" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="3040:3071" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="4258:4308" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+            <marker date="1474124073324" expanded="true" signature="4429:4462" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="4563:4621" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="5704:5739" placeholder="SELECT * FRO..wp_mail_uet..." />
+            <marker date="1474124073324" expanded="true" signature="8153:8184" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="9553:9584" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="14143:14168" placeholder="SELECT * FRO..wp_mail_uet..." />
+            <marker date="1474124073324" expanded="true" signature="15082:15132" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+            <marker date="1474124073324" expanded="true" signature="15519:15554" placeholder="SELECT * FRO..wp_mail_uet..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -387,7 +475,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="102" column="12" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="e#3982#4021#0#HTML" expanded="true" />
+            <element signature="e#4052#4091#0#HTML" expanded="true" />
+            <element signature="e#4687#4712#0#HTML" expanded="true" />
+            <element signature="e#4869#4941#0#HTML" expanded="true" />
+            <element signature="e#5042#5081#0#HTML" expanded="true" />
+            <element signature="e#11434#11489#0#HTML" expanded="true" />
+            <marker date="1474124073324" expanded="true" signature="2193:2259" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="3040:3071" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="4258:4308" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+            <marker date="1474124073324" expanded="true" signature="4429:4462" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="4563:4621" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="5704:5739" placeholder="SELECT * FRO..wp_mail_uet..." />
+            <marker date="1474124073324" expanded="true" signature="8153:8184" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="9553:9584" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="14143:14168" placeholder="SELECT * FRO..wp_mail_uet..." />
+            <marker date="1474124073324" expanded="true" signature="15082:15132" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+            <marker date="1474124073324" expanded="true" signature="15519:15554" placeholder="SELECT * FRO..wp_mail_uet..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -430,51 +536,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/mail-manager_uet/Mail-manage-uet.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/uet_form/uet_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="27" selection-start-line="108" selection-start-column="27" selection-end-line="108" selection-end-column="27" />
-          <folding />
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="429" column="17" selection-start-line="429" selection-start-column="17" selection-end-line="429" selection-end-column="17" />
+          <folding>
+            <element signature="e#11942#12004#0#HTML" expanded="true" />
+            <element signature="e#12071#12133#0#HTML" expanded="true" />
+            <element signature="e#13336#13362#0#HTML" expanded="true" />
+            <element signature="e#15858#15906#0#HTML" expanded="true" />
+            <element signature="e#17659#17711#0#HTML" expanded="true" />
+            <marker date="1474122622208" expanded="true" signature="3774:3817" placeholder="SELECT * FRO..wp_field..." />
+            <marker date="1474122622208" expanded="true" signature="4328:4366" placeholder="SELECT * FRO..wp_form..." />
+            <marker date="1474122622208" expanded="true" signature="4459:4502" placeholder="UPDATE wp_fo..." />
+            <marker date="1474122622208" expanded="true" signature="4578:4621" placeholder="UPDATE wp_fo..." />
+            <marker date="1474122622208" expanded="true" signature="4685:4706" placeholder="SELECT * FRO..wp_form..." />
+            <marker date="1474122622208" expanded="true" signature="4827:4866" placeholder="SELECT * FRO..wp_field..." />
+            <marker date="1474122622208" expanded="true" signature="4957:5001" placeholder="UPDATE wp_fi..." />
+            <marker date="1474122622208" expanded="true" signature="5077:5121" placeholder="UPDATE wp_fi..." />
+            <marker date="1474122622208" expanded="true" signature="5464:5526" placeholder="UPDATE wp_fo..." />
+            <marker date="1474122622208" expanded="true" signature="5992:6030" placeholder="SELECT * FRO..wp_form..." />
+            <marker date="1474122622208" expanded="true" signature="6139:6182" placeholder="UPDATE wp_fo..." />
+            <marker date="1474122622208" expanded="true" signature="6263:6306" placeholder="UPDATE wp_fo..." />
+            <marker date="1474122622208" expanded="true" signature="7992:8070" placeholder="UPDATE wp_fo..." />
+            <marker date="1474122622208" expanded="true" signature="8528:8574" placeholder="UPDATE wp_fi..." />
+            <marker date="1474122622208" expanded="true" signature="11310:11343" placeholder="SELECT COUNT..." />
+            <marker date="1474122622208" expanded="true" signature="12623:12656" placeholder="..." />
+            <marker date="1474122622208" expanded="true" signature="12762:12820" placeholder="..." />
+            <marker date="1474122622208" expanded="true" signature="14003:14036" placeholder="..." />
+            <marker date="1474122622208" expanded="true" signature="14138:14197" placeholder="..." />
+            <marker date="1474122622208" expanded="true" signature="17401:17422" placeholder="..." />
+            <marker date="1474122622208" expanded="true" signature="18853:18863" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/uet_form/uet_form.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/mail-manager_uet/Mail-manage-uet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2673077">
-          <caret line="334" column="71" selection-start-line="334" selection-start-column="71" selection-end-line="334" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.6956522">
+          <caret line="95" column="36" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
           <folding>
-            <element signature="e#12156#12243#0#HTML" expanded="true" />
-            <element signature="e#12587#12649#0#HTML" expanded="true" />
-            <element signature="e#12685#12747#0#HTML" expanded="true" />
-            <element signature="e#13504#13531#0#HTML" expanded="true" />
-            <element signature="e#13677#13717#0#HTML" expanded="true" />
-            <element signature="e#13885#13927#0#HTML" expanded="true" />
-            <element signature="e#14082#14124#0#HTML" expanded="true" />
-            <element signature="e#14277#14304#0#HTML" expanded="true" />
-            <element signature="e#14313#14339#0#HTML" expanded="true" />
-            <element signature="e#14516#14575#0#HTML" expanded="true" />
-            <element signature="e#30970#31008#0#HTML" expanded="true" />
-            <marker date="1474104114349" expanded="true" signature="3774:3817" placeholder="SELECT * FRO..wp_field..." />
-            <marker date="1474104114349" expanded="true" signature="4328:4366" placeholder="SELECT * FRO..wp_form..." />
-            <marker date="1474104114349" expanded="true" signature="4459:4502" placeholder="UPDATE wp_fo..." />
-            <marker date="1474104114349" expanded="true" signature="4578:4621" placeholder="UPDATE wp_fo..." />
-            <marker date="1474104114349" expanded="true" signature="4685:4706" placeholder="SELECT * FRO..wp_form..." />
-            <marker date="1474104114349" expanded="true" signature="4827:4866" placeholder="SELECT * FRO..wp_field..." />
-            <marker date="1474104114349" expanded="true" signature="4957:5001" placeholder="UPDATE wp_fi..." />
-            <marker date="1474104114349" expanded="true" signature="5077:5121" placeholder="UPDATE wp_fi..." />
-            <marker date="1474104114349" expanded="true" signature="5464:5526" placeholder="UPDATE wp_fo..." />
-            <marker date="1474104114349" expanded="true" signature="5992:6030" placeholder="SELECT * FRO..wp_form..." />
-            <marker date="1474104114349" expanded="true" signature="6139:6182" placeholder="UPDATE wp_fo..." />
-            <marker date="1474104114349" expanded="true" signature="6263:6306" placeholder="UPDATE wp_fo..." />
-            <marker date="1474104114349" expanded="true" signature="7992:8070" placeholder="UPDATE wp_fo..." />
-            <marker date="1474104114349" expanded="true" signature="8528:8574" placeholder="UPDATE wp_fi..." />
-            <marker date="1474104114349" expanded="true" signature="11310:11343" placeholder="SELECT COUNT..." />
-            <marker date="1474104114349" expanded="true" signature="13234:13267" placeholder="..." />
-            <marker date="1474104114349" expanded="true" signature="13373:13431" placeholder="..." />
-            <marker date="1474104114349" expanded="true" signature="14919:14952" placeholder="..." />
-            <marker date="1474104114349" expanded="true" signature="15054:15113" placeholder="..." />
-            <marker date="1474104114349" expanded="true" signature="18317:18338" placeholder="..." />
-            <marker date="1474104114349" expanded="true" signature="19769:19779" placeholder="..." />
+            <element signature="e#3982#4021#0#HTML" expanded="true" />
+            <element signature="e#4052#4091#0#HTML" expanded="true" />
+            <element signature="e#4687#4712#0#HTML" expanded="true" />
+            <element signature="e#4869#4941#0#HTML" expanded="true" />
+            <element signature="e#5042#5081#0#HTML" expanded="true" />
+            <element signature="e#11434#11489#0#HTML" expanded="true" />
+            <marker date="1474124073324" expanded="true" signature="2193:2259" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="3040:3071" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="4258:4308" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+            <marker date="1474124073324" expanded="true" signature="4429:4462" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="4563:4621" placeholder="..." />
+            <marker date="1474124073324" expanded="true" signature="5704:5739" placeholder="SELECT * FRO..wp_mail_uet..." />
+            <marker date="1474124073324" expanded="true" signature="8153:8184" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="9553:9584" placeholder="SELECT * FRO..wp_mail_group_uet..." />
+            <marker date="1474124073324" expanded="true" signature="14143:14168" placeholder="SELECT * FRO..wp_mail_uet..." />
+            <marker date="1474124073324" expanded="true" signature="15082:15132" placeholder="SELECT * FRO..wp_mail_relation_uet..." />
+            <marker date="1474124073324" expanded="true" signature="15519:15554" placeholder="SELECT * FRO..wp_mail_uet..." />
           </folding>
         </state>
       </provider>

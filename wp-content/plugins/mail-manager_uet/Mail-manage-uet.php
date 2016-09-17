@@ -87,8 +87,8 @@ function uet_mail()
             <br/><br/>
             <tr style="font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
                 <th style="text-align: center;width: 3em;"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
-                <th style="text-align: center;color:#337ab7;">Nhóm 1</th>
-                <th style="text-align: center;color:#337ab7;">Xóa</th>
+                <th style="text-align: left;color:#337ab7;">Nhóm</th>
+                <th style="text-align: left;color:#337ab7;">Tác vụ</th>
             </tr>
             <?php $count = 0;
             foreach($result_group as $value_group){
@@ -100,9 +100,9 @@ function uet_mail()
                     echo '<tr class="mail_vuong" style="cursor: pointer; color: #337ab7; background-color: #f2f2f2">';
                 }
                 ?>
-                     <td style="text-align: center;"><input type="checkbox" name="check_list[]" id="checkbox<?php echo $value_group->id ?>" value="<?php echo $value_group->id ?>"></td>
-                    <td style="cursor: pointer;text-align: center;color:#337ab7;font-weight:bold;" onclick="showMail(<?= $value_group->id; ?>)"><?= $value_group->name ?></td>
-                    <td style="text-align: center;color:#337ab7;"><button style="font-weight:bold;" class="btn btn-danger" value="<?= $value_group->id; ?>" name="btn_delete_group">Xóa</button></td>
+                    <td style="text-align: left;"><input type="checkbox" name="check_list[]" id="checkbox<?php echo $value_group->id ?>" value="<?php echo $value_group->id ?>"></td>
+                    <td style="cursor: pointer;text-align: left;color:#337ab7;font-weight:bold;" onclick="showMail(<?= $value_group->id; ?>)"><?= $value_group->name ?></td>
+                    <td style="text-align: left;color:#337ab7;"><button style="font-weight:bold;" class="btn btn-danger" value="<?= $value_group->id; ?>" name="btn_delete_group">Xóa</button></td>
                 </tr>
 
     <!--Doan code nay dung de hien thi thong tin mail thuoc cac group khi click vao-->
