@@ -18,14 +18,14 @@ $uet_db_version = '1.0';
 
 add_action('plugins_loaded', 'form_submit_uet');
 
-// wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
-// wp_enqueue_script('prefix_bootstrap');
+wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+wp_enqueue_script('prefix_bootstrap');
 
-// wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-// wp_enqueue_style('prefix_bootstrap');
+wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+wp_enqueue_style('prefix_bootstrap');
 
-// wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
-// wp_enqueue_script('prefix_jquery');
+wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+wp_enqueue_script('prefix_jquery');
 
 
 function form_submit_uet(){
@@ -33,7 +33,7 @@ function form_submit_uet(){
 }
 function displaystatus($status){
     if($status == 1) echo "đã duyệt";
-    else if($status == 0) echo "chưa duyệt";
+    else if($status == 2) echo "hủy";
     else echo "đang chờ duyệt";
 }
 function getform($id){
@@ -60,8 +60,14 @@ function uet_form_submit()
 
     global $wpdb;
 
-    if (isset($_GET['id'])) {
-        $wpdb->query($wpdb->prepare("UPDATE wp_form_submit SET status = 1 WHERE id = %d", $_GET['id']));
+    if (isset($_POST['duyetbutton'])) {
+        $id = $_POST['holdid'];
+        $wpdb->query($wpdb->prepare("UPDATE wp_form_submit SET status = 1 WHERE id = %d", $id));
+    }
+
+     if (isset($_POST['huybutton'])) {
+        $id = $_POST['holdid'];
+        $wpdb->query($wpdb->prepare("UPDATE wp_form_submit SET status = 2 WHERE id = %d", $id));
     }
 
     //$form_submits = $wpdb->get_results('SELECT * FROM wp_form_submit', OBJECT);
@@ -121,12 +127,18 @@ function uet_form_submit()
 
             ?>
 
-            <tr id="stt<?php echo $stt?>" style="cursor: pointer; color: #337ab7;">
+            <tr id="stt<?php echo $stt?>" style="color: #337ab7;">
                 <td style="text-align:center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $form_submit->id?>" value= "<?php echo $form_submit->id?>" ></td>
-                <td style="font-weight:bold;color : #337ab7" onclick="showField('<?php echo $form_submit->id?>')"><?= $form-> formName?></td>
-                <td style="text-align: center;color : #337ab7" onclick="showField('<?php echo $form_submit->id?>')"><?= $field_submit_mssv -> content?></td>
-                <td style="text-align: center;color : #337ab7" onclick="showField('<?php echo $form_submit->id?>')"><?= displaystatus($form_submit-> status) ?></td>
-                <td style="text-align: center;"><a style="color: #337ab7;font-weight: bold;background-color: #fff;" class="btn btn-info btn-md" href="<?= "?page=my-unique-identifierthree&id=$form_submit->id" ?>" >Duyệt đơn</a></td>
+                <td style="font-weight:bold;color : #337ab7;cursor: pointer" onclick="showField('<?php echo $form_submit->id?>')"><?= $form-> formName?></td>
+                <td style="text-align: center;color : #337ab7;cursor: pointer" onclick="showField('<?php echo $form_submit->id?>')"><?= $field_submit_mssv -> content?></td>
+                <td style="text-align: center;color : #337ab7;cursor: pointer" onclick="showField('<?php echo $form_submit->id?>')"><?= displaystatus($form_submit-> status) ?></td>
+
+                <td style="text-align: center;">
+                    <input style="color : #337ab7;font-weight:bold;" type="submit" class="btn btn-default btn-md duyet<?php echo $form_submit->status?>" onclick="getidandreturn('<?php echo $form_submit->id?>')" name="duyetbutton" value="Duyệt"/>
+
+                    <input style="color : #337ab7;font-weight:bold;" type="submit" class="btn btn-default btn-md huy<?php echo $form_submit->status?>" onclick="getidandreturn('<?php echo $form_submit->id?>')" name="huybutton" value="Hủy"/>
+                </td>
+
             </tr>
 
             <tr id="field<?php echo $form_submit->id?>" class="field">
@@ -161,6 +173,7 @@ function uet_form_submit()
         <?php
             $stt++;
         }?>
+        <input id="holdid" type="hidden" name="holdid"/>
     </table>
     <!-- <div style="float:left;margin-left:2px;"> -->
     <?php  
@@ -181,10 +194,20 @@ function uet_form_submit()
 
 </div>
     <script>
+        function disablebutton(){
+            $(".duyet1").prop('disabled', true);
+            $(".duyet2").prop('disabled', true);
+            $(".huy1").prop('disabled', true);
+            $(".huy2").prop('disabled', true);
+        }
+        function getidandreturn(id){
+            $("#holdid").val(id);
+        }
         function showField(fid){
             $("#field" + fid).fadeToggle('slow');
         }
         $(window).load(function() {
+            disablebutton();
             $(".field").css("display", "none");
             for (i = 1; i < 1000; i+=2) {
                 $("#stt" + i).css('background-color', '#f2f2f2');
