@@ -55,11 +55,14 @@ function uet_contact()
     // if (isset($_GET['id'])) {
     //     $wpdb->query($wpdb->prepare("DELETE FROM wp_contact WHERE id = %d", $_GET['id']));
     // }
-    if (isset($_GET['id'])) {
-        $wpdb->query($wpdb->prepare("UPDATE wp_contact SET status = 1 WHERE id = %d", $_GET['id']));
-    }
+	if (isset($_POST['duyetbutton'])) {
+	        $wpdb->query($wpdb->prepare("UPDATE wp_contact SET status = 1 WHERE id = %d", $_POST['holdid']));
+	}
+
     $results = $wpdb->get_results('SELECT * FROM wp_contact', OBJECT);
 ?>
+
+<form method="post" name="frm">
 
 <div style="font-weight: bold;font-size:16pt;font-family: 'Roboto', sans-serif;">
     Quản Lý Thư Từ Thắc Mắc
@@ -104,15 +107,17 @@ function uet_contact()
                 <td style="text-align:center;color : #337ab7"><?= $value-> email?></td>
                 <td style="text-align:center;color : #337ab7"><?= $value-> content?></td>
                 <td style="width:150px;text-align:center;color : #337ab7"><?= display_status($value-> status) ?></td>
-                <td style="width:150px;text-align:center;"><a class="btn btn-default btn-md" style="color : #337ab7;font-weight:bold;" href="<?= "?page=my-unique-identifier&id=$value->id" ?>" >Duyệt thư</a></td>
-                <td style="width:150px;text-align:center;"><button type="button" class="btn btn-info btn-md" style="font-weight:bold;" data-toggle="modal" data-target="#myModal" onclick="dialog('<?php echo $value->name?>','<?php echo $value->email?>','<?php echo $value->content?>')" >FeedBack</button></td>
-            </tr>
 
+                <td style="text-align: center;"><input style="color : #337ab7;font-weight:bold;" type="submit" class="btn btn-default btn-md" onclick="getidandreturn('<?php echo $value->id?>')" name="duyetbutton" value="Duyệt thư"/></td>
+
+                <td style="width:150px;text-align:center;"><button type="button" class="btn btn-info btn-md" style="font-weight:bold;" data-toggle="modal" data-target="#myModal" onclick="dialog('<?php echo $value->name?>','<?php echo $value->email?>','<?php echo $value->content?>')" >Phản hồi</button></td>
+            </tr>
             <?php
             $stt++;
             $count ++;
         }
         ?>
+        <input type="hidden" id="holdid" name="holdid" value=""/>
         </table>
         <?php 
             $page_links = paginate_links( array(
@@ -128,7 +133,11 @@ function uet_contact()
         }   
          ?>
 </div>
+</form>
     <script>
+	 	function getidandreturn(id){
+            $("#holdid").val(id);
+        }
         function dialog(name,email,content){
             $("#name").text(name);
             $("#email").text(email);
@@ -149,21 +158,67 @@ function uet_contact()
             <label style="color:#337ab7;font-weight:normal">Địa chỉ email:
                 <span style = "font-weight:bold;margin-left: 20px;color:black" id="email"></span>
             </label><br>
-            
-            <label style="color:#337ab7;font-weight:normal">Nội dung thư:
+			
+			
+			
+			<label style="color:#337ab7;font-weight:normal">Nội dung thư:
                 <span style = "font-weight:bold;margin-left: 20px;color:black" id ="content" ></span>
-            </label><br>    
+            </label><br>   </br>
+		  
+			<div style="color:#337ab7;font-weight:bold; text-align:center;">Phản hồi</div></br>
+			<label style="color:#337ab7;font-weight:normal">Nhập tiêu đề:</label>
+                <textarea style="font-weight:bold;width:100% ;border-radius:4px;color:black" placeholder="Nhập tiêu đề" rows = 2 style="width:100%" name="mail_title"></textarea>
+			
+               
                 <label style="color:#337ab7;font-weight:normal">Nội dung phản hồi</label>
-                <textarea style="font-weight:bold;width:100% ;border-radius:4px;color:black" placeholder="Nhập nội dung" rows = 2 style="width:100%"></textarea>
+                <textarea style="font-weight:bold;width:100% ;border-radius:4px;color:black" placeholder="Nhập nội dung" rows = 2 style="width:100%" name="send_content"></textarea>
             <div class="modal-footer">
-               <button style="color : #337ab7;font-weight:bold;" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			   <input type="submit" class="btn btn-default" name="send_email" value="Gửi" id="uet_send_email" style="color : #337ab7;font-weight:bold;"/>
+               <button style="color : #337ab7;font-weight:bold;" type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
            </div>
            </form>
         </div>
       </div>
     </div>
-    
-         
-<?php
-    
+    <?php
+    if(isset($_POST['send_email'])){
+        $subject = $_POST['mail_title'];
+        $body = $_POST['send_content'];
+    ?>
+    <?php
+    require_once "Mail.php";
+    ?>
+
+    <?php
+    $from = '<luongquy0810@gmail.com>';
+    $to = "luongquy0810@gmail.com";
+//	echo $to;
+//	die("Dung chuong trinh");
+    $headers = array(
+    'From' => $from,
+    'To' => $to,
+    'Subject' => $subject
+);
+
+$smtp = Mail::factory('smtp', array(
+    'host' => 'ssl://smtp.gmail.com',
+    'port' => '465',
+    'auth' => true,
+    'username' => 'haha08101997@gmail.com',
+    'password' => 'Dell08101997'
+));
+
+$mail = $smtp->send($to, $headers, $body);
+
+if (PEAR::isError($mail)) {
+    echo('<p>' . $mail->getMessage() . '</p>');
+} else {
+    echo('<p>Message successfully sent!</p>');
 }
+
+?>
+
+<?php
+    }  
+}
+?>
