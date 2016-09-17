@@ -24,6 +24,7 @@ wp_enqueue_script('prefix_bootstrap');
 wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 wp_enqueue_style('prefix_bootstrap');
 
+
 wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
 wp_enqueue_script('prefix_jquery');
 
@@ -107,8 +108,13 @@ function uet_file()
 
     global $wpdb;
 
-    if (isset($_GET['id'])) {
-        $wpdb->query($wpdb->prepare("UPDATE wp_file SET status = 1 WHERE id = %d", $_GET['id']));
+    // if (isset($_GET['id'])) {
+    //     $wpdb->query($wpdb->prepare("UPDATE wp_file SET status = 1 WHERE id = %d", $_GET['id']));
+    // }
+
+    if (isset($_POST['btnDelete'])) {
+        $id = $_POST['holdid'];
+        $wpdb->query($wpdb->prepare("DELETE FROM wp_file WHERE id = %d", $id));
     }
 
     $files = $wpdb->get_results('SELECT * FROM wp_file', OBJECT);
@@ -153,6 +159,28 @@ function uet_file()
          echo '</script>';
         // echo $upload["url"];
     }
+
+
+    if(isset($_POST["editButton"])) 
+    {
+        $file_dir =  "http://$_SERVER[HTTP_HOST]/uetdemo/wp-content/uploads/";
+        $target_dir = get_home_path()."/wp-content/uploads/";
+        // $filename = iconv("utf-8", "cp1258", basename($_FILES["fileContent"]["name"]));
+        $filename =basename($_FILES["EditfileContent"]["name"]);
+        $target_file = $target_dir . $filename;
+        // echo $file_dir.$filename;
+
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        $result = move_uploaded_file($_FILES['EditfileContent']['tmp_name'], $target_file);
+        global $wpdb;
+        if($result == 1){
+          $wpdb->query($wpdb->prepare("UPDATE wp_file SET name = %s , linkfile = %s WHERE id = %d", $_POST['inputEditName'],$file_dir.$filename,$_POST['holdEditId']));
+        }
+         echo '<script type="text/javascript">'; 
+         echo 'window.location.reload(true)';
+         echo '</script>';
+        // echo $upload["url"];
+    }
 ?>
 
 
@@ -163,10 +191,6 @@ function uet_file()
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" />
 </head>
 
-<!--<form method="post" enctype="multipart/form-data">
-    <input type="file" class="form-control file" id="fileContent" name="fileContent" placeholder="Link File"/>
-    <input type="submit" class="btn btn-default"  name="form_click1" value="Complete"/>
-</form> -->
 
 <form method="post" name="frm">
 <button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnAddFile" data-toggle="modal" data-target="#myModal" onclick="" >Thêm tệp</button>
@@ -174,8 +198,10 @@ function uet_file()
     <table id="tblOne" class="wp-list-table widefat fixed striped pages" style="width:99%;">
         <tr style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
             <th style="text-align: center;width:60px"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
-            <th style="text-align: center;font-weight: normal;color : #337ab7;">Tên tệp</th>
+            <th style="width:50px"></th>
+            <th style="text-align: left;font-weight: normal;color : #337ab7;">Tên tệp</th>
             <th style="text-align: center;font-weight: normal;color: #337ab7;">Tải tệp</th>
+            <th style="text-align: center;font-weight: normal;color: #337ab7;">Xóa tệp</th>
         </tr>
           <?php
           $stt = 0;
@@ -183,14 +209,20 @@ function uet_file()
           ?>
         <tr id="tr<?php echo $stt?>">
             <td style="text-align: center;"><input type="checkbox" name="check_list[]" id="checkbox<?php echo $file->id ?>"value="<?php echo $file->id ?>"></td>
-            <td style="text-align: center;font-weight: bold;color : #337ab7;"><?= $file-> name ?></td>
+            <td style="width:50px"></td>
+            <td id ="fileid<?php echo $file->id ?>" style="text-align: left;font-weight: bold;color : #337ab7;"><?= $file-> name ?></td>
             <td style="text-align: center;color : #337ab7"><a style ="font-weight:bold"href="<?= $file-> linkfile ?>" >Download</a></td>
+            <td style="text-align: center;">
+            <button type="submit" style="font-weight:bold" class="btn btn-danger btn-md" name="btnDelete" onclick="getidandreturn(<?php echo $file->id?>)">Xóa tệp</button>
+            <button style="color : #337ab7;font-weight:bold" type="button" class="btn btn-default btn-md" id="btnEdit" data-toggle="modal" data-target="#EditModal" onclick="getEditName(<?php echo $file->id?>)">Sửa</button>
+            </td>
         </tr>
          <?php
           $stt++;
             }
          ?>
     </table>
+    <input id="holdid" name="holdid" type="hidden" value=""/>
    
 </form>
 
@@ -220,6 +252,15 @@ function uet_file()
               this.css("background-color", "#f2f2f2");
             }
         });
+        function getidandreturn(id){
+            $("#holdid").val(id);
+        }
+        function getEditName(id){
+          var s = $("#fileid" + id).text();
+          $("#inputEditName").val(s);
+          $("#holdEditId").val(id);
+        }
+
     </script>
 
  <!-- Trigger the modal with a button -->
@@ -248,6 +289,29 @@ function uet_file()
     </div>
     
     <!-- Trigger the modal with a button -->
+
+     <div id="EditModal" class="modal fade" role="dialog">
+       <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" enctype="multipart/form-data" accept-charset="utf-8" style="font-family:'Roboto', sans-serif;margin-left: 25px;margin-right: 25px;height:20%" >
+                    <div style="font-size:13pt;font-weight: bold; text-align: center;color:#337ab7;margin-top:10px">Sửa Tài Liệu</div>
+                    <div class="modal-body">
+                      <label style="color:#337ab7;font-weight:normal">Tên tài liệu</label><br>
+                      <input type="text" style="font-weight:bold;width:100% ;border-radius:4px;" class="form-control answerip" name="inputEditName" id="inputEditName"/>
+                    </div>
+                  <div class="modal-body">
+                    <label id="anslb" style="color:#337ab7;font-weight:normal;">Tệp tin tải lên</label>
+                    <input type="file" class="form-control file" id="EditfileContent" name="EditfileContent" placeholder="Link File"/> 
+                  </div><br>
+                  <div class="modal-footer">
+                    <input style="color : #337ab7;font-weight:bold;" type="submit" class="btn btn-default"  name="editButton" value="Lưu"/>
+                    <button style="color : #337ab7;font-weight:bold;" type="button" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
+                  </div>
+                  <input type="hidden" id="holdEditId" name="holdEditId" value="" />
+                </form>
+            </div>
+        </div>
+    </div>
 <?php
 
     
