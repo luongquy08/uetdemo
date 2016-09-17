@@ -15,8 +15,8 @@ wp_re
 global $uet_db_version;
 $uet_db_version = '1.0';
 
-add_action('plugins_loaded', 'file_uet');
 add_action('plugins_loaded', 'create_file_table');
+add_action('plugins_loaded', 'file_uet');
 
 wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
 wp_enqueue_script('prefix_bootstrap');
@@ -25,8 +25,8 @@ wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6
 wp_enqueue_style('prefix_bootstrap');
 
 
-wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
-wp_enqueue_script('prefix_jquery');
+// wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+// wp_enqueue_script('prefix_jquery');
 
 function create_file_table()
 {
@@ -228,37 +228,37 @@ function uet_file()
 
 </div>
     <script>
-        $(window).load(function() {
+        jQuery(window).load(function() {
             for (i = 0; i < 1000; i++) {
                 if( i%2 == 0){
-                  $("#tr" + i).css('background-color', '#f2f2f2');
+                  jQuery("#tr" + i).css('background-color', '#f2f2f2');
                 }
                 else{
-                  $("#tr" + i).css('background-color', '#fff');
+                  jQuery("#tr" + i).css('background-color', '#fff');
                 }
             }
         });
 
-        $("#allcheckbox").change(function() {
+        jQuery("#allcheckbox").change(function() {
             if(this.checked) {
-                $(":checkbox").prop('checked', true);
+                jQuery(":checkbox").prop('checked', true);
             }
             else{
-                $(":checkbox").prop('checked', false);   
+                $jQuery(":checkbox").prop('checked', false);   
             }
         });
-        $('#tblOne > tbody  > tr').each(function() {
+        jQuery('#tblOne > tbody  > tr').each(function() {
             if (this.id % 2 != 0 ) {
               this.css("background-color", "#f2f2f2");
             }
         });
         function getidandreturn(id){
-            $("#holdid").val(id);
+            jQuery("#holdid").val(id);
         }
         function getEditName(id){
-          var s = $("#fileid" + id).text();
-          $("#inputEditName").val(s);
-          $("#holdEditId").val(id);
+          var s = jQuery("#fileid" + id).text();
+          jQuery("#inputEditName").val(s);
+          jQuery("#holdEditId").val(id);
         }
 
     </script>
