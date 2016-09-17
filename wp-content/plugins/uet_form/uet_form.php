@@ -249,8 +249,7 @@ function uet_form()
     <br>
     <input type="hidden"  name="qtid" id="holdid" />
     <input style="color:#337ab7;font-weight: bold; " class="btn btn-default btn-md" type="submit" name="ChangeState" id="reload" value="Thay đổi trạng thái"/>
-    <button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#myModal">Thêm câu hỏi</button>
-    <button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnDate" onclick="showEditDate()" >Thay đổi ngày</button>
+    <button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#myModal">Thêm đơn từ</button>
     <br>
     <!--code cho phan phan trang -->
     <?php
@@ -280,10 +279,6 @@ function uet_form()
     <br>
     <table id="tblDate" style="width: 40%;">
         <tr>
-            <th><div style="color:#337ab7;font-weight:normal">Ngày bắt đầu</div></th>
-            <th><div style="color:#337ab7;font-weight:normal">Ngày kết thúc</div></th>
-        </tr>
-        <tr>
             <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="ChangestartTime" id="ChangestartTime"></td>
             <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="ChangeendTime" id="ChangeendTime"></td>
             <td><input style="color:#337ab7;font-weight:bold" class="btn btn-default btn-md" type="submit" name="ChangeDate" id="ChangeDate" value="Hoàn thành"/></td>
@@ -296,10 +291,9 @@ function uet_form()
             <tr style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
                 <th style="text-align: center;width: 3em;"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
                 <th style="width:400px;font-weight: normal;color : #337ab7">Tên đơn</th>
-                <th style="text-align: center;font-weight: normal;color : #337ab7">Ngày bắt đầu</th>
-                <th style="text-align: center;font-weight: normal;color : #337ab7">Ngày kết thúc</th>
                 <th style="text-align: center;font-weight: normal;color : #337ab7">Trạng thái đơn</th>
                 <th style="text-align: center;font-weight: normal;color : #337ab7">Chỉnh sửa</th>
+                <th style="text-align: center;font-weight: normal;color : #337ab7">Tác vụ</th>
             </tr>
         <?php
         function my_mb_ucfirst($str) {
@@ -322,8 +316,8 @@ function uet_form()
                 <td style="font-weight:bold;color : #337ab7"id="tdqt<?php echo $tmp[$j]->id?>" onclick="showAns('<?php echo $tmp[$j]->id?>')" ><?php $name = $tmp[$j]-> formName; my_mb_ucfirst($name) ;?></td>
                 <td style="text-align: center;color : #337ab7" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label id="lblstart<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> startTime?></label></td>
                 <td style="text-align: center;color : #337ab7" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label   id="lblend<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> endTime?></label></td>
-                <td style="text-align: center;" ><input style="font-weight: bold;"type="submit" class="btn btn-danger btn-md" onclick="getidandreturn('<?php echo $tmp[$j]->id?>')" name="form_click1" value="<?= displayformStatus($tmp[$j]-> status) ?>"/></td>       
-                <td style="text-align: center;" ><input style="color:#337ab7;font-weight: bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $tmp[$j]->id?>')" value="Sửa"/></td> 
+                <td style="text-align: center;" ><input style="font-weight: bold;"type="submit" class="btn btn-danger btn-md" onclick="getidandreturn('<?php echo $tmp[$j]->id?>')" name="form_click1" value="<?= displayformStatus($tmp[$j]-> status) ?>"/><input style=" margin-left: 10px; color:#337ab7;font-weight: bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $tmp[$j]->id?>')" value="Sửa"/></td>
+
             </tr>
         <?php
                 }
@@ -571,16 +565,6 @@ function uet_form()
                             <label style="color:#337ab7;font-weight:normal">Tên đơn</label>
                             <textarea id="txtqs" name="contentqs" placeholder="Chỉ nhập tên bằng chữ thường" rows = 2 style="font-weight:bold;width:100%;border-radius:4px;" ></textarea>
                         </div><br>
-                        <table style="width :100%">
-                            <tr>
-                                <th><div style="font-weight:normal;color:#337ab7">Ngày bắt đầu</div></th>
-                                <th><div style="font-weight:normal;color:#337ab7;margin-left:10%;">Ngày kết thúc</div></th>
-                            </tr>
-                            <tr>
-                                <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="startTime" id="startTime"></td>
-                                <td><input  style="margin-left:10%;width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="endTime" id="endTime"></td>
-                            </tr>
-                        </table>
                         <br>
                         <label id="anslb" style="color:#337ab7;font-weight:normal">Thêm trường</label>
                         <input type="text" style="font-weight:bold" class="form-control answerip" id="answer"/>
@@ -615,16 +599,7 @@ function uet_form()
                             <input type="hidden" class="form-control" name="quesid" id="quesid"/>
                             <textarea style="font-weight:bold;width:100%;border-radius:4px;" id="txtqsedit" name="contentqsedit" placeholder="Chỉ nhập tên bằng chữ thường" rows = 2></textarea>
                         </div><br>
-                        <table style="width:100%;">
-                            <tr>
-                                <th><div style="font-weight:normal">Ngày bắt đầu</div></th>
-                                <th><div style="margin-left:10%;font-weight:normal">Ngày kết thúc</div></th>
-                            </tr>
-                            <tr>
-                                <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="startTimeedit" id="startTimeedit"></td>
-                                <td><input style="margin-left:10%;width: 190px;text-align: center;border-radius:4px;font-weight:bold"type="date" name="endTimeedit" id="endTimeedit"></td>
-                            </tr>
-                        </table>                                        
+
     <!--                     </br> -->           
                       <!-- <div class="modal-body"> -->
                         <br>

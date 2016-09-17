@@ -234,7 +234,7 @@
                                         ?>
                                          <div class="text">
                                             <h2 class="cs-post-title"><a href="<?php the_permalink(); ?>" class="colrhvr">
-											<?php echo substr(get_the_title(),0,20); if(strlen(get_the_title()) > 20) { echo "...";} ?></a></h2>
+											<?php echo mb_substr(get_the_title(),0,20); if(strlen(get_the_title()) > 20) { echo "...";} ?></a></h2>
                                             <p style="display: none;"><?php cs_get_the_excerpt(60,false);?>...</p>
                                         </div>
                                     </article>
