@@ -284,9 +284,7 @@ function uet_form()
             <tr style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
                 <th style="text-align: center;width: 3em;"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
                 <th style="width:400px;font-weight: normal;color : #337ab7">Tên đơn</th>
-                <th></th>
                 <th style="text-align: center;font-weight: normal;color : #337ab7">Trạng thái đơn</th>
-                <th></th>
                 <th style="text-align: center;font-weight: normal;color : #337ab7">Chỉnh sửa</th>
             </tr>
         <?php
@@ -308,9 +306,9 @@ function uet_form()
         ?>
                 <td style="text-align: center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $tmp[$j]->id?>" value= "<?php echo $tmp[$j]->id?>" ></td>
                 <td style="font-weight:bold;color : #337ab7"id="tdqt<?php echo $tmp[$j]->id?>" onclick="showAns('<?php echo $tmp[$j]->id?>')" ><?php $name = $tmp[$j]-> formName; my_mb_ucfirst($name) ;?></td>
-                <td></td>
+
                 <td style="text-align: center;" ><input style="font-weight: bold;"type="submit" class="btn btn-danger btn-md" onclick="getidandreturn('<?php echo $tmp[$j]->id?>')" name="form_click1" value="<?= displayformStatus($tmp[$j]-> status) ?>"/></td>
-                <td></td>
+
                 <td style="text-align: center;" ><input style="color:#337ab7;font-weight: bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $tmp[$j]->id?>')" value="Sửa"/></td> 
             </tr>
         <?php
@@ -325,8 +323,7 @@ function uet_form()
         ?>          
                 <td style="text-align: center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $tmp[$j]->id?>" value= "<?php echo $tmp[$j]->id?>" ></td>
                 <td style="font-weight:bold;color : #337ab7" id="tdqt<?php echo $tmp[$j]->id?>" onclick="showAns('<?php echo $tmp[$j]->id?>')" ><?php $name = $tmp[$j]-> formName ; my_mb_ucfirst($name);?></td>
-                <td style="text-align: center;color : #337ab7" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label  id="lblstart<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> startTime?></label></td>
-                <td style="text-align: center;color : #337ab7" onclick="showAns('<?php echo $tmp[$j]->id?>')"><label  id="lblend<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> endTime?></label></td>
+
                 <td style="text-align: center;"><input style="color:#337ab7;font-weight: bold" type="submit" class="btn btn-default btn-md" onclick="getidandreturn('<?php echo $tmp[$j]->id?>')" name="form_click1" value="<?= displayformStatus($tmp[$j]-> status) ?>"/></td>
                 <td style="text-align: center; "><input style="color:#337ab7;font-weight: bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $tmp[$j]->id?>')" value ="Sửa"/></td> 
             </tr>
@@ -336,7 +333,7 @@ function uet_form()
         ?>
             <!-- phần câu trả lời -->
             <tr id="answer<?php echo $tmp[$j]->id?>" class="answer">
-                <td colspan="6" style="background-color:#f9f9f9" >
+                <td colspan="4" style="background-color:#f9f9f9" >
                     <div  style="float:left; width: 30%; margin-left:10%;">
                 <?php
                     $length =  count($answers);
