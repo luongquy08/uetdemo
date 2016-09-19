@@ -113,12 +113,9 @@ function uet_file()
     // }
 
     if (isset($_POST['btnDelete'])) {
-      $id = $_POST['holdid'];
-      if ($_POST['holdconfirm'] == 'true') {    
+        $id = $_POST['holdid'];
         $wpdb->query($wpdb->prepare("DELETE FROM wp_file WHERE id = %d", $id));
-      }
-      else{}
-  }
+    }
 
     $files = $wpdb->get_results('SELECT * FROM wp_file', OBJECT);
 
@@ -137,7 +134,7 @@ function uet_file()
         $file_dir =  "http://$_SERVER[HTTP_HOST]/uetdemo/wp-content/uploads/";
         $target_dir = get_home_path()."/wp-content/uploads/";
         // $filename = iconv("utf-8", "cp1258", basename($_FILES["fileContent"]["name"]));
-        $filename =vn_str_filter(basename($_FILES["fileContent"]["name"]));
+        $filename =basename($_FILES["fileContent"]["name"]);
         $target_file = $target_dir . $filename;
         // echo $file_dir.$filename;
 
@@ -145,7 +142,6 @@ function uet_file()
         $result = move_uploaded_file($_FILES['fileContent']['tmp_name'], $target_file);
         global $wpdb;
         if($result == 1){
-          echo $result;
         $wpdb->insert(
                     'wp_file',
                     array(
@@ -172,16 +168,13 @@ function uet_file()
         // $filename = iconv("utf-8", "cp1258", basename($_FILES["fileContent"]["name"]));
         $filename =basename($_FILES["EditfileContent"]["name"]);
         $target_file = $target_dir . $filename;
+        // echo $file_dir.$filename;
 
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $result = move_uploaded_file($_FILES['EditfileContent']['tmp_name'], $target_file);
-        echo $result;
         global $wpdb;
         if($result == 1){
           $wpdb->query($wpdb->prepare("UPDATE wp_file SET name = %s , linkfile = %s WHERE id = %d", $_POST['inputEditName'],$file_dir.$filename,$_POST['holdEditId']));
-        }
-        else{
-          $wpdb->query($wpdb->prepare("UPDATE wp_file SET name = %s  WHERE id = %d", $_POST['inputEditName'],$_POST['holdEditId'])); 
         }
          echo '<script type="text/javascript">'; 
          echo 'window.location.reload(true)';
@@ -201,6 +194,14 @@ function uet_file()
 
 <form method="post" name="frm">
 <button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnAddFile" data-toggle="modal" data-target="#myModal" onclick="" >Thêm tệp</button>
+<?php
+  $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
+  $limit = 2; // number of rows in page           
+  $offset = ( $pagenum - 1 ) * $limit; 
+  $total = $wpdb->get_var( "SELECT COUNT(`id`) FROM `wp_file`" );
+  $num_of_pages = ceil( $total / $limit );
+  $files = $wpdb->get_results( "SELECT * FROM wp_file LIMIT $offset, $limit" );
+?>  
 <br><br>
     <table id="tblOne" class="wp-list-table widefat fixed striped pages" style="width:99%;">
         <tr style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
@@ -208,7 +209,7 @@ function uet_file()
             <th style="width:50px"></th>
             <th style="text-align: left;font-weight: normal;color : #337ab7;">Tên tệp</th>
             <th style="text-align: center;font-weight: normal;color: #337ab7;">Tải tệp</th>
-            <th style="text-align: center;font-weight: normal;color: #337ab7;">Tác vụ</th>
+            <th style="text-align: center;font-weight: normal;color: #337ab7;">Xóa tệp</th>
         </tr>
           <?php
           $stt = 0;
@@ -230,14 +231,64 @@ function uet_file()
          ?>
     </table>
     <input id="holdid" name="holdid" type="hidden" value=""/>
-    <input id="holdconfirm" name="holdconfirm" type="hidden" value=""/>
+   <!-- cpde phan trang -->
+    <div class="pagination" style="float:right; margin-right:75px;">
+        <li><a class="page-link" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum=1" aria-hidden="true" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            <?php
+                if($num_of_pages >2){
+                    if($pagenum == 1){
+                        echo '<li class="page-item" ><a class="page-link" style="margin-left:3px; background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum=1">1</a></li>';
+                        for($i = 2;$i<= 3; $i++)
+                        {
+                            echo '<li class="page-item" ><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum='.$i.'">'.$i.'</a></li>';
+                        }
+                    }
+                    elseif ($pagenum > 1 && $pagenum < $num_of_pages) {
+                        for($i = $pagenum - 1;$i<= $pagenum+1; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }
+                    }
+                    else{
+                        for($i = $pagenum - 2;$i<= $pagenum; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }
+                    } 
+                }
+                else{
+                    if($num_of_pages == 2){
+                        for($i = 1; $i<= 2; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }  
+                    }
+                    else{
+                        echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum=1">1</a></li>';
+                    }
+                }
+                
+                echo'<li ><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierfour&pagenum='.$num_of_pages.'" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'; ?>
+    </div>
 </form>
 
 </div>
     <script>
-        function confirmbox(){
-            return confirm("Bạn có chắc chắn muốn xóa tệp này ?");
-        }
         jQuery(window).load(function() {
             for (i = 0; i < 1000; i++) {
                 if( i%2 == 0){
@@ -264,9 +315,6 @@ function uet_file()
         });
         function getidandreturn(id){
             jQuery("#holdid").val(id);
-            var s = confirmbox();
-            jQuery("#holdconfirm").val(s);
-
         }
         function getEditName(id){
           var s = jQuery("#fileid" + id).text();
