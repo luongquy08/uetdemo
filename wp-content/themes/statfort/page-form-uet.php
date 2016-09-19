@@ -129,7 +129,7 @@ get_header();
                         ?>
                             <script type="text/javascript">
                             confirm("Gửi đơn thành công!");
-                            window.location = "http://42.113.4.161:8888/uetdemo/don-tu/";
+                            window.location = "http://113.23.111.137:8888/uetdemo/don-tu/";
                             </script>      
                         <?php
                         }
