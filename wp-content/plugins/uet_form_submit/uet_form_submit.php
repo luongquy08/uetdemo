@@ -102,7 +102,7 @@ function uet_form_submit()
 <?php
          // code phan trang 
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
-        $limit = 3; // number of rows in page           
+        $limit = 3; // number of rows in page
         $offset = ( $pagenum - 1 ) * $limit; 
         $total = $wpdb->get_var( "SELECT COUNT(`id`) FROM `wp_form_submit`" );
         $num_of_pages = ceil( $total / $limit );
@@ -177,21 +177,74 @@ function uet_form_submit()
     </table>
     <!-- <div style="float:left;margin-left:2px;"> -->
     <?php  
-        $page_links = paginate_links( array(
+        // $page_links = paginate_links( array(
 
-            'base' => add_query_arg( 'pagenum', '%#%' ),
-            'format' => '',
-            'prev_text' => __( '&laquo;', 'aag' ),
-            'next_text' => __( '&raquo;', 'aag' ),
-            'total' => $num_of_pages,
-            'current' => $pagenum
-        ) );
-        if ( $page_links ) {        
-            echo '<div class="pagination" style="float:right; margin-right:75px;">
-            <li>'. $page_links .'</li>
-            </div>';
-        }
+        //     'base' => add_query_arg( 'pagenum', '%#%' ),
+        //     'format' => '',
+        //     'prev_text' => __( '&laquo;', 'aag' ),
+        //     'next_text' => __( '&raquo;', 'aag' ),
+        //     'total' => $num_of_pages,
+        //     'current' => $pagenum
+        // ) );
+        // if ( $page_links ) {        
+        //     echo '<div class="pagination" style="float:right; margin-right:75px;">
+        //     <li>'. $page_links .'</li>
+        //     </div>';
+        // }
     ?>
+    <div class="pagination" style="float:right; margin-right:75px;">
+        <li><a class="page-link" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum=1" aria-hidden="true" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            <?php
+                if($num_of_pages >2){
+                    if($pagenum == 1){
+                        echo '<li class="page-item" ><a class="page-link" style="margin-left:3px; background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum=1">1</a></li>';
+                        for($i = 2;$i<= 3; $i++)
+                        {
+                            echo '<li class="page-item" ><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum='.$i.'">'.$i.'</a></li>';
+                        }
+                    }
+                    elseif ($pagenum > 1 && $pagenum < $num_of_pages) {
+                        for($i = $pagenum - 1;$i<= $pagenum+1; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }
+                    }
+                    else{
+                        for($i = $pagenum - 2;$i<= $pagenum; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }
+                    } 
+                }
+                else{
+                    if($num_of_pages == 2){
+                        for($i = 1; $i<= 2; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }  
+                    }
+                    else{
+                        echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum=1">1</a></li>';
+                    }
+                }
+                
+                echo'<li ><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierthree&pagenum='.$num_of_pages.'" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'; ?>
+    </div>
 </form>
 
 </div>
