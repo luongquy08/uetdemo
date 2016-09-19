@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap.min.css" /> -->
     <!-- <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" /> -->
 </head>
-<!-- <style type="text/css"></style> -->
+<!-- <style type="text/css"></style> -->                                                                                                                                                                                                                            
 <?php
 /**
  * Template Name: form page
@@ -22,7 +22,7 @@ get_header();
     <?php 
         global $wpdb;
             $forms = $wpdb->get_results( "SELECT * FROM wp_form");
-            $fields = $wpdb->get_results ( "SELECT * FROM wp_field" );
+            // 
     ?>
     <div class="contact-body">    
         <div class="contact-container">
@@ -55,15 +55,18 @@ get_header();
                     <hr/>
                     <?php  
                         $selectOption = $_POST['taskOption'];
-                        foreach ($forms as $frm) {
-                            if(($frm->id == $selectOption)){ 
+                        //foreach ($forms as $frm) {
+                          //  if(($frm->id == $selectOption)){ 
+                       
+                        if($selectOption!= 0){
+                        $forms1 =  $wpdb->get_results("SELECT * FROM wp_form WHERE id = '$selectOption' AND status ='1'");
                     ?>
                                 <div class="panel ">
-                                    <div class="panel-heading" ><strong><?php echo $frm->formName; ?></strong></div><br/>
+                                    <div class="panel-heading" ><strong><?php echo $forms1[0]->formName; ?></strong></div><br/>
                                         <div class="input-left" style="width:440px;">
                                     <?php
                                         global $wpdb;
-                                        $fields1 =  $wpdb->get_results("SELECT * FROM wp_field WHERE formid = '$frm->id' AND status ='1'");
+                                        $fields1 =  $wpdb->get_results("SELECT * FROM wp_field WHERE formid = '$selectOption' AND status ='1'");
                                         $j = 0;
                                         for($i = 0; $i < round(count($fields1)/2); $i++){
                                     ?>                           
@@ -98,12 +101,13 @@ get_header();
                                 
                     <?php
                             }
-                        }
+                        // }
                     ?>
                     </form> 
                     <?php 
                         $totalIdField = $wpdb->get_var( "SELECT COUNT(`id`) FROM `wp_form_submit_field`" ); 
                         $totalIDform = $wpdb->get_var( "SELECT COUNT(`id`) FROM `wp_form_submit`" ); 
+                        $fields = $wpdb->get_results ( "SELECT * FROM wp_field" );
                         $today = date("Y-m-d");
                         $stt = 1;
                         foreach ($fields as $fld){
@@ -120,7 +124,15 @@ get_header();
                             }
                         }
 
-
+                        if (isset($_POST['submit']))
+                        {   
+                        ?>
+                            <script type="text/javascript">
+                            confirm("Gửi đơn thành công!");
+                            window.location = "http://42.113.4.161:8888/uetdemo/don-tu/";
+                            </script>      
+                        <?php
+                        }
                     ?>
             </div>
         </div>
@@ -130,4 +142,3 @@ get_header();
     get_footer(); 
 ?>
 </html>
-
