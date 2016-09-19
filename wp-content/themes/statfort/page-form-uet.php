@@ -22,7 +22,6 @@ get_header();
     <?php 
         global $wpdb;
             $forms = $wpdb->get_results( "SELECT * FROM wp_form");
-            // 
     ?>
     <div class="contact-body">    
         <div class="contact-container">
@@ -42,7 +41,7 @@ get_header();
                                 $today_time = strtotime($today);
                                 $start_time = strtotime($startTime);
                                 $end_time = strtotime($endTime);
-                                if(($frm->status == 1) && ($start_time < $today_time) && ($end_time > $today_time)){      
+                                if($frm->status == 1){      
                             ?>
                                     <option value="<?= $frm->id ?>"><?php echo $frm->formName; ?></option>
                             <?php      
@@ -54,10 +53,7 @@ get_header();
                     </div>
                     <hr/>
                     <?php  
-                        $selectOption = $_POST['taskOption'];
-                        //foreach ($forms as $frm) {
-                          //  if(($frm->id == $selectOption)){ 
-                       
+                        $selectOption = $_POST['taskOption'];                       
                         if($selectOption!= 0){
                         $forms1 =  $wpdb->get_results("SELECT * FROM wp_form WHERE id = '$selectOption' AND status ='1'");
                     ?>
