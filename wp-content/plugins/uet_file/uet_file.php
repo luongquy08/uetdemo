@@ -113,9 +113,12 @@ function uet_file()
     // }
 
     if (isset($_POST['btnDelete'])) {
-        $id = $_POST['holdid'];
+      $id = $_POST['holdid'];
+      if ($_POST['holdconfirm'] == 'true') {    
         $wpdb->query($wpdb->prepare("DELETE FROM wp_file WHERE id = %d", $id));
-    }
+      }
+      else{}
+  }
 
     $files = $wpdb->get_results('SELECT * FROM wp_file', OBJECT);
 
@@ -134,7 +137,7 @@ function uet_file()
         $file_dir =  "http://$_SERVER[HTTP_HOST]/uetdemo/wp-content/uploads/";
         $target_dir = get_home_path()."/wp-content/uploads/";
         // $filename = iconv("utf-8", "cp1258", basename($_FILES["fileContent"]["name"]));
-        $filename =basename($_FILES["fileContent"]["name"]);
+        $filename =vn_str_filter(basename($_FILES["fileContent"]["name"]));
         $target_file = $target_dir . $filename;
         // echo $file_dir.$filename;
 
@@ -142,6 +145,7 @@ function uet_file()
         $result = move_uploaded_file($_FILES['fileContent']['tmp_name'], $target_file);
         global $wpdb;
         if($result == 1){
+          echo $result;
         $wpdb->insert(
                     'wp_file',
                     array(
@@ -168,13 +172,16 @@ function uet_file()
         // $filename = iconv("utf-8", "cp1258", basename($_FILES["fileContent"]["name"]));
         $filename =basename($_FILES["EditfileContent"]["name"]);
         $target_file = $target_dir . $filename;
-        // echo $file_dir.$filename;
 
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $result = move_uploaded_file($_FILES['EditfileContent']['tmp_name'], $target_file);
+        echo $result;
         global $wpdb;
         if($result == 1){
           $wpdb->query($wpdb->prepare("UPDATE wp_file SET name = %s , linkfile = %s WHERE id = %d", $_POST['inputEditName'],$file_dir.$filename,$_POST['holdEditId']));
+        }
+        else{
+          $wpdb->query($wpdb->prepare("UPDATE wp_file SET name = %s  WHERE id = %d", $_POST['inputEditName'],$_POST['holdEditId'])); 
         }
          echo '<script type="text/javascript">'; 
          echo 'window.location.reload(true)';
@@ -201,7 +208,7 @@ function uet_file()
             <th style="width:50px"></th>
             <th style="text-align: left;font-weight: normal;color : #337ab7;">Tên tệp</th>
             <th style="text-align: center;font-weight: normal;color: #337ab7;">Tải tệp</th>
-            <th style="text-align: center;font-weight: normal;color: #337ab7;">Xóa tệp</th>
+            <th style="text-align: center;font-weight: normal;color: #337ab7;">Tác vụ</th>
         </tr>
           <?php
           $stt = 0;
@@ -223,11 +230,14 @@ function uet_file()
          ?>
     </table>
     <input id="holdid" name="holdid" type="hidden" value=""/>
-   
+    <input id="holdconfirm" name="holdconfirm" type="hidden" value=""/>
 </form>
 
 </div>
     <script>
+        function confirmbox(){
+            return confirm("Bạn có chắc chắn muốn xóa tệp này ?");
+        }
         jQuery(window).load(function() {
             for (i = 0; i < 1000; i++) {
                 if( i%2 == 0){
@@ -254,6 +264,9 @@ function uet_file()
         });
         function getidandreturn(id){
             jQuery("#holdid").val(id);
+            var s = confirmbox();
+            jQuery("#holdconfirm").val(s);
+
         }
         function getEditName(id){
           var s = jQuery("#fileid" + id).text();
