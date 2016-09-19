@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" /> -->
 
 </head>
-<!-- <style type="text/css"></style> -->
 <?php
 /**
  * Template Name: Show Submit Page
@@ -32,7 +31,7 @@ get_header();
             <label class="lbl-form-submit" for="sel1" style="font-weight: bold;font-size: 150%;font-family: 'Roboto Slab', serif;float:left;margin-right: 10px;">
                 Nhập mã số sinh viên bạn cần tra 
             </label>
-            <input type="text" style="border : solid 0.1px #e0e0d1;border-radius: 7px;width: 200px;" class="selectpicker" name="mssv" placeholder="  Mã số sinh viên">
+            <input type="text" style="border : solid 0.1px #e0e0d1;border-radius: 7px;width: 200px;margin-top: -4px;" class="selectpicker" name="mssv" placeholder="  Mã số sinh viên">
             <input type="submit" class="btn-submit btn-success" value="Tìm kiếm" style="width: 100px; height: 40px; border-radius: 7px;font-size: 130%" />
         </div>
     <br><br><br>
@@ -74,19 +73,19 @@ get_header();
                 <tr id="field<?php echo $form_submit->id?>" class="field">
                     <div  style="float:left; width: 57.5%; margin-left:30%;">
                     <td colspan="4" style="background-color:#f9f9f9">
-                        <ol id="field<?php echo $form_submit->id?>">
+                        <ul id="field<?php echo $form_submit->id?>">
                     <?php 
                         for ($i=0; $i <count($fields) ; $i++) {
                         $field_submit = getfieldsubmit($fields[$i]-> id,$form_submit->id); 
                     ?>
-                            <li style="margin-left:45px"> 
-                            <label style="width:150px;margin-left:175px;"> <?= $fields[$i]-> content ?>:</label>
+                            <li style="margin-left:200px"> 
+                            <label style="width:150px;margin-left:30px;"> <?= $fields[$i]-> content ?>:</label>
                             <label style="margin-left:145px"> <?= $field_submit-> content ?> </label>
                             </li>
                     <?php 
                         }
                     ?>
-                        </ol>
+                        </ul>
                     </td>
                     </div>
                 </tr>   
