@@ -233,6 +233,11 @@ function uet_survey()
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/js" href="<?php echo get_template_directory_uri(); ?>/bootstrap_uet/js/bootstrap.min.js" />
     <link rel="stylesheet" type="text/js" href="<?php echo get_template_directory_uri(); ?>/jquery_uet/jquery-3.1.0.min.js" />
+    <style type="text/css">
+        .page-numbers .current{
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <div id="test" class="table-responsive">
 <div style="font-weight: bold;font-size: 16pt;font-family: 'Roboto', sans-serif;">
@@ -247,28 +252,6 @@ function uet_survey()
     <br>
     <!--code cho phan phan trang -->
     <?php
-         // code sap xep lai question va luu vao 1 doi tuong khac;
-        // $length =  count($questions);
-        // $tmp = $questions;
-        // $i = 0;
-        // for($m = 0;  $m <$length; $m++){
-        //     if($questions[$m]->status == 1){
-        //         $tmp[$i] = $questions[$m];
-        //         $i++;
-        //     }
-        // }
-        // for($m = 0;  $m <$length; $m++){
-        //     if($questions[$m]->status == 0){
-        //         $tmp[$i] = $questions[$m];
-        //         $i++;
-        //     }
-        // }
-        // $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
-        // $limit = 8; // number of rows in page           
-        // $offset = ( $pagenum - 1 ) * $limit; 
-        // $total = $wpdb->get_var( "SELECT COUNT(`id`) FROM `wp_surveyquestion`" );
-        // $num_of_pages = ceil( $total / $limit );
-
         $count = 0;
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
         $limit = 3; // number of rows in page           
@@ -430,16 +413,18 @@ function uet_survey()
         <?php  
         $page_links = paginate_links( array(
 
-            'base' => add_query_arg( 'pagenum', '%#%' ),
-            'format' => '',
-            'prev_text' => __( '&laquo;', 'aag' ),
-            'next_text' => __( '&raquo;', 'aag' ),
+            // 'base' => add_query_arg( 'pagenum', '%#%' ),
+            // 'format' => '',
+            // 'prev_text' => __( '&laquo;', 'aag' ),
+            // 'next_text' => __( '&raquo;', 'aag' ),
             'total' => $num_of_pages,
             'current' => $pagenum
         ) );
         if ( $page_links ) {        
             echo '<div class="pagination" style="float:right; margin-right:75px;">
-            <li>'. $page_links .'</li>
+            <li><a class=" firdt page-numbers" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierone&pagenum=1><span aria-hidden="true">&laquo;</span></a></li>
+            <li style="font-weight:bold">'. $page_links .'</li>
+            <li><a class=" firdt page-numbers" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifierone&pagenum='.$num_of_pages.'"><span aria-hidden="true">&raquo;</span></a></li>
             </div>';
         }
         ?>  
@@ -450,6 +435,16 @@ function uet_survey()
 <!--code html and php for show data question and answer-->
 <!--code javascript for all -->
 <script>
+        function deletespace(str){
+            var newstr;
+            for (i = 0; i < str.length ; i++){
+                if(str.charAt(i) !=' '){
+                    newstr = str.slice(i,str.length);
+                    break;
+                }
+            }
+            return newstr;
+        }
         jQuery(window).load(function() {
             jQuery(".answer").css("display", "none");
             jQuery("#tblDate").css("display", "none");
@@ -556,7 +551,7 @@ function uet_survey()
             jQuery('#answer'+ id).children('td').children('div').children('li').children('label').each(function () {
                 var id = "ansedit"+numansbefedit;
                 jQuery('</br>').attr('class' ,"answertab").insertBefore("#answeredit");
-                jQuery('<input>').attr('id' , id).val(jQuery(this).text()).insertBefore("#answeredit");
+                jQuery('<input>').attr('id' , id).val(deletespace(jQuery(this).text())).insertBefore("#answeredit");
                 jQuery("#" + id).attr('name' ,id );
                 jQuery('#ansedit' + numansbefedit).attr('class',"answertab");
                 numansbefedit++;
