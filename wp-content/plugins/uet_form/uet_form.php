@@ -253,29 +253,6 @@ function uet_form()
     <br>
     <!--code cho phan phan trang -->
     <?php
-         // code sap xep lai question va luu vao 1 doi tuong khac;
-        // $count = 0;
-        // $length =  count($questions);
-        // $tmp = $questions;
-        // $i = 0;
-        // for($m = 0;  $m <$length; $m++){
-        //     if($questions[$m]->status == 1){
-        //         $tmp[$i] = $questions[$m];
-        //         $i++;
-        //     }
-        // }
-        // for($m = 0;  $m <$length; $m++){
-        //     if($questions[$m]->status == 0){
-        //         $tmp[$i] = $questions[$m];
-        //         $i++;
-        //     }
-        // }
-        // $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
-        // $limit = 3; // number of rows in page           
-        // $offset = ( $pagenum - 1 ) * $limit; 
-        // $total = $wpdb->get_var( "SELECT COUNT(`id`) FROM `wp_form`" );
-        // $num_of_pages = ceil( $total / $limit );
-
         $count = 0;
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
         $limit = 3; // number of rows in page           
@@ -292,7 +269,7 @@ function uet_form()
             <tr style="color:#337ab7;font-size:12pt;border: solid 0.1px #f2f2f2;background-color: #fff">
                 <th style="text-align: center;width: 3em;"><input style="margin-left:2px;" id="allcheckbox" type="checkbox"></th>
                 <th style="width:400px;font-weight: normal;color : #337ab7">Tên đơn</th>
-                <th style="text-align: center;font-weight: normal;color : #337ab7">Trạng thái đơn</th>
+                <th style="text-align: center;font-weight: normal;color : #337ab7">Tác vụ</th>
                 <th style="text-align: center;font-weight: normal;color : #337ab7">Chỉnh sửa</th>
             </tr>
         <?php
@@ -314,9 +291,7 @@ function uet_form()
         ?>
                 <td style="text-align: center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $form_submit->id?>" value= "<?php echo $form_submit->id?>" ></td>
                 <td style="font-weight:bold;color : #337ab7"id="tdqt<?php echo $form_submit->id?>" onclick="showAns('<?php echo $form_submit->id?>')" ><?php $name = $form_submit-> formName; my_mb_ucfirst($name) ;?></td>
-                <!-- <td></td> -->
                 <td style="text-align: center;" ><input style="font-weight: bold;"type="submit" class="btn btn-danger btn-md" onclick="getidandreturn('<?php echo $form_submit->id?>')" name="form_click1" value="<?= displayformStatus($form_submit-> status) ?>"/></td>
-                <!-- <td></td> -->
                 <td style="text-align: center;" ><input style="color:#337ab7;font-weight: bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $form_submit->id?>')" value="Sửa"/></td> 
             </tr>
         <?php
@@ -536,16 +511,34 @@ function uet_form()
             numans = 0;    
             numansbefedit = 0;      
         }
+        function deletespace(str){
+            var newstr;
+            for (i = 0; i < str.length ; i++){
+                if(str.charAt(i) !=' '){
+                    newstr = str.slice(i,str.length);
+                    break;
+                }
+            }
+            return newstr;
+        }
         function showQuesandAns(id){
             var idansstring = "";
             jQuery("#txtqsedit").val(jQuery("#tdqt" + id).text());
             jQuery("#startTimeedit").val(jQuery("#lblstart" + id).text());
             jQuery("#endTimeedit").val(jQuery("#lblend" + id).text());
             jQuery("#quesid").val(id);
+            var stt = 1;
             jQuery('#answer'+ id).children('td').children('div').children('li').children('label').each(function () {
                 var id = "ansedit"+numansbefedit;
-                jQuery('</br>').attr('class' ,"answertab").insertBefore("#answeredit");
-                jQuery('<input>').attr('id' , id).val(jQuery(this).text()).insertBefore("#answeredit");
+                if(stt == 1){
+                    jQuery('</br>').attr('class' ,"answertab").insertBefore("#answeredit");
+                    jQuery('<input readonly>').attr('id' , id).val(deletespace(jQuery(this).text())).insertBefore("#answeredit");
+                }
+                else{
+                    jQuery('</br>').attr('class' ,"answertab").insertBefore("#answeredit");
+                    jQuery('<input>').attr('id' , id).val(deletespace(jQuery(this).text())).insertBefore("#answeredit");
+                }
+                stt++;
                 jQuery("#" + id).attr('name' ,id );
                 jQuery('#ansedit' + numansbefedit).attr('class',"answertab");
                 numansbefedit++;
@@ -594,13 +587,6 @@ function uet_form()
                             <label style="color:#337ab7;font-weight:normal">Tên đơn</label>
                             <textarea id="txtqs" name="contentqs" placeholder="Chỉ nhập tên bằng chữ thường" rows = 2 style="font-weight:bold;width:100%;border-radius:4px;" ></textarea>
                         </div><br>
-                        <!--<table style="width :100%">-->
-                        <!--    <tr>-->
-                        <!--        <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="startTime" id="startTime"></td>-->
-                        <!--        <td><input  style="margin-left:10%;width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="endTime" id="endTime"></td>-->
-                        <!--    </tr>-->
-                        <!--</table>-->
-                        <!--<br>-->
                         <label id="anslb" style="color:#337ab7;font-weight:normal">Thêm trường</label>
                         <input type="text" style="font-weight:bold" class="form-control answerip" id="answer"/>
                         <br>  
