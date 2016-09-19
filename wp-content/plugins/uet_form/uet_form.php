@@ -249,7 +249,7 @@ function uet_form()
     <br>
     <input type="hidden"  name="qtid" id="holdid" />
     <input style="color:#337ab7;font-weight: bold; " class="btn btn-default btn-md" type="submit" name="ChangeState" id="reload" value="Thay đổi trạng thái"/>
-    <button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#myModal">Thêm câu hỏi</button>
+    <button style="color:#337ab7;font-weight: bold;" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#myModal" onclick="addMSSVfield()">Thêm đơn từ</button>
     <br>
     <!--code cho phan phan trang -->
     <?php
@@ -562,6 +562,20 @@ function uet_form()
         }
         function showEditDate(){
             jQuery("#tblDate").fadeToggle('slow');
+        }
+        function addMSSVfield(){
+            var id = "ans"+numans;
+            var idx = "x" + numans;
+            var idbr = "br" + numans;
+            jQuery('</br>').attr('class' ,"answertab").attr('id',idbr).insertBefore("#answer");
+            jQuery('<input readonly>').attr('id' ,id ).insertBefore("#answer");
+            jQuery("#" + id).val("Mã số sinh viên");
+            jQuery("#" + id).attr('name' ,id );
+            jQuery("#" + id).attr('class' ,"answertab");
+            numans++;
+            jQuery("#numans").val(numans);
+            jQuery(".answerip" ).val("");
+            jQuery(".answerip").focus();
         }
 </script>
 <!--code javascript for all -->
