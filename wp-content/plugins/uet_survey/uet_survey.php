@@ -17,28 +17,28 @@ add_action('plugins_loaded', 'create_surveytable');
 add_action('plugins_loaded', 'create_answertable');
 add_action('plugins_loaded', 'survey_uet');
 
-// wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
-// // wp_register_script('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/js/bootstrap.min.js');
-// wp_enqueue_script('prefix_bootstrap');
-// wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-// // wp_register_style('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/css/bootstrap.min.css');
-// wp_enqueue_style('prefix_bootstrap');
+wp_register_script('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+// wp_register_script('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/js/bootstrap.min.js');
+wp_enqueue_script('prefix_bootstrap');
+wp_register_style('prefix_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+// wp_register_style('prefix_bootstrap', 'wp-content/plugins/uet_survey/bootstrap/css/bootstrap.min.css');
+wp_enqueue_style('prefix_bootstrap');
 // wp_register_script('prefix_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
 // wp_enqueue_script('prefix_jquery');
 
-function themeprefix_bootstrap_modals1() {
+// function themeprefix_bootstrap_modals1() {
 
-  wp_deregister_script('jquery');
-  wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.3.2', true);
+//   wp_deregister_script('jquery');
+//   wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.3.2', true);
 
-  wp_register_script ( 'modaljs' , get_stylesheet_directory_uri() . '/wp-includes/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '1', true );
-  wp_register_style ( 'modalcss' , get_stylesheet_directory_uri() . '/wp-includes/bootstrap/css/bootstrap.css', '' , '', 'all' );
+//   wp_register_script ( 'modaljs' , get_stylesheet_directory_uri() . '/wp-includes/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '1', true );
+//   wp_register_style ( 'modalcss' , get_stylesheet_directory_uri() . '/wp-includes/bootstrap/css/bootstrap.css', '' , '', 'all' );
   
-  wp_enqueue_script( 'modaljs' );
-  wp_enqueue_style( 'modalcss' );
-}
+//   wp_enqueue_script( 'modaljs' );
+//   wp_enqueue_style( 'modalcss' );
+// }
 
-add_action( 'wp_enqueue_scripts', 'themeprefix_bootstrap_modals1');
+// add_action( 'wp_enqueue_scripts', 'themeprefix_bootstrap_modals1');
 
 function create_answertable()
 {
@@ -248,26 +248,34 @@ function uet_survey()
     <!--code cho phan phan trang -->
     <?php
          // code sap xep lai question va luu vao 1 doi tuong khac;
-        $length =  count($questions);
-        $tmp = $questions;
-        $i = 0;
-        for($m = 0;  $m <$length; $m++){
-            if($questions[$m]->status == 1){
-                $tmp[$i] = $questions[$m];
-                $i++;
-            }
-        }
-        for($m = 0;  $m <$length; $m++){
-            if($questions[$m]->status == 0){
-                $tmp[$i] = $questions[$m];
-                $i++;
-            }
-        }
+        // $length =  count($questions);
+        // $tmp = $questions;
+        // $i = 0;
+        // for($m = 0;  $m <$length; $m++){
+        //     if($questions[$m]->status == 1){
+        //         $tmp[$i] = $questions[$m];
+        //         $i++;
+        //     }
+        // }
+        // for($m = 0;  $m <$length; $m++){
+        //     if($questions[$m]->status == 0){
+        //         $tmp[$i] = $questions[$m];
+        //         $i++;
+        //     }
+        // }
+        // $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
+        // $limit = 8; // number of rows in page           
+        // $offset = ( $pagenum - 1 ) * $limit; 
+        // $total = $wpdb->get_var( "SELECT COUNT(`id`) FROM `wp_surveyquestion`" );
+        // $num_of_pages = ceil( $total / $limit );
+
+        $count = 0;
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
-        $limit = 8; // number of rows in page           
+        $limit = 3; // number of rows in page           
         $offset = ( $pagenum - 1 ) * $limit; 
         $total = $wpdb->get_var( "SELECT COUNT(`id`) FROM `wp_surveyquestion`" );
         $num_of_pages = ceil( $total / $limit );
+        $survey_questions = $wpdb->get_results( "SELECT * FROM wp_surveyquestion LIMIT $offset, $limit" );
     ?>   
     <br>
     <table id="tblDate" style="width: 40%;font-weight:bold">
@@ -297,11 +305,9 @@ function uet_survey()
                 $fc = mb_strtoupper(mb_substr($str, 0, 1));
                 echo $fc.mb_substr($str, 1);
             }
-            $count = 0;
-            for($j= $offset; $j <$total ; $j++){
-                $answers = getanswer($tmp[$j]-> id);
-                if($j < $limit * $pagenum){
-                    if($tmp[$j]-> status == 1){
+            foreach($survey_questions as $survey_question){
+                $answers = getanswer($survey_question-> id);
+                    if($survey_question-> status == 1){
                         if($count % 2 != 0){
                             echo '<tr style="cursor: pointer;font-weight: bold;">';
                         }
@@ -310,15 +316,16 @@ function uet_survey()
                         } 
         ?>      
             <!-- <tr style="cursor: pointer;"> -->
-                <td style="text-align: center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $tmp[$j]->id?>" value= "<?php echo $tmp[$j]->id?>" ></td>
-                <td style="color : #337ab7" id="tdqt<?php echo $tmp[$j]->id?>" onclick="showAns('<?php echo $tmp[$j]->id?>')" ><?php $name = $tmp[$j]-> contentquestion; my_mb_ucfirst($name);?></td>
-                <td style="text-align: center;color : #337ab7"onclick="showAns('<?php echo $tmp[$j]->id?>')"><label id="lblstart<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> startTime?></label></td>
-                <td style="text-align: center;color : #337ab7"onclick="showAns('<?php echo $tmp[$j]->id?>')"><label id="lblend<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> endTime?></label></td>
-                <td style="text-align: center;color : #337ab7;font-weight:bold;"onclick="showAns('<?php echo $tmp[$j]->id?>')"><?= displayTypeQuestion($tmp[$j]-> type) ?></td>
-                <td style="text-align: center;"><input style="font-weight:bold" type="submit" class="btn btn-danger btn-md" onclick="getidandreturn('<?php echo $tmp[$j]->id?>')" name="form_click1" value="<?= displayquestionStatus($tmp[$j]-> status) ?>"/></td>
-                <td style="text-align: center;"><button style="color : #337ab7;font-weight:bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $tmp[$j]->id?>')" >Sửa</button></td> 
+                <td style="text-align: center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $survey_question->id?>" value= "<?php echo $survey_question->id?>" ></td>
+                <td style="color : #337ab7" id="tdqt<?php echo $survey_question->id?>" onclick="showAns('<?php echo $survey_question->id?>')" ><?php $name = $survey_question-> contentquestion; my_mb_ucfirst($name);?></td>
+                <td style="text-align: center;color : #337ab7"onclick="showAns('<?php echo $survey_question->id?>')"><label id="lblstart<?php echo $survey_question->id?>" ><?= $survey_question-> startTime?></label></td>
+                <td style="text-align: center;color : #337ab7"onclick="showAns('<?php echo $survey_question->id?>')"><label id="lblend<?php echo $survey_question->id?>" ><?= $survey_question-> endTime?></label></td>
+                <td style="text-align: center;color : #337ab7;font-weight:bold;"onclick="showAns('<?php echo $survey_question->id?>')"><?= displayTypeQuestion($survey_question-> type) ?></td>
+                <td style="text-align: center;"><input style="font-weight:bold" type="submit" class="btn btn-danger btn-md" onclick="getidandreturn('<?php echo $survey_question->id?>')" name="form_click1" value="<?= displayquestionStatus($survey_question-> status) ?>"/></td>
+                <td style="text-align: center;"><button style="color : #337ab7;font-weight:bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $survey_question->id?>')" >Sửa</button></td> 
             </tr>
         <?php
+                    $count ++;
                 }
                 else{
                     if($count % 2 != 0){
@@ -329,19 +336,20 @@ function uet_survey()
                         } 
         ?>
             <!-- <tr style="background: #ff8080; cursor: pointer;"> -->
-                <td style="text-align: center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $tmp[$j]->id?>" value= "<?php echo $tmp[$j]->id?>" ></td>
-                <td style="color : #337ab7;" id="tdqt<?php echo $tmp[$j]->id?>" onclick="showAns('<?php echo $tmp[$j]->id?>')" ><?php $name = $tmp[$j]-> contentquestion; my_mb_ucfirst($name);?></td>
-                <td style="text-align: center;color : #337ab7"onclick="showAns('<?php echo $tmp[$j]->id?>')"><label id="lblstart<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> startTime?></label></td>
-                <td style="text-align: center;color : #337ab7"onclick="showAns('<?php echo $tmp[$j]->id?>')"><label id="lblend<?php echo $tmp[$j]->id?>" ><?= $tmp[$j]-> endTime?></label></td>
-                <td style="text-align: center;color : #337ab7"onclick="showAns('<?php echo $tmp[$j]->id?>')"><?= displayTypeQuestion($tmp[$j]-> type) ?></td>
-                <td style="text-align: center;"> <input style="color : #337ab7;font-weight:bold" type="submit" class="btn btn-default btn-md" onclick="getidandreturn('<?php echo $tmp[$j]->id?>')" name="form_click1" value="<?= displayquestionStatus($tmp[$j]-> status) ?>"/></td>
-                <td style="text-align: center;"><button  style="color : #337ab7;font-weight:bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $tmp[$j]->id?>')" >Sửa</button></td> 
+                <td style="text-align: center;"><input type="checkbox" name="check_list[]" id= "checkbox<?php echo $survey_question->id?>" value= "<?php echo $survey_question->id?>" ></td>
+                <td style="color : #337ab7;" id="tdqt<?php echo $survey_question->id?>" onclick="showAns('<?php echo $survey_question->id?>')" ><?php $name = $survey_question-> contentquestion; my_mb_ucfirst($name);?></td>
+                <td style="text-align: center;color : #337ab7"onclick="showAns('<?php echo $survey_question->id?>')"><label id="lblstart<?php echo $survey_question->id?>" ><?= $survey_question-> startTime?></label></td>
+                <td style="text-align: center;color : #337ab7"onclick="showAns('<?php echo $survey_question->id?>')"><label id="lblend<?php echo $survey_question->id?>" ><?= $survey_question-> endTime?></label></td>
+                <td style="text-align: center;color : #337ab7"onclick="showAns('<?php echo $survey_question->id?>')"><?= displayTypeQuestion($survey_question-> type) ?></td>
+                <td style="text-align: center;"> <input style="color : #337ab7;font-weight:bold" type="submit" class="btn btn-default btn-md" onclick="getidandreturn('<?php echo $survey_question->id?>')" name="form_click1" value="<?= displayquestionStatus($survey_question-> status) ?>"/></td>
+                <td style="text-align: center;"><button  style="color : #337ab7;font-weight:bold" type="button" class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#EditModal" onclick="showQuesandAns('<?php echo $survey_question->id?>')" >Sửa</button></td> 
             </tr>
         <?php
+                $count ++; 
             }
-            $count ++;   
+             
         ?>
-            <tr id="answer<?php echo $tmp[$j]->id?>" class="answer">
+            <tr id="answer<?php echo $survey_question->id?>" class="answer">
                 <td colspan="7" style="background-color:#f9f9f9">
                     <div  style="float:left; width: 30%; margin-left:10%;">
                 <?php
@@ -412,7 +420,6 @@ function uet_survey()
                     echo'</div>';
                 echo'</td>';
             echo'</tr>';
-            }
         }
         ?> 
         </table>
@@ -420,7 +427,22 @@ function uet_survey()
         
         <!-- vi tri can phan trang -->
             
-             
+        <?php  
+        $page_links = paginate_links( array(
+
+            'base' => add_query_arg( 'pagenum', '%#%' ),
+            'format' => '',
+            'prev_text' => __( '&laquo;', 'aag' ),
+            'next_text' => __( '&raquo;', 'aag' ),
+            'total' => $num_of_pages,
+            'current' => $pagenum
+        ) );
+        if ( $page_links ) {        
+            echo '<div class="pagination" style="float:right; margin-right:75px;">
+            <li>'. $page_links .'</li>
+            </div>';
+        }
+        ?>  
 </form>
          
 
@@ -530,7 +552,8 @@ function uet_survey()
             jQuery("#startTimeedit").val(jQuery("#lblstart" + id).text());
             jQuery("#endTimeedit").val(jQuery("#lblend" + id).text());
             jQuery("#quesid").val(id);
-            jQuery('#olans'+ id).children('li').children('label').each(function () {
+            // jQuery('#olans'+ id).children('li').children('label').each(function () {
+            jQuery('#answer'+ id).children('td').children('div').children('li').children('label').each(function () {
                 var id = "ansedit"+numansbefedit;
                 jQuery('</br>').attr('class' ,"answertab").insertBefore("#answeredit");
                 jQuery('<input>').attr('id' , id).val(jQuery(this).text()).insertBefore("#answeredit");
@@ -593,6 +616,7 @@ function uet_survey()
                         <button type="button" style="color:#337ab7;font-weight:bold" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
                     </div>
                     <input type="hidden" class="form-control" name="numans" id="numans"/>
+                    <br/>
                 </form>
             </div>
         </div>
@@ -632,33 +656,19 @@ function uet_survey()
                     <label id="anslbedit" style="font-weight:normal">Thêm câu trả lời</label>
                         <input type="hidden" style="font-weight:bold" class="form-control" name="idansstring" id="idansstring"/>
                         <input type="text"  style="font-weight:bold" class="form-control answerip" id="answeredit" />
-                    <br>  
+                    <br>
+                    <input type="hidden" class="form-control" name="numansedit" id="numansedit"/>
+                    <input type="hidden" class="form-control" name="numansbefedit" id="numansbefedit"/>
+
                     <button type="button" style="color:#337ab7;font-weight:bold" class="btn btn-default" id="btnaddAnsweredit" onclick="insertAnswerEdit()">Thêm</button>
                     <div style="float:right;">
                         <input type="submit" style="color:#337ab7;font-weight:bold"class="btn btn-default"  name="form_clickedit" value="Hoàn Thành"/>                        
                         <button type="button" style="color:#337ab7;font-weight:bold" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
                     </div>
-                    <input type="hidden" class="form-control" name="numansedit" id="numansedit"/>
-                    <input type="hidden" class="form-control" name="numansbefedit" id="numansbefedit"/>
+                                        <br/>  
                 </form>
             </div>
         </div>
-    </div>
-    <div style="margin-left:500px">
-     <?php 
-            for($k= 0; $k < $num_of_pages; $k++ ){
-        ?>
-            <ul class="pagination" style="margin: 1em 0;" >
-                    <li >
-                        <a class = "number-page" href="?page=my-unique-identifierone&pagenum=<?=($k+1)?>">
-                            <?php echo ($k+1)?>
-                        </a>
-                    </li>
-            </ul>
-
-        <?php       
-            }
-         ?>
     </div>
     <!-- Trigger the modal with a button -->
 <?php   
