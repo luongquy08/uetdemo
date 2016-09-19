@@ -119,19 +119,59 @@ function uet_contact()
         ?>
         <input type="hidden" id="holdid" name="holdid" value=""/>
         </table>
-        <?php 
-            $page_links = paginate_links( array(
-            'base' => add_query_arg( 'pagenum', '%#%' ),
-            'format' => '',
-            'prev_text' => __( '&laquo;', 'aag' ),
-            'next_text' => __( '&raquo;', 'aag' ),
-            'total' => $num_of_pages,
-            'current' => $pagenum
-        ) );
-        if ( $page_links ) {        
-            echo '<ul class="pagination" style="float:right; margin-right:75px;"><li>'. $page_links .'</li></ul>';
-        }   
-         ?>
+        <div class="pagination" style="float:right; margin-right:75px;">
+        <li><a class="page-link" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum=1" aria-hidden="true" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            <?php
+                if($num_of_pages >2){
+                    if($pagenum == 1){
+                        echo '<li class="page-item" ><a class="page-link" style="margin-left:3px; background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum=1">1</a></li>';
+                        for($i = 2;$i<= 3; $i++)
+                        {
+                            echo '<li class="page-item" ><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum='.$i.'">'.$i.'</a></li>';
+                        }
+                    }
+                    elseif ($pagenum > 1 && $pagenum < $num_of_pages) {
+                        for($i = $pagenum - 1;$i<= $pagenum+1; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }
+                    }
+                    else{
+                        for($i = $pagenum - 2;$i<= $pagenum; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }
+                    } 
+                }
+                else{
+                    if($num_of_pages == 2){
+                        for($i = 1; $i<= 2; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }  
+                    }
+                    else{
+                        echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum=1">1</a></li>';
+                    }
+                }
+                
+                echo'<li ><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier&pagenum='.$num_of_pages.'" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'; ?>
+    </div>
 </div>
 </form>
     <script>
