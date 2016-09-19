@@ -610,11 +610,11 @@ function uet_survey()
     <!-- Trigger the modal with a button -->
     
     <!-- Modal Add question-->
-    <div id="myModal" class="modal fade" role="dialog">
+    div id="myModal" class="modal fade" role="dialog">
        <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <form method="POST" style="font-family:'Roboto', sans-serif;margin-left: 25px;margin-right: 25px;color:#337ab7">
+                <form method="POST" style="font-family:'Roboto', sans-serif;margin-left: 25px;margin-right: 25px;color:black;font-weight: bold;">
                     <div style="font-size:13pt;font-weight:bold;text-align:center; margin-top: 10px;">Thêm Câu Hỏi</div><br>
                     <div>
                         <label style="color:#337ab7;font-weight:normal">Nội dung câu hỏi</label>     
@@ -632,13 +632,13 @@ function uet_survey()
                     </table>
                     <br>
                     <div style="font-weight:bold">
-                        <label style="font-weight:normal">Dạng câu hỏi</label><br>
+                        <label style="font-weight:normal;color: #337ab7;">Dạng câu hỏi</label><br>
                         <div style="width: 55%;float: left;color:#32373C"><input style="margin-top: -3.5px" type="radio" name="type" value="1"/>  Single Answer</div>
                         <div style="color:#32373C"><input style="margin-top: -3.5px;" type="radio" name="type" value="2"/>  Mutiples Answer</div>
                     </div>
                     <br>
-                    <label id="anslb" style="color:#337ab7;font-weight:normal" >Thêm câu trả lời</label>
-                    <input type="text" style="font-weight:bold" class="form-control answerip" id="answer" />
+                    <label id="anslb" style="font-weight:normal;color: #337ab7;" >Thêm câu trả lời</label>
+                    <input type="text" style="font-weight:bold; color: black" class="form-control answerip" id="answer" />
                     <br>  
                     <button type="button" style="color:#337ab7;font-weight:bold" class="btn btn-default" id="btnaddAnswer" onclick="insertAnswer()" >Thêm</button>
                     <div style="float:right;">
@@ -646,7 +646,7 @@ function uet_survey()
                         <button type="button" style="color:#337ab7;font-weight:bold" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
                     </div>
                     <input type="hidden" class="form-control" name="numans" id="numans"/>
-                    <br/>
+                    <div><br/></div> 
                 </form>
             </div>
         </div>
@@ -661,7 +661,7 @@ function uet_survey()
     <div id="EditModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
             <div class="modal-content">
-                <form method="POST" style="font-family:'Roboto', sans-serif;margin-left: 25px;margin-right: 25px;color:#337ab7">
+                <form method="POST" style="font-family:'Roboto', sans-serif;margin-left: 25px;margin-right: 25px;color:black;font-weight: bold;">
                     <div style="font-size:13pt;font-weight:bold;color:#337ab7;text-align:center;margin-top: 10px;">Sửa câu hỏi</div><br>
                      <div>
                         <label style="color:#337ab7;font-weight:normal">Nội dung câu hỏi</label>  
@@ -679,11 +679,11 @@ function uet_survey()
                         </tr>
                     </table><br>               
                     <div style="font-weight:bold">
-                        <label style="font-weight:normal">Dạng câu hỏi</label><br>
+                        <label style="font-weight:normal;color: #337ab7;">Dạng câu hỏi</label><br>
                         <div style="width: 55%;float: left;color:#32373C"><input style="margin-top: -3.5px" type="radio" name="typeedit" value="1" id = "radio1"> Single Answer</div>
                         <div style="color:#32373C" ><input style="margin-top: -3.5px" type="radio" name="typeedit" value="2" id = "radio2"> Mutiples Answer</div>
                     </div><br>
-                    <label id="anslbedit" style="font-weight:normal">Thêm câu trả lời</label>
+                    <label id="anslbedit" style="font-weight:normal;color: #337ab7;">Thêm câu trả lời</label>
                         <input type="hidden" style="font-weight:bold" class="form-control" name="idansstring" id="idansstring"/>
                         <input type="text"  style="font-weight:bold" class="form-control answerip" id="answeredit" />
                     <br>
@@ -695,7 +695,7 @@ function uet_survey()
                         <input type="submit" style="color:#337ab7;font-weight:bold"class="btn btn-default"  name="form_clickedit" value="Hoàn Thành"/>                        
                         <button type="button" style="color:#337ab7;font-weight:bold" class="btn btn-default" data-dismiss="modal" onclick="closeandDelete()">Đóng</button>
                     </div>
-                                        <br/>  
+                    <div><br/></div> 
                 </form>
             </div>
         </div>
