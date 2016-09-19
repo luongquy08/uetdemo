@@ -78,8 +78,17 @@ function uet_mail()
     <!--Doan code nay dung de hien thi thong tin group mail-->
     <form method="post" name="frm">
         <table class="wp-list-table widefat fixed striped pages" style="width: 99%; ">
-            <?php global $wpdb; $stt = 1;?>
-            <?php $result_group = $wpdb->get_results('SELECT * FROM wp_mail_group_uet', OBJECT)?>
+            <?php 
+                global $wpdb; 
+                $stt = 1;
+                // $result_group = $wpdb->get_results('SELECT * FROM wp_mail_group_uet', OBJECT)
+                $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
+                $limit = 3; // number of rows in page           
+                $offset = ( $pagenum - 1 ) * $limit; 
+                $total = $wpdb->get_var( "SELECT COUNT(`id`) FROM `wp_mail_group_uet`" );
+                $num_of_pages = ceil( $total / $limit );
+                $result_group = $wpdb->get_results( "SELECT * FROM wp_mail_group_uet LIMIT $offset, $limit" );
+            ?>  
 
             <button type="button" style="color:#337ab7;font-weight: bold; " class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#AddGroupModal" onclick="">Thêm nhóm</button>&nbsp;
             <button type="button" style="color:#337ab7;font-weight: bold; " class="btn btn-default btn-md" id= "btnAddQuestion" data-toggle="modal" data-target="#AddMailModal" onclick="" >Thêm mail</button>&nbsp;
@@ -132,7 +141,60 @@ function uet_mail()
 
             <?php $stt++; $count ++;} ?>
         </table>
-
+        <!-- code phan trang -->
+    <div class="pagination" style="float:right; margin-right:75px;">
+        <li><a class="page-link" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum=1" aria-hidden="true" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            <?php
+                if($num_of_pages >2){
+                    if($pagenum == 1){
+                        echo '<li class="page-item" ><a class="page-link" style="margin-left:3px; background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum=1">1</a></li>';
+                        for($i = 2;$i<= 3; $i++)
+                        {
+                            echo '<li class="page-item" ><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum='.$i.'">'.$i.'</a></li>';
+                        }
+                    }
+                    elseif ($pagenum > 1 && $pagenum < $num_of_pages) {
+                        for($i = $pagenum - 1;$i<= $pagenum+1; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }
+                    }
+                    else{
+                        for($i = $pagenum - 2;$i<= $pagenum; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }
+                    } 
+                }
+                else{
+                    if($num_of_pages == 2){
+                        for($i = 1; $i<= 2; $i++)
+                        {
+                            if($i == $pagenum){
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum='.$i.'">'.$i.'</a></li>';
+                            }
+                            else{
+                                echo '<li class="page-item"><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum='.$i.'">'.$i.'</a></li>'; 
+                            }
+                        }  
+                    }
+                    else{
+                        echo '<li class="page-item"><a class="page-link" style="margin-left:3px;background-color:#f2f2f2;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum=1">1</a></li>';
+                    }
+                }
+                
+                echo'<li ><a class="page-link" style="margin-left:3px;" href="/uetdemo/wp-admin/admin.php?page=my-unique-identifier-two&pagenum='.$num_of_pages.'" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'; ?>
+    </div>
     </form>
     <script>
         function showMail(mid){
@@ -157,7 +219,7 @@ function uet_mail()
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <form method="POST" style="font-family:'Roboto', sans-serif;margin-left: 25px;margin-right: 25px;height:20%">
+                <form method="POST" style="font-family:'Roboto', sans-serif;margin-left: 25px;margin-right: 25px;height:160px;">
                     <div style="font-size:13pt;font-weight: bold; text-align: center;color:#337ab7;margin-top:10px">Thêm nhóm mail</div>
                     <div class="modal-body">
                         <label style="color:#337ab7;font-weight:normal">Tên nhóm</label><br>
@@ -178,7 +240,7 @@ function uet_mail()
     <div id="AddMailModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="POST" id="add_mail_form_id" style="font-family:'Roboto', sans-serif;margin-left: 25px;margin-right: 25px;">
+                <form method="POST" id="add_mail_form_id" style="font-family:'Roboto', sans-serif;margin-left: 25px;margin-right: 25px;height: 420px;">
                     <div style="font-size:13pt;font-weight: bold; text-align: center;color:#337ab7;margin-top:10px">Thêm Email</div>
                     <div class="modal-body">
                         <div>
