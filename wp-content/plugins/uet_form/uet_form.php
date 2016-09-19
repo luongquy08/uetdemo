@@ -594,13 +594,13 @@ function uet_form()
                             <label style="color:#337ab7;font-weight:normal">Tên đơn</label>
                             <textarea id="txtqs" name="contentqs" placeholder="Chỉ nhập tên bằng chữ thường" rows = 2 style="font-weight:bold;width:100%;border-radius:4px;" ></textarea>
                         </div><br>
-                        <table style="width :100%">
-                            <tr>
-                                <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="startTime" id="startTime"></td>
-                                <td><input  style="margin-left:10%;width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="endTime" id="endTime"></td>
-                            </tr>
-                        </table>
-                        <br>
+                        <!--<table style="width :100%">-->
+                        <!--    <tr>-->
+                        <!--        <td><input style="width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="startTime" id="startTime"></td>-->
+                        <!--        <td><input  style="margin-left:10%;width: 190px;text-align: center;border-radius:4px;font-weight:bold" type="date" name="endTime" id="endTime"></td>-->
+                        <!--    </tr>-->
+                        <!--</table>-->
+                        <!--<br>-->
                         <label id="anslb" style="color:#337ab7;font-weight:normal">Thêm trường</label>
                         <input type="text" style="font-weight:bold" class="form-control answerip" id="answer"/>
                         <br>  
